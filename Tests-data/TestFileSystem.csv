@@ -1,0 +1,3 @@
+Title,Author,PublicationYear,Genre,ISBN,Publisher,PageCount,Price,IsAvailable,Id,CreationDate,LastUpdated
+L'amica geniale (Test),Elena Ferrante,2011,Roman,978-1609450786,Big Company,336,13.75,True,3cf055eaa2994e8cb5179ee8e92340aa,2025-03-14T17:17:50.4443769+01:00,2025-03-14T17:17:50.4443842+01:00
+Il Gattopardo (Test),Giuseppe Tomasi di Lampedusa,1958,Historische Roman,978-8845927361,Big Company,440,14.39,False,c42d2ff355594f57a0032bd2d579fa84,2025-03-14T17:17:50.4444957+01:00,2025-03-14T17:17:50.4444961+01:00
