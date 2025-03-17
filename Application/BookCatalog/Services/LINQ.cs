@@ -4,19 +4,42 @@ namespace BookCatalog.Services
 {
     public static class LINQBook
     {
+
+        // Search for a book by a query using the title, author, publisher or genre
         public static IEnumerable<Book> Search(this IEnumerable<Book> list, string query)
         {
             try
             {
+
+                // Refactor the query to lowercase and then use LINQ to search for the query in the title, author, publisher or genre
                 var refactoredQuery = query.ToLower();
                 return list.Where(x => x.Title.ToLower().Contains(refactoredQuery) || x.Publisher.ToLower().Contains(refactoredQuery) || x.Author.ToLower().Contains(refactoredQuery) || x.Genre.ToLower().Contains(refactoredQuery));
             }
             catch
             {
+                // if something goes wrong, return an empty list
                 return new List<Book>();
             }
         }
 
+        // Search for a book by a query using the id
+        public static Book Search(this IEnumerable<Book> list, Guid query)
+        {
+            try
+            {
+
+                // Use LINQ to search for a book by its ID
+                return list.SingleOrDefault(x => x.Id == query);
+            }
+            catch
+            {
+                // exception is needed here because single returns an exception if there are multiple items with the same ID
+                return new Book();
+            }
+        }
+
+
+        // Order the books by a query
         public static IEnumerable<Book> OrderBookBy(this IEnumerable<Book> list, string? query = "")
         {
             var reformattedQuery = query;
@@ -51,16 +74,20 @@ namespace BookCatalog.Services
                     return list.OrderBy(e => e.Title);
             }
         }
+
+        // Group the books by genre
         public static IEnumerable<IGrouping<string, Book>> GroupByGenre(this IEnumerable<Book> list)
         {
             return list.GroupBy(x => x.Genre);
         }
 
+        // Group the books by publication year
         public static IEnumerable<IGrouping<int, Book>> GroupByPublicationYear(this IEnumerable<Book> list)
         {
             return list.GroupBy(x => x.PublicationYear);
         }
 
+        // Get the average price, total books, max price and min price
         public static (decimal averagePrice, int totalBooks, decimal maxPrice, decimal minPrice) GetBookStatistics(this IEnumerable<Book> list)
         {
             var averagePrice = list.Average(x => x.Price);
@@ -68,14 +95,17 @@ namespace BookCatalog.Services
             var maxPrice = list.Max(x => x.Price);
             var minPrice = list.Min(x => x.Price);
 
+            // return the values as a tuple
             return (averagePrice, totalBooks, maxPrice, minPrice);
         }
 
+        // Get the average page count
         public static decimal GetAveragePageCount(this IEnumerable<Book> list)
         {
             return (decimal)list.Average(x => x.PageCount);
         }
 
+        // Get the average publication year
         public static int GetBookCountByGenre(this IEnumerable<Book> list, string genre)
         {
             return list.Count(x => x.Genre.ToLower() == genre.ToLower());

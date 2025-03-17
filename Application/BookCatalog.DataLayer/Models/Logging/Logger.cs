@@ -9,6 +9,7 @@ namespace BookCatalog.DataLayer.Logging
             Console.WriteLine(ex.Message);
         }
 
+        // using reflection we display the properties of the instance of a class implementing IEntity
         public void Log<T>(string message, T item) where T : IEntity
         {
             Console.WriteLine(message);
