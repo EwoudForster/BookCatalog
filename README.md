@@ -14,19 +14,23 @@ To run this application, first you download the folder "PublishedApplication" or
 ## Usage
 ### Start the application
 you go to the "PublishedApplication" Folder and start the "BookCatalog.exe" file. The Application will start.
+
 ![Application Exe file](images/ExeFile.png "Application file")
 
 ### Options
 You now get this screen opened in a terminal. Given 5 options, you make your decision, you type in the word given in the console. You could also use the number.
+
 ![Application Options screen](images/Options.png "Application Options screen")
 
 ### Search
+
 When typing 1, or search, you get the search screen displayed. now you are able to choose between searching for a book with the Title, Publisher, Author and genre, or using the ID
 ![Application screen searching ID](images/SearchID.png)
 ![Application screen searching name or other information](images/SearchName.png.png)
 
 ### Adding
 When typing 2, or adding, you get again a clean console window for adding a new book. in this case you need to fill in every field of the book, using valid data, as you can see in the picture there is validation on the fields. If you use wrong data you will need to fill in that specific field again, or you can type exit when you want to cancel the operation.
+
 ![Application Adding screen](images/Adding.png "Application Adding screen")
 
 ### Updating
@@ -42,7 +46,8 @@ When typing 4, or delete, you can delete an item by searching for the ID, Title,
 
 ### Statistics
 When typing 5, or stats, you get a view on the statistics about all the books in the Book catalog
-![Application Result Statistics Screen](image.png "Application Result Statistics Screen")
+
+![Application Result Statistics Screen](images/Statistics.png "Application Result Statistics Screen")
 
 ### Grouping
 When typing 6, or year, you group all the books by the year of publication
@@ -51,6 +56,7 @@ the same for typing 7, or genre, only here everything gets grouped by the genre.
 ![Application options grouping](images/Groupingoptions.png "Application options grouping")
 
 here you see the result, the groupkey is mentioned at the top, following with more information about the books. 
+
 ![Application Result grouping](images/Groupingresult.png "Application Result grouping")
 
 ## About the code of the application
@@ -100,6 +106,7 @@ I've used reflection for trying to make the RepositoryFactory. As well as showin
 
 ### Generic Repository structure
 The repository is generic, you can use this on any project without changing a thing.
+
 
 ## File Structure
 I tried to make a clear and easy to navigate solution structure. Here you can find the structure.
@@ -154,4 +161,4 @@ BookCatalog
 
 ```
 
-Author: Ewoud Forster
+##### Author: Ewoud Forster
