@@ -4,6 +4,7 @@ namespace BookCatalog.DataLayer
 {
     public class Book : EntityBase
     {
+        // Book properties
         public string Title { get; set; }
         public string Author { get; set; }
         public int PublicationYear { get; set; }
@@ -14,6 +15,7 @@ namespace BookCatalog.DataLayer
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
 
+        // Book ToString method
         public override string ToString() => $"{base.ToString()}" +
             $"\n\tTitle: {Title}" +
             $"\n\tAuthor: {Author}" +

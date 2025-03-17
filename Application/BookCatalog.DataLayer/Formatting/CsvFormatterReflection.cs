@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 
 namespace BookCatalog.DataLayer.Formatting
 {
     public class CsvFormatterReflection<T> where T : new()
     {
+
+        public CsvFormatterReflection()
+        {
+        }
         // Serialize to a string
         public string Serialize(List<T> objects)
         {
@@ -99,7 +104,6 @@ namespace BookCatalog.DataLayer.Formatting
         }
 
 
-        // Helper method to return the default value for a given type
         private object GetDefaultValue(Type type)
         {
             if (type.IsValueType)

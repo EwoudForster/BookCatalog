@@ -2,6 +2,7 @@
 using BookCatalog.DataLayer.Filesystems;
 using BookCatalog.DataLayer.Formatting;
 using BookCatalog.DataLayer.Repositories;
+using BookCatalog.DataLayer.RepositoryFactory;
 using BookCatalog.Services;
 
 internal class Program
@@ -10,13 +11,18 @@ internal class Program
     {
         var fileName = "sample-books.json";
 
+        // creation of a new repository with as fileSystem a FileSystem with a JsonFormatter
         IRepository<Book> bookrepository = new GenericRepository<Book>(new FileSystem<Book>(fileName, new JsonFormatter<Book>()));
+
+
+        // var repositoryFactory = new RepositoryFactory<Book>();
+        //IRepository<Book> bookrepository = repositoryFactory.GetDataSystem();
+
+        // creation of a new service with the repository
         BookService bookService = new BookService(bookrepository);
+
+        // start the service
         bookService.Start();
-
-        //var repositoryFactory = new RepositoryFactory<Book>();
-        //IRepository<Book> reader = repositoryFactory.GetDataSystem();
-
         //ISerialize<Book> formatter = new JsonFormatter<Book>(); 
 
 

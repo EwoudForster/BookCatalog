@@ -84,12 +84,11 @@ namespace BookCatalog.DataLayer.RepositoryFactory
         private void GetFileSystem(out LoadContext loadContext, out AssemblyName assemblyName)
         {
             // Check Configuration
+            string? fileName = Configuration["FileSystem:FileName"];
             string? fileSystemAssemblyName = Configuration["FileSystem:FileSystemAssembly"];
-            string fileSystemLocation = AppDomain.CurrentDomain.BaseDirectory
-                                        + fileSystemAssemblyName;
+            string fileSystemLocation = AppDomain.CurrentDomain.BaseDirectory + fileSystemAssemblyName;
             Console.WriteLine(fileSystemAssemblyName);
             Console.WriteLine(fileSystemLocation);
-
 
             // Load the assembly
             loadContext = new LoadContext(fileSystemLocation);
@@ -98,27 +97,44 @@ namespace BookCatalog.DataLayer.RepositoryFactory
             assemblyName = new AssemblyName(Path.GetFileNameWithoutExtension(fileSystemAssemblyName));
             Console.WriteLine($"assemblyName: {assemblyName.ToString()}\n");
 
-
             Assembly fileSystemAssembly = loadContext.LoadFromAssemblyName(assemblyName);
             Console.WriteLine($"fileSystemassembly: {fileSystemAssembly.ToString()}\n");
 
-
-
             // Look for the type
             string? fileSystemTypeName = Configuration["FileSystem:FileSystemType"];
-            Type fileSystemType = fileSystemAssembly.ExportedTypes
-                                .First(t => t.FullName == fileSystemTypeName);
+            Type fileSystemType = fileSystemAssembly.ExportedTypes.First(t => t.FullName == fileSystemTypeName);
             Console.WriteLine($"fileSystemname: {fileSystemTypeName.ToString()}\n");
             Console.WriteLine($"Repositorytype: {fileSystemType.ToString()}\n");
 
+            // Verify type constraints
+            Console.WriteLine($"Type constraints for {fileSystemType.Name}:");
+            foreach (var constraint in fileSystemType.GetGenericArguments()[0].GetGenericParameterConstraints())
+            {
+                Console.WriteLine($" - {constraint}");
+            }
+            Console.Write(formatter.ToString());
 
+            // Ensure formatter is initialized
+            if (formatter == null)
+            {
+                throw new InvalidOperationException("Formatter is not initialized.");
+            }
 
             // Create the data reader
-            fileSystem = (T)Activator.CreateInstance(fileSystemType, formatter) as IFileSystem<T>;
-            if (fileSystem is null)
+            if (fileSystemType.IsGenericType)
             {
-                throw new InvalidOperationException(
-                    $"Unable to create instance of {fileSystemType} as IFileSystem<T> with parameter {formatter}");
+                Type genericFileSystemType = fileSystemType.MakeGenericType(typeof(T));
+                Console.WriteLine($"Loaded formatter type: {genericFileSystemType.FullName}");
+
+                // Create the data reader instance
+                var fileSystem = Activator.CreateInstance(genericFileSystemType, new object[] { fileName, formatter });
+
+                // Do something with the formatter...
+                Console.WriteLine($"Created formatter instance: {fileSystem.GetType()}");
+            }
+            else
+            {
+                throw new InvalidOperationException($"{fileSystemType.Name} is not a generic type.");
             }
         }
 
@@ -126,11 +142,9 @@ namespace BookCatalog.DataLayer.RepositoryFactory
         {
             // Check Configuration
             string? formatterAssemblyName = Configuration["Formatter:FormatterAssembly"];
-            string formatterLocation = AppDomain.CurrentDomain.BaseDirectory
-                                        + formatterAssemblyName;
+            string formatterLocation = AppDomain.CurrentDomain.BaseDirectory + formatterAssemblyName;
             Console.WriteLine(formatterAssemblyName);
             Console.WriteLine(formatterLocation);
-
 
             // Load the assembly
             loadContext = new LoadContext(formatterLocation);
@@ -139,20 +153,14 @@ namespace BookCatalog.DataLayer.RepositoryFactory
             assemblyName = new AssemblyName(Path.GetFileNameWithoutExtension(formatterAssemblyName));
             Console.WriteLine($"assemblyName: {assemblyName.ToString()}\n");
 
-
             Assembly formatterAssembly = loadContext.LoadFromAssemblyName(assemblyName);
             Console.WriteLine($"formatterassembly: {formatterAssembly.ToString()}\n");
 
-
-
             // Look for the type
             string? formatterTypeName = Configuration["Formatter:FormatterType"];
-            Type formatterType = formatterAssembly.ExportedTypes
-                                .First(t => t.FullName == formatterTypeName);
+            Type formatterType = formatterAssembly.ExportedTypes.First(t => t.FullName == formatterTypeName);
             Console.WriteLine($"formattername: {formatterTypeName.ToString()}\n");
-            Console.WriteLine($"Repositorytype: {formatterType.ToString()}\n");
-
-
+            Console.WriteLine($"formattertype: {formatterType.ToString()}\n");
 
             // Create the data reader
             if (formatterType.IsGenericType)
@@ -161,23 +169,20 @@ namespace BookCatalog.DataLayer.RepositoryFactory
                 Console.WriteLine($"Loaded formatter type: {genericFormatterType.FullName}");
 
                 // Create the data reader instance
-                if (typeof(ISerialize<T>).IsAssignableFrom(genericFormatterType))
-                {
-                    var formatter = (ISerialize<T>)Activator.CreateInstance(genericFormatterType);
-                }
-                else
-                {
-                    throw new InvalidOperationException($"Type {formatterType.FullName} does not implement ISerialize<{typeof(T).FullName}>.");
-                }
+                formatter = Activator.CreateInstance(genericFormatterType) as ISerialize<T>;
 
                 // Do something with the formatter...
                 Console.WriteLine($"Created formatter instance: {formatter.GetType()}");
+                formatter = Activator.CreateInstance(genericFormatterType) as ISerialize<T>;
+                if (formatter == null)
+                {
+                    throw new InvalidOperationException($"Failed to create an instance of {genericFormatterType.FullName}");
+                }
             }
             else
             {
                 throw new InvalidOperationException($"{formatterType.Name} is not a generic type.");
             }
-
         }
     }
 }
