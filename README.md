@@ -25,8 +25,9 @@ You now get this screen opened in a terminal. Given 5 options, you make your dec
 ### Search
 
 When typing 1, or search, you get the search screen displayed. now you are able to choose between searching for a book with the Title, Publisher, Author and genre, or using the ID
+
 ![Application screen searching ID](images/SearchID.png)
-![Application screen searching name or other information](images/SearchName.png.png)
+![Application screen searching name or other information](images/SearchName.png)
 
 ### Adding
 When typing 2, or adding, you get again a clean console window for adding a new book. in this case you need to fill in every field of the book, using valid data, as you can see in the picture there is validation on the fields. If you use wrong data you will need to fill in that specific field again, or you can type exit when you want to cancel the operation.
