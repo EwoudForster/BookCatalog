@@ -14,33 +14,41 @@ To run this application, first you download the folder "PublishedApplication" or
 ## Usage
 ### Start the application
 you go to the "PublishedApplication" Folder and start the "BookCatalog.exe" file. The Application will start.
+
 ![Application Exe file](images/ExeFile.png "Application file")
 
 ### Options
 You now get this screen opened in a terminal. Given 5 options, you make your decision, you type in the word given in the console. You could also use the number.
+
 ![Application Options screen](images/Options.png "Application Options screen")
 
 ### Search
 When typing 1, or search, you get the search screen displayed. now you are able to search for a book using the Title, Publisher, Author and genre.
+
 ![Application Search screen](images/SearchResults.png "Application Search screen")
 
 ### Adding
 When typing 2, or adding, you get again a clean console window for adding a new book. in this case you need to fill in every field of the book, using valid data, as you can see in the picture there is validation on the fields. If you use wrong data you will need to fill in that specific field again, or you can type exit when you want to cancel the operation.
+
 ![Application Adding screen](images/Adding.png "Application Adding screen")
 
 ### Updating
 When typing 3, or update, you can search for any book in the book catalog, using again the Title, Publisher, Author and genre. You can keep looking till you have found the 1 specific book you are looking for. You need to choose only 1 specific book. You are not able to choose more then 1. If you found 1 book, you need to confirm that you want to modify this specific book. 
+
 ![Application Update Confirmation screen](images/UpdateConfirmation.png "Application Update Confirmation screen")
 
 After doing this you need to fill in every field again. At the end you get the updated book returned and now if you look for that specific book it has been changed, but the ID is still the same.
+
 ![Application Result Update Screen](images/ResultUpdatedItem.png "Application Result Update Screen")
 
 ### Delete
 When typing 4, or delete, you can delete an item by searching for the Title, Publisher, Author and genre. When you found the book you want to delete a confirmation message comes again. 
+
 ![Application Result Delete Screen](images/Delete.png "Application Result Delete Screen")
 
 ### Statistics
 When typing 5, or stats, you get a view on the statistics about all the books in the Book catalog
+
 ![Application Result Statistics Screen](image.png "Application Result Statistics Screen")
 
 ### Grouping
@@ -50,6 +58,7 @@ the same for typing 7, or genre, only here everything gets grouped by the genre.
 ![Application options grouping](images/Groupingoptions.png "Application options grouping")
 
 here you see the result, the groupkey is mentioned at the top, following with more information about the books. 
+
 ![Application Result grouping](images/Groupingresult.png "Application Result grouping")
 
 ## About the code of the application
