@@ -49,7 +49,7 @@ When typing 4, or delete, you can delete an item by searching for the Title, Pub
 ### Statistics
 When typing 5, or stats, you get a view on the statistics about all the books in the Book catalog
 
-![Application Result Statistics Screen](image.png "Application Result Statistics Screen")
+![Application Result Statistics Screen](images/Statistics.png "Application Result Statistics Screen")
 
 ### Grouping
 When typing 6, or year, you group all the books by the year of publication
