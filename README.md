@@ -122,7 +122,7 @@ BookCatalog
 │   │           ├───ConsoleHelper.cs
 │   │           └───LINQ
 │   │   
-│   ├───BookCatalog.DataLayer
+│   └───BookCatalog.DataLayer
 │       ├───Formatting
 │       │   │───CsvFormatter.cs
 │       │   ├───CsvFormatterReflection.cs
