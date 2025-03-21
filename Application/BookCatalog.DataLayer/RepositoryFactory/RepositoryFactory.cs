@@ -1,9 +1,9 @@
-﻿using BookCatalog.DataLayer.Formatting;
-using BookCatalog.DataLayer.Filesystems;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using BookCatalog.DataLayer.Logging;
 using BookCatalog.DataLayer.Repositories;
+using BookCatalog.DataLayer.FileStorage.Formatting;
+using BookCatalog.DataLayer.FileStorage.Filesystems;
 
 namespace BookCatalog.DataLayer.RepositoryFactory
 {

@@ -1,34 +1,27 @@
-﻿using BookCatalog.DataLayer;
-using BookCatalog.DataLayer.Filesystems;
-using BookCatalog.DataLayer.Formatting;
+using BookCatalog.DataLayer;
+using BookCatalog.DataLayer.DataBase;
+using BookCatalog.DataLayer.DataBase.Seeder;
 using BookCatalog.DataLayer.Repositories;
-using BookCatalog.DataLayer.RepositoryFactory;
-using BookCatalog.Services;
+using Microsoft.EntityFrameworkCore;
 
-internal class Program
-{
-    private static void Main(string[] args)
-    {
-        var fileName = "sample-books.json";
+var builder = WebApplication.CreateBuilder(args);
 
-        // creation of a new repository with as fileSystem a FileSystem with a JsonFormatter
-        IRepository<Book> bookrepository = new GenericRepository<Book>(new FileSystem<Book>(fileName, new JsonFormatter<Book>()));
+// adding all the services needed
+// making a new instance of the BookService in the container for depencey injection
+// AddScoped mean it is the same instance for the whole request
+builder.Services.AddScoped<IRepository<Book>, GenericRepository<Book>>();
 
 
-        // var repositoryFactory = new RepositoryFactory<Book>();
-        //IRepository<Book> bookrepository = repositoryFactory.GetDataSystem();
+// adding the DbContext with the connection string as a parameter
+builder.Services.AddDbContext<BookCatalogDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration["Connectionstrings:BookCatalog"]
+    )
+);
+var app = builder.Build();
 
-        // creation of a new service with the repository
-        BookService bookService = new BookService(bookrepository);
+// enabling all the services
 
-        // start the service
-        bookService.Start();
-        //ISerialize<Book> formatter = new JsonFormatter<Book>(); 
-
-
-        // string baseAddressConfig = configuration.GetValue<string>("BaseAddress");
-
-
-
-    }
-}
+// Initializing the database
+DbInitializer.Seed(app);
+app.Run();
