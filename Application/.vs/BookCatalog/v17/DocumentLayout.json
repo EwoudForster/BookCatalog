@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.consoleapplication\\services\\bookservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|solutionrelative:bookcatalog.consoleapplication\\services\\bookservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.consoleapplication\\repositoryfactory\\repositoryfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|solutionrelative:bookcatalog.consoleapplication\\repositoryfactory\\repositoryfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\repositoryfactory\\repositoryfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\repositoryfactory\\repositoryfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\database\\seeder\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\database\\seeder\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,20 +35,12 @@
       "RelativeMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|solutionrelative:bookcatalog.consoleapplication\\repositoryfactory\\loadcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\database\\bookcatalogdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\database\\bookcatalogdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.consoleapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|solutionrelative:bookcatalog.consoleapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.consoleapplication\\repositoryfactory\\repositoryfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|solutionrelative:bookcatalog.consoleapplication\\repositoryfactory\\repositoryfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.consoleapplication\\bookcatalog.consoleapplication.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -63,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{1C619825-A6DF-4494-A638-F6FB029ABA36}|BookCatalog.Tests\\BookCatalog.Tests.csproj|solutionrelative:bookcatalog.tests\\repositories\\file\\genericrepositorytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\repositoryfactory\\repositoryfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\repositoryfactory\\repositoryfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1C619825-A6DF-4494-A638-F6FB029ABA36}|BookCatalog.Tests\\BookCatalog.Tests.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.tests\\repositories\\file\\filesystemtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C619825-A6DF-4494-A638-F6FB029ABA36}|BookCatalog.Tests\\BookCatalog.Tests.csproj|solutionrelative:bookcatalog.tests\\repositories\\file\\filesystemtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -87,10 +95,6 @@
       "RelativeMoniker": "D:0:0:{1C619825-A6DF-4494-A638-F6FB029ABA36}|BookCatalog.Tests\\BookCatalog.Tests.csproj|solutionrelative:bookcatalog.tests\\repositories\\mock\\repositorymocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\repositories\\ireadrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\repositories\\ireadrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.consoleapplication\\services\\booklinq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|solutionrelative:bookcatalog.consoleapplication\\services\\booklinq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -101,10 +105,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.consoleapplication\\services\\consolehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|solutionrelative:bookcatalog.consoleapplication\\services\\consolehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.consoleapplication\\services\\bookservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FB831DD-DE88-7745-A673-43289BDE8485}|BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj|solutionrelative:bookcatalog.consoleapplication\\services\\bookservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BA2FEBB2-58E2-4884-B068-0408C9BB2F3B}|BookCatalog\\BookCatalog.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog\\bookcatalog.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -137,10 +137,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog\\BookCatalog.ConsoleApplication.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BookCatalog\\BookCatalog.ConsoleApplication.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|solutionrelative:bookcatalog.datalayer\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}|BookCatalog.DataLayer\\BookCatalog.DataLayer.csproj|c:\\users\\ewoudf\\onedrive - cegeka\\documents\\course c#\\exercises\\bookcatalog\\application\\bookcatalog.datalayer\\models\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -193,11 +189,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "sample-books.json",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\sample-books.json",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\sample-books.json",
@@ -209,32 +205,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "DbInitializer.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\DataBase\\Seeder\\DbInitializer.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\DataBase\\Seeder\\DbInitializer.cs",
               "ToolTip": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\DataBase\\Seeder\\DbInitializer.cs",
               "RelativeToolTip": "BookCatalog.DataLayer\\DataBase\\Seeder\\DbInitializer.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T11:04:30.84Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "RepositoryFactory.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\RepositoryFactory\\RepositoryFactory.cs",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\RepositoryFactory\\RepositoryFactory.cs",
               "ToolTip": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\RepositoryFactory\\RepositoryFactory.cs",
               "RelativeToolTip": "BookCatalog.ConsoleApplication\\RepositoryFactory\\RepositoryFactory.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAAAJUAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T11:01:41.334Z"
+              "WhenOpened": "2025-03-21T11:01:41.334Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "LoadContext.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\RepositoryFactory\\LoadContext.cs",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\RepositoryFactory\\LoadContext.cs",
@@ -246,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "20250321110120_InitialMigration.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Migrations\\20250321110120_InitialMigration.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Migrations\\20250321110120_InitialMigration.cs",
@@ -258,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "BookCatalog.ConsoleApplication.csproj",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\BookCatalog.ConsoleApplication.csproj",
@@ -270,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "RepositoryMocks.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.Tests\\Repositories\\Mock\\RepositoryMocks.cs",
               "RelativeDocumentMoniker": "BookCatalog.Tests\\Repositories\\Mock\\RepositoryMocks.cs",
@@ -282,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "BookLINQ.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\Services\\BookLINQ.cs",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\Services\\BookLINQ.cs",
@@ -294,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "ConsoleHelper.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\Services\\ConsoleHelper.cs",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\Services\\ConsoleHelper.cs",
@@ -306,19 +303,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 0,
               "Title": "BookServices.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\Services\\BookServices.cs",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\Services\\BookServices.cs",
               "ToolTip": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\Services\\BookServices.cs",
               "RelativeToolTip": "BookCatalog.ConsoleApplication\\Services\\BookServices.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T10:29:34.856Z"
+              "WhenOpened": "2025-03-21T10:29:34.856Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog\\appsettings.json",
               "RelativeDocumentMoniker": "BookCatalog\\appsettings.json",
@@ -354,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "BookCatalogDbContext.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\DataBase\\BookCatalogDbContext.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\DataBase\\BookCatalogDbContext.cs",
@@ -378,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\appsettings.json",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\appsettings.json",
@@ -390,7 +388,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.ConsoleApplication\\Program.cs",
               "RelativeDocumentMoniker": "BookCatalog.ConsoleApplication\\Program.cs",
@@ -413,31 +411,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 3,
               "Title": "RepositoryFactory.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\RepositoryFactory\\RepositoryFactory.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\RepositoryFactory\\RepositoryFactory.cs",
               "ToolTip": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\RepositoryFactory\\RepositoryFactory.cs",
               "RelativeToolTip": "BookCatalog.DataLayer\\RepositoryFactory\\RepositoryFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T17:06:56.907Z"
+              "WhenOpened": "2025-03-17T17:06:56.907Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "IReadRepository.cs",
-              "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Repositories\\IReadRepository.cs",
-              "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Repositories\\IReadRepository.cs",
-              "ToolTip": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Repositories\\IReadRepository.cs",
-              "RelativeToolTip": "BookCatalog.DataLayer\\Repositories\\IReadRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T17:03:52.541Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 34,
               "Title": "IEntity.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Models\\IEntity.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Models\\IEntity.cs",
@@ -449,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 35,
               "Title": "EntityBase.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Models\\EntityBase.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Models\\EntityBase.cs",
@@ -461,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 37,
               "Title": "Logger.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Models\\Logging\\Logger.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Models\\Logging\\Logger.cs",
@@ -469,11 +456,12 @@
               "RelativeToolTip": "BookCatalog.DataLayer\\Models\\Logging\\Logger.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T16:55:26.889Z"
+              "WhenOpened": "2025-03-17T16:55:26.889Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 38,
               "Title": "ILogger.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Models\\Logging\\ILogger.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Models\\Logging\\ILogger.cs",
@@ -481,11 +469,12 @@
               "RelativeToolTip": "BookCatalog.DataLayer\\Models\\Logging\\ILogger.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T16:55:25.424Z"
+              "WhenOpened": "2025-03-17T16:55:25.424Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 36,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Models\\Book.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Models\\Book.cs",
@@ -497,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "ConsoleHelper.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog\\Services\\ConsoleHelper.cs",
               "RelativeDocumentMoniker": "BookCatalog\\Services\\ConsoleHelper.cs",
@@ -508,15 +497,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 4,
               "Title": "IRepository.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Repositories\\IRepository.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Repositories\\IRepository.cs",
               "ToolTip": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Repositories\\IRepository.cs",
               "RelativeToolTip": "BookCatalog.DataLayer\\Repositories\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T13:57:32.925Z"
+              "WhenOpened": "2025-03-17T13:57:32.925Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -532,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "FormattingTest.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.Tests\\Repositories\\File\\FormattingTest.cs",
               "RelativeDocumentMoniker": "BookCatalog.Tests\\Repositories\\File\\FormattingTest.cs",
@@ -544,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "IFileSystem.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\FileStorage\\Filesystems\\IFileSystem.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\FileStorage\\Filesystems\\IFileSystem.cs",
@@ -556,7 +546,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "FileSystem.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\FileStorage\\Filesystems\\FileSystem.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\FileStorage\\Filesystems\\FileSystem.cs",
@@ -568,19 +558,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Repositories\\GenericRepository.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\Repositories\\GenericRepository.cs",
               "ToolTip": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\Repositories\\GenericRepository.cs",
               "RelativeToolTip": "BookCatalog.DataLayer\\Repositories\\GenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T11:51:21.226Z"
+              "WhenOpened": "2025-03-17T11:51:21.226Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "CsvFormatter.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\FileStorage\\Formatting\\CsvFormatter.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\FileStorage\\Formatting\\CsvFormatter.cs",
@@ -592,7 +583,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "CsvFormatterReflection.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\FileStorage\\Formatting\\CsvFormatterReflection.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\FileStorage\\Formatting\\CsvFormatterReflection.cs",
@@ -604,7 +595,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "JsonFormatter.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\FileStorage\\Formatting\\JsonFormatter.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\FileStorage\\Formatting\\JsonFormatter.cs",
@@ -616,7 +607,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "ISerialize.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.DataLayer\\FileStorage\\Formatting\\ISerialize.cs",
               "RelativeDocumentMoniker": "BookCatalog.DataLayer\\FileStorage\\Formatting\\ISerialize.cs",
@@ -628,7 +619,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "Microsoft.NET.Publish.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Publish.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.201\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Publish.targets",
@@ -640,7 +631,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog\\Program.cs",
               "RelativeDocumentMoniker": "BookCatalog\\Program.cs",
@@ -648,12 +639,11 @@
               "RelativeToolTip": "BookCatalog\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T09:23:49.018Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T09:23:49.018Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "LINQ.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog\\Services\\LINQ.cs",
               "RelativeDocumentMoniker": "BookCatalog\\Services\\LINQ.cs",
@@ -676,18 +666,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "BookServices.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog\\Services\\BookServices.cs",
               "RelativeDocumentMoniker": "BookCatalog\\Services\\BookServices.cs",
               "ToolTip": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog\\Services\\BookServices.cs",
               "RelativeToolTip": "BookCatalog\\Services\\BookServices.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T08:39:40.305Z"
+              "WhenOpened": "2025-03-17T08:39:40.305Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "FileSystemTest.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.Tests\\Repositories\\File\\FileSystemTest.cs",
               "RelativeDocumentMoniker": "BookCatalog.Tests\\Repositories\\File\\FileSystemTest.cs",
@@ -699,7 +690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 39,
               "Title": "LoggingTest.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.Tests\\Logging\\LoggingTest.cs",
               "RelativeDocumentMoniker": "BookCatalog.Tests\\Logging\\LoggingTest.cs",
@@ -707,7 +698,8 @@
               "RelativeToolTip": "BookCatalog.Tests\\Logging\\LoggingTest.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T08:36:41.479Z"
+              "WhenOpened": "2025-03-17T08:36:41.479Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -735,7 +727,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "GenericRepositoryTest.cs",
               "DocumentMoniker": "C:\\Users\\ewoudf\\OneDrive - Cegeka\\Documents\\Course C#\\Exercises\\BookCatalog\\Application\\BookCatalog.Tests\\Repositories\\File\\GenericRepositoryTest.cs",
               "RelativeDocumentMoniker": "BookCatalog.Tests\\Repositories\\File\\GenericRepositoryTest.cs",

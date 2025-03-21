@@ -9,7 +9,7 @@ namespace BookCatalog.DataLayer.Repositories
     {
         // List of entities, creating a logger and declaring the file system
         private readonly List<T> _entities;
-        private ILogger logger = new Logger();
+        private IGeneralLogger logger = new Logger();
         private readonly IFileSystem<T>? _fileSystem;
         private readonly BookCatalogDbContext? _bookCatalogDbContext;
 
