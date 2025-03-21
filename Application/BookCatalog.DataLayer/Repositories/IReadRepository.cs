@@ -7,6 +7,6 @@
     public interface IReadRepository<out T> where T : IEntity
     {
         IEnumerable<T> GetAll();
-        T GetId(Guid id);
+        T GetById(Guid id);
     }
 }
