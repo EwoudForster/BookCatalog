@@ -15,7 +15,7 @@ namespace BookCatalog.Tests.Logging
             Console.WriteLine(input);
 
             var expected = stringWriterExpected.ToString();
-            ILogger logger = new Logger();
+            IGeneralLogger logger = new Logger();
 
 
             // Act
@@ -40,7 +40,7 @@ namespace BookCatalog.Tests.Logging
             Console.WriteLine(input);
 
             var expected = stringWriterExpected.ToString();
-            ILogger loggerError = new Logger();
+            IGeneralLogger loggerError = new Logger();
 
             // Act
             var stringWriterOutput = new StringWriter();

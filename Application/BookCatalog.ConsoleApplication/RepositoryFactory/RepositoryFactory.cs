@@ -10,7 +10,7 @@ namespace BookCatalog.DataLayer.RepositoryFactory
     public class RepositoryFactory<T> where T : class, IEntity, new ()
     {
         private IConfiguration Configuration;
-        private ILogger logger;
+        private IGeneralLogger logger;
 
         public RepositoryFactory()
         {

@@ -2,7 +2,7 @@
 
 namespace BookCatalog.DataLayer.Logging
 {
-    public class Logger : ILogger
+    public class Logger : IGeneralLogger
     {
         public void Error(Exception ex) { 
         
