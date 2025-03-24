@@ -1,21 +1,15 @@
-using BookCatalog.DataLayer;
-using BookCatalog.DataLayer.FileStorage.Filesystems;
-using BookCatalog.DataLayer.FileStorage.Formatting;
-using Moq;
 
-namespace BookCatalog.Tests.Repositories.File;
+using BookCatalog.DataLayer.FileStorage.Formatting;
+using BookCatalog.DataLayer;
+
+namespace BookCatalog.Tests;
 
 [TestClass]
-public class FileSystemTest
+public class FormattingTest
 {
-    private readonly string _fileNameJson = "TestFileSystemJson.json";
-    private readonly string _fileNameCsv = "TestFileSystemCsv.csv";
-    private readonly string _fileNameCsvReflection ="TestFileSystemCsvReflection.csv";
-
-
-    private List<Book> _booksList = new List<Book>
+    private readonly List<Book> _booksList = new()
         {
-            new Book()
+            new()
             {
                 Id = Guid.NewGuid(),
                 Title = "L'amica geniale (Test)",
@@ -28,7 +22,7 @@ public class FileSystemTest
                 Price = 13.75M,
                 IsAvailable = true
             },
-            new Book()
+            new()
             {
                 Id = Guid.NewGuid(),
                 Title = "Il Gattopardo (Test)",
@@ -44,33 +38,16 @@ public class FileSystemTest
         };
 
     [TestMethod]
-    public void FileSystemSavingAndReadingJsonTest()
+    public void JsonFormatterSerializingAndDeSerializingTest()
     {
         // arrange
-        var formatter = new JsonFormatter<Book>();
-        List<Book> booksDeserialized = new List<Book>();
+        JsonFormatter<Book> formatter = new();
+        string booksSerialized;
+        List<Book> booksDeserialized = [];
 
-        var fileSystem = new FileSystem<Book>(_fileNameJson, formatter);
         // act
-        fileSystem.Save(_booksList);
-        booksDeserialized = fileSystem.Read().ToList();
-
-        // assert
-        AssertBooks(booksDeserialized);
-    }
-
-
-    [TestMethod]
-    public void FileSystemSavingAndReadingCsvTest()
-    {
-        // arrange
-        var formatter = new CsvFormatter<Book>();
-        List<Book> booksDeserialized = new List<Book>();
-
-        var fileSystem = new FileSystem<Book>(_fileNameCsv, formatter);
-        // act
-        fileSystem.Save(_booksList);
-        booksDeserialized = fileSystem.Read().ToList();
+        booksSerialized = formatter.Serializer(_booksList);
+        booksDeserialized = formatter.DeSerializer(booksSerialized).ToList();
 
         // assert
         AssertBooks(booksDeserialized);
@@ -78,16 +55,33 @@ public class FileSystemTest
     }
 
     [TestMethod]
-    public void FileSystemSavingAndReadingCsvReflectionTest()
+    public void CSVFormatterSerializingAndDeSerializingTest()
     {
         // arrange
         var formatter = new CsvFormatter<Book>();
-        List<Book> booksDeserialized = new List<Book>();
+        string booksSerialized;
+        List<Book> booksDeserialized = [];
 
-        var fileSystem = new FileSystem<Book>(_fileNameCsvReflection, formatter);
         // act
-        fileSystem.Save(_booksList);
-        booksDeserialized = fileSystem.Read().ToList();
+        booksSerialized = formatter.Serializer(_booksList);
+        booksDeserialized = formatter.DeSerializer(booksSerialized).ToList();
+
+        // assert
+        AssertBooks(booksDeserialized);
+
+    }
+
+    [TestMethod]
+    public void CSVFormatterReflectionSerializingAndDeSerializingTest()
+    {
+        // arrange
+        CsvFormatterReflection<Book> formatter = new();
+        string booksSerialized;
+        List<Book> booksDeserialized = [];
+
+        // act
+        booksSerialized = formatter.Serialize(_booksList);
+        booksDeserialized = formatter.DeSerialize(booksSerialized).ToList();
 
         // assert
         AssertBooks(booksDeserialized);
@@ -108,5 +102,4 @@ public class FileSystemTest
             Assert.AreEqual(_booksList[i].IsAvailable, booksDeserialized[i].IsAvailable);
         }
     }
-
 }

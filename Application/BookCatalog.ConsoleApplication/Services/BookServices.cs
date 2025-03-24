@@ -59,7 +59,6 @@ namespace BookCatalog.Services
                             // redirect to the add method
                             AddBook();
                             // save the changes
-                            _repository.Save();
                             break;
 
                         // update a book
@@ -70,7 +69,6 @@ namespace BookCatalog.Services
                             // redirect to the update method
                             UpdateBook();
                             // save the changes
-                            _repository.Save();
                             break;
 
                         // delete a book
@@ -81,7 +79,6 @@ namespace BookCatalog.Services
                             // redirect to the delete method
                             DeleteBook();
                             // save the changes
-                            _repository.Save();
                             break;
 
                         // view statistics

@@ -1,6 +1,6 @@
 ﻿using BookCatalog.DataLayer.Logging;
 
-namespace BookCatalog.Tests.Logging
+namespace BookCatalog.Tests
 {
     [TestClass]
     public class LoggingTest
