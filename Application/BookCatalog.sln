@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.Tests", "BookCa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.DataLayer", "BookCatalog.DataLayer\BookCatalog.DataLayer.csproj", "{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.ConsoleApplication", "BookCatalog.ConsoleApplication\BookCatalog.ConsoleApplication.csproj", "{8FB831DD-DE88-7745-A673-43289BDE8485}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog", "BookCatalog\BookCatalog.csproj", "{BA2FEBB2-58E2-4884-B068-0408C9BB2F3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalog.ConsoleApplication", "BookCatalog.ConsoleApplication\BookCatalog.ConsoleApplication.csproj", "{8FB831DD-DE88-7745-A673-43289BDE8485}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77EDF287-42F8-4C60-A53C-BA25AE46CEFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8FB831DD-DE88-7745-A673-43289BDE8485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FB831DD-DE88-7745-A673-43289BDE8485}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FB831DD-DE88-7745-A673-43289BDE8485}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FB831DD-DE88-7745-A673-43289BDE8485}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA2FEBB2-58E2-4884-B068-0408C9BB2F3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA2FEBB2-58E2-4884-B068-0408C9BB2F3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA2FEBB2-58E2-4884-B068-0408C9BB2F3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA2FEBB2-58E2-4884-B068-0408C9BB2F3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FB831DD-DE88-7745-A673-43289BDE8485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FB831DD-DE88-7745-A673-43289BDE8485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FB831DD-DE88-7745-A673-43289BDE8485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FB831DD-DE88-7745-A673-43289BDE8485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
