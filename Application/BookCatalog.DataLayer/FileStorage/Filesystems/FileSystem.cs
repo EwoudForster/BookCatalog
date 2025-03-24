@@ -53,7 +53,7 @@ namespace BookCatalog.DataLayer.FileStorage.Filesystems
         }
 
         // This method is used to get the file path of the file that will be read and written to
-        private string FilePath(string fileName)
+        public static string FilePath(string fileName)
         {
             if (fileName == null)
             {

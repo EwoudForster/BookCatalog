@@ -7,7 +7,7 @@ namespace BookCatalog.Services
     public class BookService{
         // Declaring repository and Logger
         private readonly IRepository<Book> _repository;
-        private readonly ILogger _logger = new Logger();
+        private readonly IGeneralLogger _logger = new Logger();
 
         // constructor with dependency injection
         public BookService(IRepository<Book> repository)
@@ -59,7 +59,6 @@ namespace BookCatalog.Services
                             // redirect to the add method
                             AddBook();
                             // save the changes
-                            _repository.Save();
                             break;
 
                         // update a book
@@ -70,7 +69,6 @@ namespace BookCatalog.Services
                             // redirect to the update method
                             UpdateBook();
                             // save the changes
-                            _repository.Save();
                             break;
 
                         // delete a book
@@ -81,7 +79,6 @@ namespace BookCatalog.Services
                             // redirect to the delete method
                             DeleteBook();
                             // save the changes
-                            _repository.Save();
                             break;
 
                         // view statistics

@@ -7,7 +7,7 @@ namespace BookCatalog.Services
     public class BookService{
         // Declaring repository and Logger
         private readonly IRepository<Book> _repository;
-        private readonly ILogger _logger = new Logger();
+        private readonly IGeneralLogger _logger = new Logger();
 
         // constructor with dependency injection
         public BookService(IRepository<Book> repository)

@@ -9,7 +9,7 @@ namespace BookCatalog.DataLayer.Repositories
     {
         // List of entities, creating a logger and declaring the file system
         private readonly List<T> _entities;
-        private ILogger logger = new Logger();
+        private readonly IGeneralLogger logger = new Logger();
         private readonly IFileSystem<T>? _fileSystem;
         private readonly BookCatalogDbContext? _bookCatalogDbContext;
 
@@ -61,7 +61,7 @@ namespace BookCatalog.DataLayer.Repositories
             var alreadyExists = false;
             if (_bookCatalogDbContext != null)
             {
-                alreadyExists = _entities.Any(e => e.Id == item.Id);
+                alreadyExists = _bookCatalogDbContext.Set<T>().Any(e => e.Id == item.Id);
             }
             else
             {
@@ -164,7 +164,7 @@ namespace BookCatalog.DataLayer.Repositories
         }
 
         // Date now
-        private void DateNow(T item)
+        private static void DateNow(T item)
         {
             item.LastUpdated = DateTime.Now;
         }
