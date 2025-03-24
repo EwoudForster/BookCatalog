@@ -78,8 +78,7 @@
               "RelativeToolTip": "BookCatalog.ConsoleApplication\\Services\\BookServices.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAQwFAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T09:46:12.626Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T09:46:12.626Z"
             },
             {
               "$type": "Document",
@@ -91,8 +90,7 @@
               "RelativeToolTip": "BookCatalog.ConsoleApplication\\Services\\BookLINQ.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T09:46:12.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T09:46:12.005Z"
             },
             {
               "$type": "Document",
@@ -104,8 +102,7 @@
               "RelativeToolTip": "BookCatalog.DataLayer\\Repositories\\IWriteRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T09:43:27.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T09:43:27.833Z"
             },
             {
               "$type": "Document",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "BookCatalog.DataLayer\\FileStorage\\Filesystems\\FileSystem.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T09:38:33.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T09:38:33.858Z"
             },
             {
               "$type": "Document",
@@ -143,8 +139,7 @@
               "RelativeToolTip": "BookCatalog.DataLayer\\FileStorage\\Filesystems\\IFileSystem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T09:38:32.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T09:38:32.963Z"
             },
             {
               "$type": "Document",
@@ -156,8 +151,7 @@
               "RelativeToolTip": "BookCatalog\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:59:53.143Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:59:53.143Z"
             },
             {
               "$type": "Document",
@@ -169,8 +163,7 @@
               "RelativeToolTip": "BookCatalog.Tests\\Repositories\\MockTests\\RepositoryMocks.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAQwD0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:48:41.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:48:41.402Z"
             },
             {
               "$type": "Document",
@@ -182,8 +175,7 @@
               "RelativeToolTip": "BookCatalog.Tests\\LINQTests\\Search.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:48:27.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:48:27.677Z"
             },
             {
               "$type": "Document",
@@ -195,8 +187,7 @@
               "RelativeToolTip": "BookCatalog.Tests\\LINQTests\\OrderByTest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:48:21.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:48:21.37Z"
             },
             {
               "$type": "Document",
@@ -208,8 +199,7 @@
               "RelativeToolTip": "BookCatalog.Tests\\LoggingTests\\LoggingTest.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwBAAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:48:14.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:48:14.888Z"
             },
             {
               "$type": "Document",
@@ -221,8 +211,7 @@
               "RelativeToolTip": "BookCatalog.Tests\\Repositories\\FileTests\\FileSystemTest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:47:41.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:47:41.069Z"
             },
             {
               "$type": "Document",
@@ -234,8 +223,7 @@
               "RelativeToolTip": "BookCatalog.Tests\\Repositories\\FileTests\\GenericRepositoryTest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:47:48.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:47:48.126Z"
             },
             {
               "$type": "Document",
@@ -247,8 +235,7 @@
               "RelativeToolTip": "BookCatalog.Tests\\Repositories\\FileTests\\FormattingTest.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAgwAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T14:47:47.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T14:47:47.498Z"
             }
           ]
         }
