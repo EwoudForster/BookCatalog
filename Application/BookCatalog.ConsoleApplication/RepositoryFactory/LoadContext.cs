@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.Loader;
 
-namespace BookCatalog.DataLayer.RepositoryFactory
+namespace BookCatalog.ConsoleApplication.RepositoryFactory
 {
         public class LoadContext : AssemblyLoadContext
         {

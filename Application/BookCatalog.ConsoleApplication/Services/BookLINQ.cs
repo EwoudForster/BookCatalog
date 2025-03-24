@@ -1,6 +1,6 @@
 ﻿using BookCatalog.DataLayer;
 
-namespace BookCatalog.Services
+namespace BookCatalog.ConsoleApplication.Services
 {
     public static class LINQBook
     {

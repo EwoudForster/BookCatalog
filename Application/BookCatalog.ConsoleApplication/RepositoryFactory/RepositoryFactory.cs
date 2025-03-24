@@ -4,8 +4,9 @@ using BookCatalog.DataLayer.Logging;
 using BookCatalog.DataLayer.Repositories;
 using BookCatalog.DataLayer.FileStorage.Formatting;
 using BookCatalog.DataLayer.FileStorage.Filesystems;
+using BookCatalog.DataLayer;
 
-namespace BookCatalog.DataLayer.RepositoryFactory
+namespace BookCatalog.ConsoleApplication.RepositoryFactory
 {
     public class RepositoryFactory<T> where T : class, IEntity, new ()
     {

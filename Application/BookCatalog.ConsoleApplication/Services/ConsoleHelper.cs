@@ -1,4 +1,4 @@
-﻿namespace BookCatalog.Services
+﻿namespace BookCatalog.ConsoleApplication.Services
 {
     // Helper class for console input management
     public static class ConsoleHelper

@@ -1,9 +1,8 @@
 ﻿using BookCatalog.DataLayer.Logging;
 using BookCatalog.DataLayer;
 using BookCatalog.DataLayer.Repositories;
-
-namespace BookCatalog.Services
-{
+namespace BookCatalog.ConsoleApplication.Services
+    {
     public class BookService{
         // Declaring repository and Logger
         private readonly IRepository<Book> _repository;
