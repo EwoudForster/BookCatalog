@@ -1,5 +1,5 @@
 using BookCatalog.DataLayer;
-using BookCatalog.Services;
+using BookCatalog.ConsoleApplication.Services;
 
 namespace BookCatalog.Tests;
 
