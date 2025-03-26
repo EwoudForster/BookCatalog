@@ -1,0 +1,18 @@
+﻿@model DetailsViewModel
+
+<div class="w-100 pt-5">
+    <div class="row">
+        <div class="col-4">
+            <img src="@Model.Book.ImgUrl" class="img-fluid" alt="@Model.Book.Title" />
+        </div>
+        <div class="col-6 justify-content-center align-content-center align-items-center">
+            <h1>Title: @Model.Book.Title</h1>
+            <h2>Author: @Model.Book.Author</h2>
+            <p>Genre: @Model.Book.Genre</p>
+            <p>€ @Model.Book.Price</p>
+            <a asp-page="/BookForm" asp-route-id="@Model.Book.Id" class="btn-info btn">Edit</a>
+            <a asp-controller="Books" asp-action="DeleteBook" asp-route-id="@Model.Book.Id" class="btn-danger btn">Delete</a>
+        </div>
+    </div>
+    
+</div>

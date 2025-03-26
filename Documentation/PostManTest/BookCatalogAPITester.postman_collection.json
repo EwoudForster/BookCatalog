@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "1953edfa-be5e-4749-a7df-302aff50e34d",
+		"name": "BookCatalogAPITester",
+		"description": "This PostMan Api File is made to test the ASP.NET Core Application integrating Restfull API capibility",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43387035"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "NewBook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\"title\": \"API Test\",\r\n        \"author\": \"Ewoud Forster\",\r\n        \"publicationYear\": 2004,\r\n        \"genre\": \"Fiction\",\r\n        \"isbn\": \"8465-654645\",\r\n        \"publisher\": \"Cegeka\",\r\n        \"pageCount\": 336,\r\n        \"price\": 12.99,\r\n        \"id\": \"2f51aa86-7b54-4ba8-a33c-6a037747f055\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/api/Book"
+					},
+					"response": []
+				}
+			],
+			"description": "All the post requests",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Put",
+			"item": [
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\"title\": \"API Test PUT\",\r\n        \"author\": \"Ewoud (Edited)\",\r\n        \"publicationYear\": 2004,\r\n        \"genre\": \"Fiction\",\r\n        \"isbn\": \"8465-654645\",\r\n        \"publisher\": \"Ceg (Edited)\",\r\n        \"pageCount\": 336,\r\n        \"price\": 15.99,\r\n        \"id\": \"2f51aa86-7b54-4ba8-a33c-6a037747f055\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/api/Book"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "GetBooks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}:{{port}}/api/Book",
+						"description": "Get all the books in the database"
+					},
+					"response": []
+				},
+				{
+					"name": "GetId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}:{{port}}/api/Book/{{Id}}",
+						"description": "Get a specific id using a specific id"
+					},
+					"response": []
+				},
+				{
+					"name": "GetOwnCreatedID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": ""
+					},
+					"response": []
+				}
+			],
+			"description": "All The HTTPGET request that are possible in the application",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Remove",
+			"item": [
+				{
+					"name": "RemoveCreatedPost",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/api/Book/{{SelfId}}"
+					},
+					"response": []
+				}
+			],
+			"description": "All Removes requests",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "SearchGenre",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"Fiction\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/api/BookSearch"
+					},
+					"response": []
+				},
+				{
+					"name": "SearchName",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"To Kill a Mockingbird\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/api/BookSearch"
+					},
+					"response": []
+				},
+				{
+					"name": "SearchId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"9b664399-3482-4468-6987-08dd686bd604\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/api/BookSearch"
+					},
+					"response": []
+				},
+				{
+					"name": "SearchISBN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"978-0061120084\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/api/BookSearch"
+					},
+					"response": []
+				},
+				{
+					"name": "SearchAuthor&Publisher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"Harper\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/api/BookSearch"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "b58bfc10-270a-4395-697d-08dd686bd604",
+			"type": "string"
+		},
+		{
+			"key": "localhost",
+			"value": "https://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "7291",
+			"type": "string"
+		},
+		{
+			"key": "SelfId",
+			"value": "2f51aa86-7b54-4ba8-a33c-6a037747f055",
+			"type": "string"
+		}
+	]
+}

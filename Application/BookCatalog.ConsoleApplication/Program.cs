@@ -2,7 +2,7 @@
 using BookCatalog.DataLayer.FileStorage.Filesystems;
 using BookCatalog.DataLayer.FileStorage.Formatting;
 using BookCatalog.DataLayer.Repositories;
-using BookCatalog.ConsoleApplication.Services;
+using BookCatalog.DataLayer.Services;
 
 namespace BookCatalog.ConsoleApplication
 {
