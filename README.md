@@ -78,6 +78,7 @@ In the program.cs file it is declared that the migration file will run if the da
 You see the terminal opening up to start the application, normally the Application starts in the browser. If not the terminal shows the specific port the application is running on, you can "Ctrl + Click" on this link to open in the browser
 
 #### Terminal display
+
 ![Run Console screen](Documentation/images/runningprogram.png)
 
 # Screens
@@ -85,19 +86,25 @@ There are a few screens created with ASP.NET, most screens are created with MVC,
 
 ## Navigation
 ![Home Page](Documentation/images/homepage.png)
+
 When you open the application, the first screen you see is the homepage, at the top of the screen you see the navbar, that is embedded in the layout file, using a partial. The navbar itself has a logo, 2 mvc links using ASP.NET taghelpers to generate a link to a specific action in a chosen controller. 
 
 The navbar is responsive for smaller devices
+
 ![Responsive navbar](Documentation/images/ResponsiveNavbar.png)
+
 ### Search
 Then we have the searchbar which is a form that takes a parameter and put it into the url and then brings it to the blazor search page, here the url gets read and the parameter gets taken out and used as a search parameter
 
 ![Text Search Parameter](Documentation/images/TextSearchParameter.png)
+
 ### Login Partial
 To the farthest right of the screen is another partial that is a dropdown link, it uses bootstrap.min.js, and specifically the popper library that enables the dropdown link. Bootstrap is used for the styling, inside the partial AspNetCore.Identity is used to determine if a user is logged in or not, when not logged in the options are Register and Login  
+
 ![Dropdown Login Partial](Documentation/images/DropdownLoginPartial.png)
 
 When you are logged in the options you get are your account, which brings you to your account dashboard where you can edit your account, or the logout option to logout.
+
 ![Dropdown Logged in Partial](Documentation/images/DropdownLoggedinPartial.png)
 
 ## Homescreen
@@ -122,6 +129,7 @@ When we nagivate to the book screen we see all the books that are in the databas
 ## BookDetail
 
 When pressing on the detail button of a specific book you get the details page of this book showing the cover, The title, the author, genre and the price, here you can also to edit the book or delete the book. For these actions a login is required.
+
 ![Book details page](Documentation/images/Bookdetailspage.png)
 
 ## Account
@@ -130,6 +138,7 @@ The authentication and authorization is part of the library provided by Entity F
 
 ### Register
 This page is for new user who do not have an account yet, therefor they can use to screen to make a new account, there is the possibility to use third party providers for registering a user, but i removed this part in the screen, I also styled the screen to match the rest of the screen.
+
 ![Register screen](Documentation/images/Registerscreen.png)
 
 ### Login
@@ -142,6 +151,7 @@ This page is as the name explains to log in as a user with an existing account, 
 This page is not edited by me except the colors to match my layout, as you can see it is easily to integrate without making any changes.
 
 Here you can change your account, it is also possible to setup Two-factor authentication. You can also download or delete your personal data
+
 ![Editing the account](Documentation/images/EditingTheAccount.png)
 ### Search
 
@@ -158,6 +168,7 @@ When adding a book you get a form to fill in with all the input fields for each 
 ![Creating BookForm](Documentation/images/AddBookForm.png)
 
 The Page uses back and front end validation, meaning that a book that doesn't match the validation rules will not be added to the database and return the page with the book filled in the form again, but that the user also gets realtime data saying where to adjust the form, using Jquery
+
 ![Front End Validation](Documentation/images/FrontEndValidation.png)
 
 When clicking on submit the page will create the Book, when clicking cancel the page books get returned again.
