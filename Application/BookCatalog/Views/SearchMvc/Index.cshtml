@@ -1,0 +1,51 @@
+﻿
+<div class="mt-5 pt-5">
+  Enter your search query:
+<input id="txtBookName" type="text" />
+<button id="searchButton">Search</button>
+<br />
+<br />
+<table id="tblBook" cellpadding="0" cellspacing="0">
+    <tr class="p-2 m-2">
+        <th style="width: 120px"></th>
+        <th style="width: 120px">Title</th>
+        <th style="width: 90px">Price</th>
+        <th style="width: 90px">Genre</th>
+    </tr>
+    <tbody></tbody>
+</table>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+      $("button").click(function(){
+        var searchQuery = $.trim($("#txtBookName").val());
+            $("table tbody").html("");
+            $.ajax({
+                type: "POST",
+                url: "/api/BookSearch",
+                data: "\"" + searchQuery + "\"",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (pies) {
+                    var table = $("#tblBook");
+                    table.find("tr:not(:first)").remove();
+                    $.each(pies, function (i, book) {
+                        $("tbody").append($('<tr class="p-2 m-2">'));
+                        appendElement = $("tbody tr").last();
+                            appendElement.append($("<td>").html('<img height=200 src=' + book.imgUrl + '>'));
+                        appendElement.append($("<td>").html('<a href="/Details/' + book.id + '">' + book.title + '</a>'));
+                        appendElement.append($("<td>").html(book.price));
+                        appendElement.append($("<td>").html(book.genre));
+                    });
+                },
+                error: function (xhr, status, error) {
+                        console.log(xhr)
+                }
+            });
+          });
+        });
+
+</script>
+</div>
