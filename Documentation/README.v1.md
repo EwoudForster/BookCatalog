@@ -1,4 +1,4 @@
-<center><img width=200 src="Documentation/images/LogoCegeka.png"></center>
+<center><img width=200 src="/Documentation/images/LogoCegeka.png"></center>
 
 # Bookcatalog Console .Net Application
 
@@ -49,50 +49,50 @@ To run this application, first you download the folder "PublishedApplication" or
 ### Start the application
 you go to the "PublishedApplication" Folder and start the "BookCatalog.exe" file. The Application will start.
 
-![Application Exe file](Documentation/images/ExeFile.png "Application file")
+![Application Exe file](/Documentation/images/ExeFile.png "Application file")
 
 ### Options
 You now get this screen opened in a terminal. Given 5 options, you make your decision, you type in the word given in the console. You could also use the number.
 
-![Application Options screen](Documentation/images/Options.png "Application Options screen")
+![Application Options screen](/Documentation/images/Options.png "Application Options screen")
 
 ### Search
 
 When typing 1, or search, you get the search screen displayed. now you are able to choose between searching for a book with the Title, Publisher, Author and genre, or using the ID
 
-![Application screen searching ID](Documentation/images/SearchID.png)
-![Application screen searching name or other information](Documentation/images/SearchName.png)
+![Application screen searching ID](/Documentation/images/SearchID.png)
+![Application screen searching name or other information](/Documentation/images/SearchName.png)
 
 ### Adding
 When typing 2, or adding, you get again a clean console window for adding a new book. in this case you need to fill in every field of the book, using valid data, as you can see in the picture there is validation on the fields. If you use wrong data you will need to fill in that specific field again, or you can type exit when you want to cancel the operation.
 
-![Application Adding screen](Documentation/images/Adding.png "Application Adding screen")
+![Application Adding screen](/Documentation/images/Adding.png "Application Adding screen")
 
 ### Updating
 When typing 3, or update, you can search for any book in the book catalog, using again the ID, Title, Publisher, Author and genre. You can keep looking till you have found the 1 specific book you are looking for. You need to choose only 1 specific book. You are not able to choose more then 1. If you found 1 book, you need to confirm that you want to modify this specific book. 
-![Application Update Confirmation screen](Documentation/images/UpdateConfirmation.png "Application Update Confirmation screen")
+![Application Update Confirmation screen](/Documentation/images/UpdateConfirmation.png "Application Update Confirmation screen")
 
 After doing this you need to fill in every field again. At the end you get the updated book returned and now if you look for that specific book it has been changed, but the ID is still the same.
-![Application Result Update Screen](Documentation/images/ResultUpdatedItem.png "Application Result Update Screen")
+![Application Result Update Screen](/Documentation/images/ResultUpdatedItem.png "Application Result Update Screen")
 
 ### Delete
 When typing 4, or delete, you can delete an item by searching for the ID, Title, Publisher, Author and genre. When you found the book you want to delete a confirmation message comes again. 
-![Application Result Delete Screen](Documentation/images/Delete.png "Application Result Delete Screen")
+![Application Result Delete Screen](/Documentation/images/Delete.png "Application Result Delete Screen")
 
 ### Statistics
 When typing 5, or stats, you get a view on the statistics about all the books in the Book catalog
 
-![Application Result Statistics Screen](Documentation/images/Statistics.png "Application Result Statistics Screen")
+![Application Result Statistics Screen](/Documentation/images/Statistics.png "Application Result Statistics Screen")
 
 ### Grouping
 When typing 6, or year, you group all the books by the year of publication
 the same for typing 7, or genre, only here everything gets grouped by the genre.
 
-![Application options grouping](Documentation/images/Groupingoptions.png "Application options grouping")
+![Application options grouping](/Documentation/images/Groupingoptions.png "Application options grouping")
 
 here you see the result, the groupkey is mentioned at the top, following with more information about the books. 
 
-![Application Result grouping](Documentation/images/Groupingresult.png "Application Result grouping")
+![Application Result grouping](/Documentation/images/Groupingresult.png "Application Result grouping")
 
 ## About the code of the application
 ### Modify
@@ -123,7 +123,7 @@ There are tests for following functionalities:
     - Saving
     - Reading
 
-![Successful tests](Documentation/images/Tests.png)
+![Successful tests](/Documentation/images/Tests.png)
 
 ## Principles Used
 ### Single Responsibility Principle (SRP)
