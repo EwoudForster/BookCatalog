@@ -39,6 +39,13 @@ In this repository you find the application I made for my internship at Cegeka
     - [Adding a Book](#adding-a-book)
     - [Updating](#updating)
     - [Delete](#delete)
+- [API](#api)
+  - [Endpoints](#endpoints)
+    - [GET:](#get)
+    - [PUT:](#put)
+    - [DELETE:](#delete-1)
+    - [POST:](#post)
+      - [Postman](#postman)
   - [About the code of the application](#about-the-code-of-the-application)
     - [Modify](#modify)
     - [Tests](#tests)
@@ -180,6 +187,36 @@ When going to the details page of a specific book you can choose to edit a book,
 
 ### Delete
 When going to a detail page you can press delete which deletes the book out of the database
+
+# API
+
+I've also created a REST API for the blazor search page, but I've expanded the whole API so it is perfectly useable for other applications singly by using the API Endpoints. These are the following endpoints:
+
+## Endpoints
+### GET:
+
+* http://localhost:port/api/Book => For getting al the books in the database
+* http://localhost:port/api/Book/id => For getting a specific book in the database 
+based on the Id
+
+### PUT:
+* http://localhost:port/api/Book => For updating a specific Endpoint, the book is given in the body
+
+### DELETE:
+* http://localhost:port/api/Book/id => For deleting a specific book with the id as reference
+
+### POST:
+* http://localhost:port/api/Book => For creating a new book, the book is given in the body
+* http://localhost:port/api/BookSearch => For searching a book on id or on title, author, publisher or genre
+
+#### Postman
+I've made a postman file you can import in postman to test all the endpoints, when running the application.
+
+[Postman File](Documentation/PostManTest/BookCatalogAPITester.postman_collection.json)
+
+![Postman](Documentation/images/APIPostman.png)
+
+So you can test all the endpoints with each option
 
 ## About the code of the application
 ### Modify
