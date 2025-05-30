@@ -1,0 +1,88 @@
+﻿@page "/Search"
+@rendermode InteractiveServer
+<div class="mt-5">
+    <div class="d-flex flex-sm-column flex-md-row flex-lg-row">
+        <div class="d-flex flex-column w-auto align-content-center text-center mt-4">
+            <h4>Filters</h4>
+            <div class="w-100 my-2">
+                <select class="form-select  w-100" aria-label="Genre"
+                        @bind="FilterGenre"
+                        @bind:event="oninput">
+                    <option value="@Guid.Empty" selected>Filter on Genre</option>
+                    @foreach (var genre in Genres)
+                    {
+                        <option value="@genre.Id">@genre.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="w-100 my-2">
+                <select class="form-select  w-100" aria-label="Author"
+                        @bind="FilterAuthor"
+                        @bind:event="oninput">
+                    <option value="@Guid.Empty" selected>Filter on Author</option>
+                    @foreach (var author in Authors)
+                    {
+                        <option value="@author.Id">@author.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="w-100 my-2">
+                <input class="form-input" aria-label="Only Available"
+                       @bind="FilterIsAvailable" type="checkbox"
+                       @bind:event="oninput" /> <span>Only Available</span>
+            </div>
+
+            <h4 class="mt-5">Order</h4>
+            <div class="w-100 my-2">
+                <select class="form-select w-100" aria-label="Order"
+                        @bind="OrderBy"
+                        @bind:event="oninput">
+                    @foreach (BookByOptions option in Enum.GetValues(typeof(BookByOptions)))
+                    {
+                        <option value="@option">@option</option>
+
+                    }
+                </select>
+            </div>
+
+            <div class="w-100 my-2">
+                <input class="form-input" aria-label="Desc"
+                       @bind="Desc" type="checkbox"
+                       @bind:event="oninput" /> <span>Desc</span>
+            </div>
+        </div>
+<div class="d-flex flex-column col-11 align-content-center align-items-center">
+            <h3 class="text-center">Search Books</h3>
+            <div class="d-flex w-auto">
+                <input class="w-100 rounded m-6 p-6 h-8 border-info m-2 shadow"
+                       @bind="SearchText"
+                       @bind:event="oninput"
+                       placeholder="Search by Book name" />
+            </div>
+            <div class="">
+
+                <div class="d-flex m-auto flex-wrap justify-content-center gap-3">
+
+                @if (!FilteredBooks.Any())
+                {
+                    <p>Nothing to show, sorry...</p>
+                }
+                else
+                {
+                        @foreach (var book in FilteredBooks)
+                        {
+                            <BookCard Book=@book></BookCard>
+                        }
+                   
+                }
+ </div>
+            </div>
+</div>
+       
+
+
+        </div>
+
+</div>

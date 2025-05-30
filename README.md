@@ -6,8 +6,9 @@ In this repository you find the application I made for my internship at Cegeka
 
 ## The ReadMe
 ### Versions: 
-  - [v1.0 ReadMe](Documentation/README.v1.md)
-  - [v2.0](#)
+  - [v1.0 ReadMe (Console Application)](Documentation/README.ConsoleApplication.md)
+  - [v2.0 ReadMe (ASP.Net Application)](Documentation/README.ASPNet.md)
+  - [v3.0 ReadMe (MAUI and ASP.NET)](#)
 
 ### Table of contents:
 - [Bookcatalog Console .Net Application](#bookcatalog-console-net-application)
@@ -65,16 +66,16 @@ This is a ASP.NET application existing out of pages for managing a book catalog
 
 
 ## What does the application do
-The application is a used as a management system for books. You can add, update, delete, search for certain books as well as viewing statistics of the specific book. There is also a searching feature that supports live searching as well as filtering on Genre. There is an API with needed endpoints for using in another application.
+The application is a used as a management and display system for books. You can add, update, delete, search for certain books as well as viewing statistics of the specific book. There is also a searching feature that supports live searching as well as filtering on Genre. There is an API with needed endpoints for using in another application, which I also use in the MAUI Application, everything uses Authorization and Authentication.
 
 ## Setup
 ### How to setup the application
-To run this application, first you download the folder [v2.x](Published Application/v2.x) or go to the releases in the repository and download the latest release there. You now unzipping the folder.
+To run this application, first you download the folder [v3.x](Published Application/v3.x) or go to the releases in the repository and download the latest release there. You now unzipping the folder.
 
 
 ## Usage
 ### Start the application
-you go to the "v2.x" Folder and start the "BookCatalog.exe" file. The Application will start.
+you go to the "v3.x" Folder and start the "BookCatalog.exe" file. The Application will start.
 
 ![Application Exe file](Documentation/images/ExeFile.png "Application file")
 
@@ -369,9 +370,6 @@ BookCatalog
 │   ├───BookCatalog.AppHost
 │   │   │───appsettings.Development.json
 │   │   │───appsettings.json
-│   │   └───Program.cs
-│   │     
-│   ├───BookCatalog.ConsoleApplication
 │   │   └───Program.cs
 │   │     
 │   ├───BookCatalog.ServiceDefaults

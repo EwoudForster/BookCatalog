@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:BookCatalog.ViewModels"
+    x:Class="BookCatalog.Views.ContactPage"
+     xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+    Title="{x:Static res:AppRes.ContactPageTitle}"
+    BackgroundColor="White"                          xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#98A0B2"/>
+    </ContentPage.Behaviors>
+
+    <Shell.TitleView>
+        <Grid Padding="0,20,0,10"
+       ColumnSpacing="10"
+       VerticalOptions="Center"
+       BackgroundColor="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{x:Static res:AppRes.ApplicationTitleCAPS}"
+            FontSize="18"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center"
+            TextColor="SteelBlue"
+            Grid.Column="1"
+            Opacity="0.7" />
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="{x:Static res:AppRes.Contactus}"
+                   FontSize="24"
+                   HorizontalOptions="Center" />
+
+            <Entry Placeholder="{x:Static res:AppRes.YName}"
+                   Text="{Binding Name}" />
+
+            <Entry Placeholder="{x:Static res:AppRes.YEmail}"
+                   Keyboard="Email"
+                   Text="{Binding Email}" />
+
+            <Editor Placeholder="{x:Static res:AppRes.YMEssage}"
+                    AutoSize="TextChanges"
+                    HeightRequest="150"
+                    Text="{Binding Message}" />
+
+            <Button Text="Send"
+                    Command="{Binding SendCommand}" />
+
+            <Label Text="{Binding StatusMessage}"
+                   TextColor="Green"
+                   FontAttributes="Italic"
+                   IsVisible="{Binding IsStatusVisible}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

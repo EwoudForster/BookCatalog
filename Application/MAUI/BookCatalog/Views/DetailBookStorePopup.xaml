@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:BookCatalog.ViewModels"
+    x:Class="BookCatalog.Views.DetailBookStorePopup"
+     xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+    x:DataType="vm:DetailBookStoreViewModel"
+    VerticalOptions="End"
+    CanBeDismissedByTappingOutsideOfPopup="True">
+
+    <Grid VerticalOptions="End"
+          HeightRequest="500"
+          BackgroundColor="Transparent">
+
+        <Border
+            BackgroundColor="White"
+            StrokeShape="RoundRectangle 20"
+            Padding="20"
+            HeightRequest="500"
+            VerticalOptions="End">
+
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                        Offset="5,5"
+                        Radius="10"
+                        Opacity="0.4" />
+            </Border.Shadow>
+
+            <Grid RowDefinitions="Auto, Auto, Auto" RowSpacing="10">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="5">
+                    <Label Text="{Binding SelectedBookStore.Name}"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           FontSize="18" />
+                    <Label Text="{Binding SelectedBookStore.Address}"
+                           TextColor="Black" />
+                    <Label Text="{Binding SelectedBookStore.PhoneNumber}"
+                           TextColor="Black" />
+                </VerticalStackLayout>
+
+                <Grid Grid.Row="1" HeightRequest="200">
+                    <CarouselView ItemsSource="{Binding Pictures}"
+                                  PeekAreaInsets="30"
+                                  HeightRequest="180"
+                                  HorizontalScrollBarVisibility="Never"
+                                  Loop="True">
+                        <CarouselView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20" />
+                        </CarouselView.ItemsLayout>
+
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate x:DataType="x:String">
+                                <Frame CornerRadius="20"
+           Padding="0"
+           Margin="0"
+           HasShadow="True"
+           BackgroundColor="White">
+                                    <Image Source="{Binding .}"
+               Aspect="AspectFill" />
+                                </Frame>
+                            </DataTemplate>
+
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </Grid>
+
+                <Button Grid.Row="2"
+                        Text="Close"
+                        Command="{Binding CloseCommand}"
+                        VerticalOptions="End" />
+            </Grid>
+
+        </Border>
+    </Grid>
+</toolkit:Popup>

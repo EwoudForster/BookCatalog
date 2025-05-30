@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookCatalog.Views.BookPage"
+             xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+             xmlns:icons="clr-namespace:BookCatalog.Services"
+             xmlns:vm="clr-namespace:BookCatalog.ViewModels"
+             xmlns:views="clr-namespace:BookCatalog.Views"
+             xmlns:services="clr-namespace:BookCatalog.Services"
+             Title="{x:Static res:AppRes.BookPageTitle}"                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+
+             BackgroundColor="#f8f9fa">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#98A0B2"/>
+    </ContentPage.Behaviors>
+
+    <Shell.TitleView>
+        <Grid Padding="0,15,60,15"
+   ColumnSpacing="10"
+   VerticalOptions="Center"
+   BackgroundColor="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                
+            
+                <Label Text="{Binding Book.Title}"
+        FontSize="18"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"
+        HorizontalTextAlignment="Center"
+        VerticalOptions="Center"
+        TextColor="SteelBlue"
+        Grid.Column="1"
+        Opacity="0.7" />
+            </Grid>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="15"
+                   HasShadow="True"
+                   Padding="0"
+                   HeightRequest="490">
+                <Grid>
+                 
+                    <CarouselView ItemsSource="{Binding Book.Pictures}"
+ 
+              HorizontalScrollBarVisibility="Never"
+              Loop="True">
+                        <CarouselView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </CarouselView.ItemsLayout>
+
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame CornerRadius="10"
+                   Padding="0"
+                   Margin="0"
+                   HasShadow="True"
+                   BackgroundColor="White">
+                                    <Image Source="{Binding ImgUrl}"
+                       Aspect="AspectFill"
+                       >
+                                       
+                                    </Image>
+                                </Frame>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+
+                 
+                </Grid>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <StackLayout>
+                    <Label
+                           FontSize="14"
+                           TextColor="Gray"
+                           HorizontalTextAlignment="Start">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{x:Static res:AppRes.Tax}" />
+                                    <Span Text=" € " />
+                                    <Span Text="{Binding Tax, StringFormat='{0:F2}'}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Start">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{x:Static res:AppRes.PriceInclTax}" />
+                                    <Span Text=" € " />
+                                    <Span Text="{Binding Book.Price, StringFormat='{0:F2}'}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Grid ColumnDefinitions="Auto,60,Auto,*,Auto"
+                          ColumnSpacing="10"
+                          Margin="0,10,0,0">
+                        <Button Grid.Column="0"
+Text="-"
+BackgroundColor="#e9ecef"
+TextColor="Black"
+WidthRequest="40"
+HeightRequest="40"
+CornerRadius="25"
+Command="{Binding DecreaseQuantityCommand}" />
+                        <Entry Grid.Column="1"
+       Text="{Binding Quantity, Mode=TwoWay}"
+       HorizontalTextAlignment="Center"
+       BackgroundColor="#f8f9fa"
+       WidthRequest="60"/>
+
+                     
+
+                        <Button Grid.Column="2"
+        Text="+"
+        BackgroundColor="#e9ecef"
+        TextColor="Black"
+        WidthRequest="40"
+        HeightRequest="40"
+        CornerRadius="25"
+        Command="{Binding IncreaseQuantityCommand}" />
+
+                        <Button Grid.Column="4"
+        Text="{x:Static res:AppRes.AddToCart}"
+        BackgroundColor="#87AABF"
+        TextColor="White"
+        HorizontalOptions="End"
+                                CornerRadius="25"
+        Command="{Binding AddToCartCommand}" />
+
+                    </Grid>
+
+                    <Label
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Start"
+                           Margin="0,10,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{x:Static res:AppRes.Subtotal}" />
+                                    <Span Text=" € " />
+                                    <Span Text="{Binding SubTotal, StringFormat='{0:F2}'}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <StackLayout>
+                    <Label Text="{x:Static res:AppRes.Authors}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Margin="0,0,0,10"/>
+                    <CollectionView ItemsSource="{Binding Book.Authors}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}"
+                                           FontSize="14"
+                                           TextColor="#4a90e2"
+                                           Margin="0,2"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <StackLayout>
+                    <Label Text="{x:Static res:AppRes.Genres}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Margin="0,0,0,10"/>
+                    <CollectionView ItemsSource="{Binding Book.Genres}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}"
+                       FontSize="14"
+                       TextColor="#4a90e2"
+                       Margin="0,2"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <StackLayout>
+                    <Label Text="{x:Static res:AppRes.Publisher}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Margin="0,0,0,10"/>
+                    <Label Text="{Binding Book.Publisher.Name}"
+                           FontSize="14"
+                           TextColor="#4a90e2"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <StackLayout>
+                    <Label Text="{x:Static res:AppRes.MoreInfo}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Margin="0,0,0,10"/>
+                    <CollectionView ItemsSource="{Binding Book.MoreInfos}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="0,5">
+                                    <Label Text="{Binding Name}"
+                                           FontSize="14"
+                                           TextColor="#4a90e2"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <Label Text="{x:Static res:AppRes.NoInfoAboutThisProduct}"
+                                   FontSize="14"
+                                   TextColor="#4a90e2"/>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <StackLayout>
+                    <Label Text="{x:Static res:AppRes.Description}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Margin="0,0,0,10"/>
+                    <Label Text="{Binding Book.Description}"
+                           FontSize="14"
+                           TextColor="Gray"
+                           LineBreakMode="WordWrap">
+                    </Label>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="15">
+                <StackLayout>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Grid.Column="0"
+                               Text="{x:Static res:AppRes.Reviews}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               VerticalOptions="Center"/>
+
+                        <StackLayout Grid.Column="1"
+                                     Orientation="Horizontal"
+                                     Spacing="2">
+                            <toolkit:RatingView
+                                 EmptyShapeColor="Gray"
+                                 FillColor="Gold"
+                                 FillOption ="Shape"
+                                 IsReadOnly="False"
+                                 ShapePadding="3,7,7,3"
+                                 ShapeDiameter="20"
+                                 MaximumRating="5"
+                                 Rating="{Binding Book.AverageRating}"
+                                 Shape="Star"
+     
+                                 ShapeBorderThickness="0"
+                                 Spacing="3" />
+                        </StackLayout>
+                    </Grid>
+
+                    <CollectionView ItemsSource="{Binding Book.Reviews}"
+                                    MaximumHeightRequest="200">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="50,*"
+                                      RowSpacing="5"
+                                      Margin="0,10,0,0">
+                                    <Ellipse Grid.Column="0"
+                                             Fill="#4a90e2"
+                                             WidthRequest="40"
+                                             HeightRequest="40"
+                                             VerticalOptions="Start"/>
+                                    <Label Grid.Column="0"
+                                           Text="{Binding User.FistName, StringFormat='{0:C1}'}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           TextColor="White"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+
+                                    <StackLayout Grid.Column="1" Spacing="3">
+                                        <Label Text="{Binding User.FistName}"
+                                               FontSize="14"
+                                               FontAttributes="Bold"
+                                               TextColor="Black"/>
+                                        <Label Text="{Binding Title}"
+                                               FontSize="12"
+                                               TextColor="Gray"/>
+                                        <Label Text="{Binding Content}"
+                                               FontSize="12"
+                                               TextColor="Gray"
+                                               LineBreakMode="WordWrap"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <toolkit:RatingView
+                                                 EmptyShapeColor="Gray"
+                                                 FillColor="Gold"
+                                                 FillOption ="Shape"
+                                                 IsReadOnly="False"
+                                                 ShapePadding="3,7,7,3"
+                                                 ShapeDiameter="20"
+                                                 MaximumRating="5"
+                                                 Rating="{Binding Rating}"
+                                                 Shape="Star"
+     
+                                                 ShapeBorderThickness="0"
+                                                 Spacing="3" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <Label Text="{x:Static res:AppRes.NoReviews}"
+                                   FontSize="14"
+                                   TextColor="Gray"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="0,20"/>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

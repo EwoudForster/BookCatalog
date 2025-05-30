@@ -1,0 +1,16 @@
+﻿@model BookDTO
+<a asp-page="/Books/Details" asp-route-BookId="@Model.Id">
+    <div class="book-card">
+        <div class="book-cover" style="background-image: url('@Model.FirstImageUrl')"></div>
+        <div class="book-info">
+            <h3 class="book-title">@Model.Title</h3>
+            <p class="book-author">@Model.Publisher.Name</p>
+            @foreach (GenreDTOShort genre in Model.Genres)
+            {
+                <p class="book-genre">@genre.Name</p>
+            }
+            <p class="book-price">€ @Model.Price</p>
+        </div>
+
+    </div>
+</a>

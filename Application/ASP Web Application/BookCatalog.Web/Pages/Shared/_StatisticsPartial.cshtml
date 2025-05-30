@@ -1,0 +1,26 @@
+﻿@model StatisticsViewModel
+
+<h4 class="align-items-center text-center">
+    @if (Model.TotalBooks < 0)
+    {
+        <span>There are no books @Model.PageSentence</span>
+    }
+    else if (Model.TotalBooks == 1)
+    {
+        <span>
+            There is only @Model.TotalBooks book @Model.PageSentence
+
+        </span>
+    }
+    else
+    {
+        <span>
+            There are @Model.TotalBooks books @Model.PageSentence,
+            The price of the books in this @Model.PageName is on average @Model.StatisticsType
+            @Model.Average
+            The Books we have range from @Model.StatisticsType
+            @Model.Min to @Model.StatisticsType
+            @Model.Max
+        </span>
+    }
+</h4>

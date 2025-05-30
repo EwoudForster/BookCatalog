@@ -1,0 +1,31 @@
+﻿@model Book
+<div class="m-3">
+    <div class="card mx-2" style="width:200px; height:500px;">
+        <div style="background-image:url('@Model.ImgUrl');   background-repeat: no-repeat;
+  background-attachment:scroll;
+  background-size: cover; height:300px;" class="card-img-top" alt="@Model.Title"></div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+@foreach (var author in Model.Authors)
+            {
+                <p class="card-text card-">@author.Name</p>
+
+            }
+            
+            @foreach (var genre in Model.Genres)
+            {
+                <p class="card-text card-">@genre.Name</p>
+
+
+            }
+                <p class="card-text card-">€@Model.Price</p>
+
+    </div>
+        <a asp-page="/Books/Details" asp-route-BookId="@Model.Id" class="btn btn-primary m-3">Details</a>
+
+    <div class="card-footer text-muted">
+        @Model.LastUpdated.Day/@Model.LastUpdated.Month/@Model.LastUpdated.Year
+        @Model.LastUpdated.Hour:@Model.LastUpdated.Minute
+    </div>
+    </div>
+</div>

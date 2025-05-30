@@ -1,0 +1,69 @@
+﻿@page
+@model BookCatalog.Web.Pages.Books.IndexModel
+
+    <div class="container">
+        <div class="header">
+        <h1 class="title" style="text-align: center;">BOOKS</h1>
+        </div>
+
+        <div class="controls">
+            <div class="filters-section">
+                <h3 class="filters-title">Filters</h3>
+            <div class="filter-group">
+
+                <label class="filter-label">Genre</label>
+                <form method="post">
+                    <select id="SelectedGenreId"
+                            name="SelectedGenreId"
+                            class="filter-select form-select rounded-5 col-5 m-auto"
+                            onchange="this.form.submit()">
+                        <option value="">Select a Genre</option>
+                        @foreach (var genre in Model.Genres)
+                        {
+                            <option value="@genre.Id" selected="@(genre.Id == Model.SelectedGenreId ? "selected" : null)">
+                                @genre.Name
+                            </option>
+                        }
+                    </select>
+                </form>
+
+            </div>
+
+
+                <button class="reset-filters-btn" onclick="resetFilters()">Reset filters</button>
+            </div>
+
+            <div class="sort-section">
+                <span>Sorting</span>
+<form method="post">
+    <select class="sort-select" name="SortOption" onchange="this.form.submit()">
+        @foreach (BookByOptions option in Enum.GetValues(typeof(BookByOptions)))
+        {
+                        <option value="@option" selected="@(Model.SortOption == option ? "selected" : null)">@option</option>
+                    }
+    </select>
+</form>
+
+            <a asp-page="/Books/Form" class="new-book-btn">New Book</a>
+            </div>
+
+
+        </div>
+
+        <div class="books-grid" id="booksGrid">
+            @foreach (BookDTO book in Model.Books)
+            {
+               <partial name="_BookCardPartial" model="book" />
+        }
+        </div>
+
+    </div>
+<script>
+    function resetFilters() {
+        window.location.href = window.location.pathname;
+    }
+
+    document.getElementById("priceRange").addEventListener("input", function () {
+        document.getElementById("priceValue").innerText = "€" + this.value;
+    });
+</script>

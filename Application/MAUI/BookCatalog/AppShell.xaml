@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="BookCatalog.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookCatalog"
+    xmlns:views="clr-namespace:BookCatalog.Views"
+    xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+    xmlns:icons="clr-namespace:BookCatalog.Services"
+    Title="BookCatalog"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab  x:Name="Home" Title="{x:Static res:AppRes.HomePageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.House}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+
+
+        <Tab  x:Name="Book" Title="{x:Static res:AppRes.BookPageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Book}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:BooksPage}" />
+        </Tab>
+        <Tab  x:Name="Books" Title="{x:Static res:AppRes.BookStoresPageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Map}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:BookStoresPage}" />
+        </Tab>
+
+        <Tab  x:Name="Contact" Title="{x:Static res:AppRes.ContactPageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Phone}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:ContactPage}" />
+        </Tab>
+        <Tab  x:Name="Shop" Title="{x:Static res:AppRes.CartPageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Cart}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:CartPage}" />
+        </Tab>
+        <Tab x:Name="Login" Title="{x:Static res:AppRes.LoginPageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Login}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+        </Tab>
+        <Tab x:Name="Register" Title="{x:Static res:AppRes.RegisterPageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Register}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:RegisterPage}" />
+        </Tab>
+        <Tab x:Name="Logout" Title="{x:Static res:AppRes.LogoutPageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Logout}" />
+            </Tab.Icon>
+            <ShellContent>
+                <ContentPage>
+                    <Button Text="Logout" Clicked="OnLogoutClicked" />
+                </ContentPage>
+            </ShellContent>
+        </Tab>
+
+    </TabBar>
+
+</Shell>

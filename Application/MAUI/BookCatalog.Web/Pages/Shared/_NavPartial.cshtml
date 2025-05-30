@@ -1,0 +1,59 @@
+﻿<header class="fixed-top container-fluid">
+    <nav class="navbar row navbar-expand-lg position-relative shadow">
+        <button class="navbar-toggler col-2" type="button" data-bs-toggle="collapse" data-bs-target="#Nav" aria-controls="Nav" aria-expanded="false" aria-label="Nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse col-2 m-sm-auto navbar-collapse" id="Nav">
+            <ul class="navbar-nav me-auto m-sm-auto list-nav mb-2 mb-lg-0">
+                <li class="nav-item text-center">
+                    <a asp-page="/Books/Index" class="nav-item nav-link">Books</a>
+                </li>
+
+
+                <li class="nav-item text-center">
+                    <a asp-page="/Genres/Index" class="nav-item nav-link">Genres</a>
+                </li>
+
+                <li class="nav-item text-center">
+                    <a asp-page="/Publishers/Index" class="nav-item nav-link">Publishers</a>
+                </li>
+                <li class="nav-item text-center">
+                    <a asp-page="/Authors/Index" class="nav-item nav-link">Authors</a>
+                </li>
+            </ul>
+        
+            <a asp-page="/Index" class="col-2 m-sm-auto m-md-auto text-sm-center navbar-brand brand">
+                BOOKSCATALOG
+            </a>
+
+
+
+            <div class="search-section m-sm-auto col-2 d-flex align-items-center">
+                    <form class="search-container" role="search" method="get" action="/Search">
+                        <input class="search-input"
+                               type="search"
+                               placeholder="Search"
+                               aria-label="Search"
+                               name="searchText" />
+                        <button class="search-btn" type="submit">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                    </form>
+            </div>
+            <partial class="col-1 m-sm-auto" name="_LoginPartial" />
+
+
+        </div>
+    </nav>
+    <script>
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+        searchInput.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+    </script>
+    </header>

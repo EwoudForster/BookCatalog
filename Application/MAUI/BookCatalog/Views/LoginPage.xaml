@@ -1,0 +1,53 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             x:Class="BookCatalog.Views.LoginPage"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+             xmlns:icons="clr-namespace:BookCatalog.Services"
+             xmlns:vm="clr-namespace:BookCatalog.ViewModels"
+             xmlns:views="clr-namespace:BookCatalog.Views"
+             xmlns:services="clr-namespace:BookCatalog.Services"
+             Title="{x:Static res:AppRes.LoginPageTitle}"                          xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#98A0B2"/>
+    </ContentPage.Behaviors>
+    <Shell.TitleView>
+        <Grid Padding="15,20,15,10"
+          ColumnSpacing="10"
+          VerticalOptions="Center"
+          BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+
+            <Label Text="{x:Static res:AppRes.ApplicationTitleCAPS}"
+               FontSize="18"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Center"
+               TextColor="SteelBlue"
+               Grid.Column="1"
+               Opacity="0.8" />
+
+
+        </Grid>
+    </Shell.TitleView>
+    <StackLayout Padding="30" Spacing="20">
+        <Label Text="Login" FontSize="32" HorizontalOptions="Center" />
+
+        <Entry x:Name="UsernameEntry" Placeholder="{x:Static res:AppRes.Email}" />
+        <Entry x:Name="PasswordEntry" Placeholder="{x:Static res:AppRes.Password}" IsPassword="True" />
+
+        <Button Text="{x:Static res:AppRes.Login}" Clicked="OnLoginClicked" />
+
+        <Label x:Name="MessageLabel" TextColor="Red" />
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+            <Label Text="{x:Static res:AppRes.NoAccount}" />
+            <Button Text="Register" Clicked="OnRegisterClicked" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

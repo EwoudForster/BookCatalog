@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookCatalog.Views.HomePage"
+             xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+             xmlns:icons="clr-namespace:BookCatalog.Services"
+             xmlns:vm="clr-namespace:BookCatalog.ViewModels"
+             xmlns:views="clr-namespace:BookCatalog.Views"
+             xmlns:services="clr-namespace:BookCatalog.Services"
+                          xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+
+             Title="{x:Static res:AppRes.HomePageTitle}"
+             BackgroundColor="#f8fafc">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#98A0B2"/>
+    </ContentPage.Behaviors>
+    <Shell.TitleView>
+        <Grid Padding="15,20,15,10"
+              ColumnSpacing="10"
+              VerticalOptions="Center"
+              BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+    
+            <Label Text="{x:Static res:AppRes.ApplicationTitleCAPS}"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center"
+                   TextColor="SteelBlue"
+                   Grid.Column="1"
+                   Opacity="0.8" />
+
+          
+        </Grid>
+    </Shell.TitleView>
+    <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <Frame CornerRadius="20"
+                   HasShadow="True"
+                   Padding="0"
+                   HeightRequest="200"
+                   IsClippedToBounds="True"
+                   BackgroundColor="Transparent">
+                    <Grid>
+
+
+                        <Image Source="{Binding HeroImage.ImgUrl}"  
+                    Aspect="AspectFill"/>
+
+                        <StackLayout VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="0">
+                            <Label Text="{x:Static res:AppRes.welcometoour}"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               FontSize="20"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               TextTransform="Uppercase"
+                               LineBreakMode="NoWrap"/>
+                            <Label Text="{x:Static res:AppRes.ApplicationTitleCAPS}"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               FontSize="20"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               TextTransform="Uppercase"
+                               LineBreakMode="NoWrap"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <Frame BackgroundColor="#9da4b0"
+       Padding="0"
+       CornerRadius="25"
+       HasShadow="True"
+       >
+                    <Grid RowDefinitions="Auto,*" 
+          RowSpacing="0">
+
+                        <Frame Grid.Row="0"
+               BackgroundColor="#ACB4C7"
+               CornerRadius="25"
+                           BorderColor="Transparent"
+               Padding="25,25,25,15"
+                           HasShadow="True">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="{x:Static res:AppRes.OurBookcatalog}"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="White"
+                       HorizontalTextAlignment="Start"/>
+                                <Label FontSize="14"
+                       TextColor="White"
+                       LineBreakMode="WordWrap"
+                       HorizontalTextAlignment="Start"
+                                   Text="{Binding CatalogSummary}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Grid.Row="1"
+               BackgroundColor="Transparent"
+               CornerRadius="25"
+                           BorderColor="Transparent"
+               HasShadow="true">
+                            <Grid HeightRequest="200"
+                  HorizontalOptions="Center">
+                                <StackLayout Orientation="Horizontal" 
+          >
+                                    <Image Source="{Binding BookImage.ImgUrl}"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </RefreshView>
+</ContentPage>
