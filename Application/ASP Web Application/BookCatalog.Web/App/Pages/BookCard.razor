@@ -1,0 +1,27 @@
+﻿<div class="m-3">
+    <div class="card mx-2" style="width:250px; height:550px;">
+        <div style="background-image:url('@Book.ImgUrl');   background-repeat: no-repeat;
+  background-attachment:scroll;
+  background-size: cover; height:550px;" class="card-img-top" alt="@Book.Title"></div>
+        <div class="card-body">
+            <h5 class="card-title">@Book.Title</h5>
+            @foreach (var author in Book.Authors)
+            {
+                <p class="card-text card-">@author.Name</p>
+            }
+            @foreach (var genre in Book.Genres)
+            {
+                <p class="card-text card-">@genre.Name</p>            
+
+            }
+            <p class="card-text card-">@Book.Publisher.Name</p>
+            <p class="card-text card-">@Book.Price</p>
+        </div>
+        <a href="/Books/Details/@Book.Id" class="btn btn-primary m-3">Details</a>
+
+        <div class="card-footer text-muted">
+            @Book.LastUpdated.Day/@Book.LastUpdated.Month/@Book.LastUpdated.Year
+            @Book.LastUpdated.Hour:@Book.LastUpdated.Minute
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@page "{BookId:Guid}"
+@model BookCatalog.Web.Pages.Books.DetailsModel
+@if (Model.Book != null)
+{
+<div class="w-100 pt-5">
+    <div class="row">
+        <div class="col-4">
+
+            <img src="@Model.Book.ImgUrl" class="img-fluid" alt="@Model.Book.Title" />
+        </div>
+        <div class="col-6 justify-content-center align-content-center align-items-center">
+            <h1>Title: @Model.Book.Title</h1>
+                <h2>
+                    Publisher: @(Model.Book.Publisher != null ? Model.Book.Publisher.Name : "Unknown")
+                </h2>
+            <h3>€ @Model.Book.Price</h3>
+            <p>
+                <span>Author(s)</span>
+            </p>
+            <ul>
+                    @if (Model.Book.Authors != null && Model.Book.Authors.Any())
+                    {
+                @foreach (var author in Model.Book.Authors)
+                {
+                    <li><a asp-page="/Authors/Details" asp-route-AuthorId="@author.Id">@author.Name</a></li>
+                } }               
+                else {
+                <li>No genres available</li>
+                }
+            </ul>
+            <p>
+                <span>Genre(s)</span>
+            </p>
+            <ul>
+                    @if (Model.Book.Genres != null && Model.Book.Genres.Any())
+                    {
+                @foreach (var genre in Model.Book.Genres)
+                {
+                    <li><a asp-page="/Genres/Details" asp-route-GenreId="@genre.Id">@genre.Name</a></li>
+                    }}
+                else
+                {
+                    <li>No genres available</li>
+                }
+            </ul>
+            <p>ISBN: @Model.Book.ISBN</p>
+            <a asp-page="/Books/Form" asp-route-BookId="@Model.Book.Id" class="btn-info btn">Edit</a>
+                <form method="post" asp-page-handler="Delete" class="d-inline">
+                <input type="hidden" name="id" value="@Model.Book.Id" />
+                <button type="submit" class="btn-danger btn">Delete</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
+}
+else
+{
+    <div class="alert alert-danger">Book not found or has been deleted.</div>
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "Name": "APIAndMaui",
+    "Projects": [
+      {
+        "Path": "BookCatalog.API\\BookCatalog.API.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "BookCatalog\\BookCatalog.MAUI.csproj",
+        "Action": "Start",
+        "DebugTarget": "Samsung SM-A528B (Android 13.0 - API 33)"
+      }
+    ]
+  },
+  {
+    "Name": "APIMAUIWEB",
+    "Projects": [
+      {
+        "Path": "BookCatalog.API\\BookCatalog.API.csproj",
+        "Action": "StartWithoutDebugging"
+      },
+      {
+        "Path": "BookCatalog.Web\\BookCatalog.Web.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "BookCatalog\\BookCatalog.MAUI.csproj",
+        "Action": "Start",
+        "DebugTarget": "Samsung SM-A528B (Android 13.0 - API 33)"
+      }
+    ]
+  }
+]

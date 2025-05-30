@@ -1,0 +1,12 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="BookCatalog.Views.OrderPlacedPopup"
+               xmlns:vm="clr-namespace:BookCatalog.ViewModels"
+                xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+               x:DataType="vm:OrderPlacedViewModel">
+    <VerticalStackLayout Padding="20">
+        <Label Text="{x:Static res:AppRes.OrderPlaced}" FontSize="20" HorizontalOptions="Center" Padding="20"/>
+        <Button Text="OK" Command="{Binding CloseCommand}" />
+    </VerticalStackLayout>
+</toolkit:Popup>

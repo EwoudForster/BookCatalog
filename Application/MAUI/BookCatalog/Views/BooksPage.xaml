@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="BookCatalog.Views.BooksPage"  
+             xmlns:res="clr-namespace:BookCatalog.Resources.Strings"  
+             xmlns:icons="clr-namespace:BookCatalog.Services"  
+             xmlns:vm="clr-namespace:BookCatalog.ViewModels"  
+             xmlns:views="clr-namespace:BookCatalog.Views"  
+             xmlns:services="clr-namespace:BookCatalog.Services"  
+                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="{x:Static res:AppRes.BookPageTitle}"  
+             BackgroundColor="#f0f2f5"
+>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#98A0B2"/>
+    </ContentPage.Behaviors>
+
+    <Shell.SearchHandler>  
+        <services:BookSearchHandler  
+        BackgroundColor="White"  
+        Placeholder="{x:Static res:AppRes.SearchBooks}"  
+        PlaceholderColor="Gray"  
+        TextColor="Black"  
+        Keyboard="Text"  
+        ShowsResults="True"  
+        SelectedItemNavigationTarget="{x:Type views:BookPage}">  
+
+            <services:BookSearchHandler.ItemTemplate>  
+                <DataTemplate>  
+                    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray500}}"   
+                      ColumnDefinitions="0.15*,0.85*"  
+                      Padding="10"  
+                      RowSpacing="5">  
+                        <Frame Grid.Column="0"  
+                           CornerRadius="5"  
+                           Padding="0"  
+                           HasShadow="False"  
+                           WidthRequest="40"  
+                           HeightRequest="50">  
+                            <Image Source="{Binding FirstImageUrl}"   
+                               Aspect="AspectFill"/>  
+                        </Frame>  
+                        <StackLayout Grid.Column="1"   
+                                 VerticalOptions="Center"  
+                                 Spacing="2">  
+                            <Label Text="{Binding Title}"  
+                               FontSize="14"  
+                               FontAttributes="Bold"  
+                               TextColor="{AppThemeBinding Light=Black, Dark=White}" />  
+                            <Label Text="{Binding Publisher.Name}"  
+                               FontSize="12"  
+                               TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />  
+                            <Label Text="{Binding Price, StringFormat='€ {0:F2}'}"  
+                               FontSize="12"  
+                               FontAttributes="Bold"  
+                               TextColor="{AppThemeBinding Light=#4a90e2, Dark=#4a90e2}" />  
+                        </StackLayout>  
+                    </Grid>  
+                </DataTemplate>  
+            </services:BookSearchHandler.ItemTemplate>  
+        </services:BookSearchHandler>  
+    </Shell.SearchHandler>  
+
+    <Grid RowDefinitions="Auto,Auto,*" Padding="20,10,20,20">  
+
+        <RefreshView Grid.Row="2"  
+                     Command="{Binding RefreshCommand}"  
+                     IsRefreshing="{Binding IsRefreshing}">  
+            
+
+            <CollectionView ItemsSource="{Binding Books}"  
+                            VerticalScrollBarVisibility="Never">  
+
+                <CollectionView.ItemTemplate>  
+                    <DataTemplate>  
+                        <Grid Margin="25,10,25,25">  
+
+                            <Frame BackgroundColor="#9da4b0"  
+                                   CornerRadius="30"  
+                                   Padding="20"  
+                                   HasShadow="true">  
+                                <Frame.GestureRecognizers>  
+                                    <TapGestureRecognizer  
+        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BooksViewModel}}, Path=BookTapped}"  
+        CommandParameter="{Binding .}"  
+        NumberOfTapsRequired="1" />  
+                                </Frame.GestureRecognizers>  
+
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto"   
+                                      RowSpacing="10">  
+                                    <Grid.GestureRecognizers>  
+                                        <TapGestureRecognizer  
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BooksViewModel}}, Path=BookTapped}"  
+                                        CommandParameter="{Binding .}"  
+                                        NumberOfTapsRequired="1" />  
+                                    </Grid.GestureRecognizers>  
+
+                                    <Label Grid.Row="0"  
+                                           Text="{Binding Title}"  
+                                           FontSize="18"  
+                                           FontAttributes="Bold"  
+                                           TextColor="White"  
+                                           HorizontalOptions="Center"  
+                                           HorizontalTextAlignment="Center"/>  
+
+                                    <Frame Grid.Row="1"  
+                                           CornerRadius="15"  
+                                           Padding="0"  
+                                           HasShadow="True"  
+                                           HorizontalOptions="Center"  
+                                           WidthRequest="200"  
+                                           HeightRequest="280"  
+                                           Margin="0,10,0,10">  
+                                        <Image Source="{Binding FirstImageUrl}"  
+                                               Aspect="AspectFill"  
+                                               WidthRequest="200"  
+                                               HeightRequest="280">  
+                                        <Image.GestureRecognizers>  
+                                            <TapGestureRecognizer  
+Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BooksViewModel}}, Path=BookTapped}"  
+CommandParameter="{Binding .}"  
+NumberOfTapsRequired="1" />  
+                                        </Image.GestureRecognizers></Image>  
+                                    </Frame>  
+                                    <VerticalStackLayout  
+                                        Grid.Row="3"   
+                                                 HorizontalOptions="Center"  
+                                                 Spacing="10">  
+                                        <Label Text="{Binding Price, StringFormat='€ {0:F2}'}"  
+                                               FontSize="16"  
+                                               FontAttributes="Bold"  
+                                               TextColor="white"  
+                                                                                   HorizontalOptions="Center"  
+                                        HorizontalTextAlignment="Center"/>  
+                                      
+                                    <Label  
+                                           Text="{Binding Publisher.Name}"  
+                                           FontSize="14"  
+                                           TextColor="white"                                             HorizontalOptions="Center"  
+HorizontalTextAlignment="Center"
+                                           />  
+
+                                        <HorizontalStackLayout HorizontalOptions="Center">  
+                                            <CollectionView ItemsSource="{Binding Genres}"  
+                            VerticalScrollBarVisibility="Never">  
+
+                                                <CollectionView.ItemTemplate>  
+                                                    <DataTemplate>  
+                                                        <Label Text="{Binding Name}"        TextColor="white"  
+                                           HorizontalOptions="Center"  
+HorizontalTextAlignment="Center"/>  
+                                                    </DataTemplate>  
+                                                </CollectionView.ItemTemplate>  
+                                            </CollectionView>  
+                                        </HorizontalStackLayout>  
+
+                                                <toolkit:RatingView
+			                                        EmptyShapeColor="White"
+			                                        FillColor="Gold"
+			                                        FillOption ="Shape"
+			                                        IsReadOnly="False"
+			                                        ShapePadding="3,7,7,3"
+			                                        ShapeDiameter="20"
+			                                        MaximumRating="5"
+			                                        Rating="{Binding AverageRating}"
+			                                        Shape="Star"
+                                                    
+			                                        ShapeBorderThickness="0"
+			                                        Spacing="3" />
+                                                                                    
+                                    </VerticalStackLayout>  
+                                </Grid>  
+                            </Frame>  
+                        </Grid>  
+                    </DataTemplate>  
+                </CollectionView.ItemTemplate>  
+
+                <CollectionView.EmptyView>  
+                    <VerticalStackLayout HorizontalOptions="Center"  
+                                         VerticalOptions="Center">
+                        <Label Text="{x:Static res:AppRes.NoBooks}"  
+                               FontAttributes="Bold"  
+                               FontSize="18"  
+                               HorizontalTextAlignment="Center"  
+                               TextColor="Gray" />  
+                        <Label Text="{x:Static res:AppRes.TryAdjusting}"  
+                               FontSize="14"  
+                               HorizontalTextAlignment="Center"  
+                               TextColor="Gray"  
+                               Margin="0,5,0,0"/>  
+                    </VerticalStackLayout>  
+                </CollectionView.EmptyView>  
+            </CollectionView>  
+        </RefreshView>  
+    </Grid>  
+</ContentPage>

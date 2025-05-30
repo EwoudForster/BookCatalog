@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookCatalog.Views.BookStoresPage"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             Title="{x:Static res:AppRes.BookStoresPageTitle}"
+             xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+             xmlns:icons="clr-namespace:BookCatalog.Services"
+             xmlns:vm="clr-namespace:BookCatalog.ViewModels"
+             xmlns:views="clr-namespace:BookCatalog.Views"
+             xmlns:services="clr-namespace:BookCatalog.Services"                          xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#98A0B2"/>
+    </ContentPage.Behaviors>
+    <Shell.SearchHandler>
+        <services:BookStoreSearchHandler
+    BackgroundColor="White"
+    Placeholder="{x:Static res:AppRes.SearchBooksStores}"
+    PlaceholderColor="Gray"
+    TextColor="Black"
+    Keyboard="Text"
+    ShowsResults="True"
+    SelectedItemNavigationTarget="{x:Type views:BookPage}">
+
+            <services:BookStoreSearchHandler.ItemTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray500}}" 
+                  ColumnDefinitions="0.15*,0.85*"
+                  Padding="10"
+                  RowSpacing="5">
+                        <Frame Grid.Column="0"
+                       CornerRadius="5"
+                       Padding="0"
+                       HasShadow="False"
+                       WidthRequest="40"
+                       HeightRequest="50">
+                            <Image Source="{Binding FirstImageUrl}" 
+                           Aspect="AspectFill"/>
+                        </Frame>
+                        <StackLayout Grid.Column="1" 
+                             VerticalOptions="Center"
+                             Spacing="2">
+                            <Label Text="{Binding Name}"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                            <Label Text="{Binding Address}"
+                           FontSize="12"
+                           TextColor="{AppThemeBinding Light=Gray, Dark=LightGray}" />
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </services:BookStoreSearchHandler.ItemTemplate>
+        </services:BookStoreSearchHandler>
+    </Shell.SearchHandler>
+
+    <Grid Padding="10" RowDefinitions="Auto,Auto,*,Auto" ColumnDefinitions="Auto,*">
+        <Button Text="{x:Static res:AppRes.CurrentLocation}" Command="{Binding HereCommand}" Grid.Row="1" Grid.Column="1" />
+
+        <maps:Map x:Name="map"
+                  IsShowingUser="True"
+                  IsTrafficEnabled="True"
+                  Grid.Row="2"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand" />
+    </Grid>
+</ContentPage>

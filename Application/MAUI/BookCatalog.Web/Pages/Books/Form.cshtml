@@ -1,0 +1,95 @@
+﻿@page "{BookId:Guid?}"
+@model BookCatalog.Web.Pages.Books.FormModel
+<form method="post" class="form-horizontal w-50 m-auto mt-5 pt-5 align-content-center align-items-center align-middle" role="form">
+    @if (Model.IsEdit)
+    {
+        <h4>Update the book</h4>
+        <input asp-for="IsEdit" style="display: none;"/>
+        <input asp-for="Book.Id" style="display: none;"/>
+    }
+    else
+    {
+        <h4>Create a new book</h4>
+    }
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Book.Title" class="col-md-2 control-label"></label>
+        <div class="col-auto">
+            <input asp-for="Book.Title" class="form-control" />
+            <span asp-validation-for="Book.Title" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.AuthorIds" class="col-md-2 control-label"></label>
+        <label asp-for="Book.AuthorIds">Authors</label>
+        <select asp-for="Book.AuthorIds" asp-items="Model.AuthorSelectList" class="form-control" multiple="multiple">
+        </select>
+        <span asp-validation-for="Book.AuthorIds" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.PublicationYear" class="col-md-2 control-label"></label>
+        <div class="col-auto">
+            <input asp-for="Book.PublicationYear" class="form-control" />
+            <span asp-validation-for="Book.PublicationYear" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.GenreIds" class="col-md-2 control-label"></label>
+        <select asp-for="Book.GenreIds" asp-items="Model.GenreSelectList" class="form-control" multiple="multiple">
+        </select>
+        <span asp-validation-for="Book.GenreIds" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.ISBN" class="col-md-2 control-label"></label>
+        <div class="col-auto">
+            <input asp-for="Book.ISBN" class="form-control" />
+            <span asp-validation-for="Book.ISBN" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.PublisherId" class="col-md-2 control-label"></label>
+        <select asp-for="Book.PublisherId" asp-items="Model.PublisherSelectList" class="form-control">
+        </select>
+        <span asp-validation-for="Book.PublisherId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.PageCount" class="col-md-2 control-label"></label>
+        <div class="col-auto">
+            <input asp-for="Book.PageCount" class="form-control" />
+            <span asp-validation-for="Book.PageCount" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.Price" class="col-md-2 control-label"></label>
+        <div class="col-auto">
+            <input asp-for="Book.Price" class="form-control" />
+            <span asp-validation-for="Book.Price" class="text-danger"></span>
+        </div>
+    </div>
+    @if (Model.IsEdit)
+    {
+        <div class="form-group">
+            <input asp-for="Book.IsAvailable" />
+
+            <label asp-for="Book.IsAvailable" class="col-md-2 control-label"></label>
+            <span asp-validation-for="Book.IsAvailable" class="text-danger"></span>
+        </div>
+    }
+
+    <div class="form-group">
+        <label asp-for="Book.PictureIds" class="col-md-2 control-label"></label>
+        <label asp-for="Book.PictureIds">Pictures</label>
+        <select asp-for="Book.PictureIds" asp-items="Model.PictureSelectList" class="form-control" multiple="multiple">
+        </select>
+        <span asp-validation-for="Book.PictureIds" class="text-danger"></span>
+    </div>
+
+    <div class="d-flex m-auto align-content-center align-items-center align-middle">
+        <div class="col-auto m-4">
+            <input type="submit" class="btn btn-success" value="Submit" />
+        </div>
+        <div class="col-auto m-5">
+            <a asp-page="/Books" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+</form>

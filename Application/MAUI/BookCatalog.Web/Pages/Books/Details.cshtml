@@ -1,0 +1,104 @@
+﻿@page "{BookId:guid}"
+@model BookCatalog.Web.Pages.Books.DetailsModel
+@{
+    ViewData["Title"] = "Het verkeerde kind - Book Details";
+    var book = Model.Book;
+    decimal priceTax = Model.Book.Price*0.21m;
+}
+
+<div class="container">
+    <div class="book-details" style="height: fit-content;">
+        <div class="book-images">
+            <img src="@book.FirstImageUrl" alt="@book.Title" class="main-image" id="mainImage" />
+        </div>
+
+        <div class="book-info">
+            <h1 class="book-title">@book.Title</h1>
+
+            <div class="info-section">
+                <div class="info-label">Authors:</div>
+                <ul class="authors-list">
+                    @foreach (var author in book.Authors)
+                    {
+                        <li><a href="/authors/details/@author.Id">@author.Name</a></li>
+                    }
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Genres</div>
+                <ul class="genres-list">
+                    @foreach (var genre in book.Genres)
+                    {
+                        <li><a href="/genres/details/@genre.Id">@genre.Name</a></li>
+                    }
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">Publisher</div>
+                <div class="publisher-info">@book.Publisher?.Name</div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-label">More Info</div>
+                <ul class="genres-list">
+                    @foreach (var moreInfo in book.MoreInfos)
+                    {
+                        <li><a href="/moreInfo/details/@moreInfo.Id">@moreInfo.Name</a></li>
+                    }
+                </ul>
+            </div>
+
+            <div class="rating-section">
+                <div class="stars">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        var starClass = i <= book.AverageRating ? "star" : "star empty";
+                        <span class="@starClass">★</span>
+                    }
+                </div>
+            </div>
+
+            <div class="price-section">
+                <div class="tax-info">Tax : € @priceTax.ToString("0.00")</div>
+                <div class="price">Price Incl Tax : € @Model.Book.Price.ToString("0.00")</div>
+            </div>
+
+            <div class="description-section">
+                <h3 class="description-title">Description:</h3>
+                <p class="description-text">@book.Description</p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="/books/form?BookId=@book.Id" class="btn btn-edit">Edit</a>
+                <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Are you sure you want to delete this book?');" style="display:inline;">
+                    <input type="hidden" asp-for="Book.Id" />
+                    <button type="submit" class="btn btn-delete">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews-section">
+        <h2 class="reviews-title">Reviews</h2>
+
+        @foreach (ReviewDTOShort review in book.Reviews)
+        {
+            <div class="review-item">
+                <div class="review-avatar"></div>
+                <div class="review-content">
+                    <div class="review-author">@review.Title</div>
+                    <div class="review-rating">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            var starClass = i <= review.Rating ? "star" : "star empty";
+                            <span class="@starClass">★</span>
+                        }
+                    </div>
+                    <div class="review-text">@review.Content</div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,170 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookCatalog.Views.CartPage"
+              xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+             Title="{x:Static res:AppRes.CartPageTitle}"
+             BackgroundColor="White"                          xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#98A0B2"/>
+    </ContentPage.Behaviors>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <CollectionView Grid.Row="0" 
+                       ItemsSource="{Binding CartItems}"
+                       BackgroundColor="White"
+                       Margin="16,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="0,8" 
+                          BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="30" />
+                        </Grid.ColumnDefinitions>
+
+                        <Frame Grid.Column="0"
+                               BackgroundColor="#8B4513"
+                               CornerRadius="4"
+                               HasShadow="False"
+                               Padding="0"
+                               HeightRequest="40"
+                               WidthRequest="40"
+                               VerticalOptions="Center">
+                            <Image Source="{Binding FirstImage}" 
+                                    HeightRequest="40"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Frame>
+
+                        <StackLayout Grid.Column="1" 
+                                   VerticalOptions="Center"
+                                   Margin="12,0,0,0">
+                            <Label Text="{Binding Book.Title}" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold"
+                                   TextColor="Black" />
+                            <Label Text="{Binding Book.Price, StringFormat='€ {0:F2}'}" 
+                                   FontSize="14" 
+                                   TextColor="Gray" />
+                        </StackLayout>
+
+                        <Label Grid.Column="2"
+                               Text="{Binding TotalPrice, StringFormat='€ {0:F2}'}" 
+                               FontSize="16" 
+                               FontAttributes="Bold"
+                               TextColor="Black"
+                               VerticalOptions="Center"
+                               HorizontalOptions="End" />
+
+                        <Frame Grid.Column="3"
+                               BackgroundColor="#E8E8E8"
+                               CornerRadius="10"
+                               HasShadow="False"
+                               Padding="6,2"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Margin="8,0">
+                            <Label Text="{Binding Quantity}" 
+                                   FontSize="12"
+                                   TextColor="Black"
+                                   HorizontalOptions="Center" />
+                        </Frame>
+
+                        <Button Grid.Column="4"
+                                Text="🗑️"
+                                FontSize="16"
+                                BackgroundColor="Transparent"
+                                TextColor="Gray"
+                                Padding="0"
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                VerticalOptions="Center"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.RemoveItemCommand}"
+                                CommandParameter="{Binding}" />
+
+                        <BoxView Grid.ColumnSpan="5"
+                                BackgroundColor="#F0F0F0"
+                                HeightRequest="1"
+                                VerticalOptions="End"
+                                Margin="0,8,0,0" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+                <VerticalStackLayout HorizontalOptions="Center"  
+                          VerticalOptions="Center">
+                    <Label Text="{x:Static res:AppRes.NoItemsCart}"  
+                FontAttributes="Bold"  
+                FontSize="18"  
+                HorizontalTextAlignment="Center"  
+                TextColor="Gray" />
+                    <Label Text="{x:Static res:AppRes.AddSomethingCart}"  
+                FontSize="14"  
+                HorizontalTextAlignment="Center"  
+                TextColor="Gray"  
+                Margin="0,5,0,0"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <StackLayout Grid.Row="1" 
+                    Padding="16"
+                    BackgroundColor="White">
+            <StackLayout Orientation="Horizontal" 
+                        HorizontalOptions="End">
+                <Label Text="Tax : " 
+                       FontSize="16" 
+                       TextColor="Gray" />
+                <Label Text="{Binding TaxTotal, StringFormat='€ {0:F2}'}" 
+                       FontSize="16" 
+                       TextColor="Gray" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" 
+                        HorizontalOptions="End"
+                        Margin="0,4,0,0">
+                <Label Text="Total : " 
+                       FontSize="18" 
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+                <Label Text="{Binding GrandTotal, StringFormat='€ {0:F1}'}" 
+                       FontSize="18" 
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2" 
+                    Orientation="Horizontal" 
+                    Padding="16"
+                    BackgroundColor="White">
+
+            <Button Text="Reset"
+                    BackgroundColor="Transparent"
+                    TextColor="Gray"
+                    FontSize="16"
+                    BorderWidth="0"
+                    HorizontalOptions="Start"
+                    Command="{Binding ResetCartCommand}" />
+
+            <Button Text="Checkout"
+                    BackgroundColor="#4A90E2"
+                    TextColor="White"
+                    CornerRadius="20"
+                    FontSize="16"
+                    Padding="24,12"
+                    HorizontalOptions="EndAndExpand"
+                    Command="{Binding PlaceOrderCommand}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

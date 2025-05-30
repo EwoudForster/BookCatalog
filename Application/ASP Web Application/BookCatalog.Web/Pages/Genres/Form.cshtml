@@ -1,0 +1,30 @@
+﻿@page "{GenreId:Guid?}"
+@model BookCatalog.Web.Pages.Genres.FormModel
+
+<form method="post" class="form-horizontal w-50 m-auto mt-5 pt-5 align-content-center align-items-center align-middle" role="form">
+    @if (Model.IsEdit)
+    {
+        <h4>Update the Genre</h4>
+
+    }
+    else
+    {
+        <h4>Create a new Genre</h4>
+    }
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="IsEdit" style="display:none" />
+    <input asp-for="Genre.Id" style="display:none" />
+
+
+    <div class="form-group">
+        <label asp-for="Genre.Name" class="col-md-2 control-label"></label>
+        <div class="col-auto">
+            <input asp-for="Genre.Name" class="form-control" />
+            <span asp-validation-for="Genre.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group mt-3 w-100 text-center d-flex m-auto align-content-center align-items-center align-middle">
+        <input type="submit" class="m-auto btn btn-success align-content-center align-items-center align-middle" value="Submit" />
+       </div>
+</form>

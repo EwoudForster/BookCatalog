@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Catálogo de Libros</value>
+    <comment>Name of the application</comment>
+  </data>
+  <data name="ContactPageTitle" xml:space="preserve">
+    <value>Contacto</value>
+    <comment>Title ContactPage</comment>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>Inicio</value>
+    <comment>Title HomePage</comment>
+  </data>
+  <data name="WebshopPageTitle" xml:space="preserve">
+    <value>Tienda en Línea</value>
+    <comment>Title Webshop</comment>
+  </data>
+  <data name="BookStoresPageTitle" xml:space="preserve">
+    <value>Librerías</value>
+    <comment>Title Bookstores</comment>
+  </data>
+  <data name="BookPageTitle" xml:space="preserve">
+    <value>Libros</value>
+    <comment>Title Books</comment>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitud</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitud</value>
+  </data>
+  <data name="AdminArea" xml:space="preserve">
+    <value>Área Administrativa</value>
+  </data>
+  <data name="CountryCode" xml:space="preserve">
+    <value>Código del País</value>
+  </data>
+  <data name="CountryName" xml:space="preserve">
+    <value>Nombre del País</value>
+  </data>
+  <data name="FeatureName" xml:space="preserve">
+    <value>Nombre de la Característica</value>
+  </data>
+  <data name="Locality" xml:space="preserve">
+    <value>Localidad</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>Código Postal</value>
+  </data>
+  <data name="SubAdminArea" xml:space="preserve">
+    <value>Subárea Administrativa</value>
+  </data>
+  <data name="SubLocality" xml:space="preserve">
+    <value>Sublocalidad</value>
+  </data>
+  <data name="SubThoroughfare" xml:space="preserve">
+    <value>Subvía</value>
+  </data>
+  <data name="Thoroughfare" xml:space="preserve">
+    <value>Vía</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>Aquí</value>
+  </data>
+  <data name="CartPageTitle" xml:space="preserve">
+    <value>Carrito</value>
+    <comment>Cart</comment>
+  </data>
+  <data name="LoginPageTitle" xml:space="preserve">
+    <value>Iniciar Sesión</value>
+  </data>
+  <data name="RegisterPageTitle" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="LogoutPageTitle" xml:space="preserve">
+    <value>Cerrar Sesión</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="OrderPlaced" xml:space="preserve">
+    <value>¡Pedido Realizado con Éxito!</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Iniciar Sesión</value>
+  </data>
+  <data name="NoAccount" xml:space="preserve">
+    <value>¿No tienes una cuenta?</value>
+  </data>
+  <data name="ApplicationTitleCAPS" xml:space="preserve">
+    <value>CATÁLOGO DE LIBROS</value>
+  </data>
+  <data name="welcometoour" xml:space="preserve">
+    <value>BIENVENIDO A NUESTRO</value>
+  </data>
+  <data name="FeaturedBooks" xml:space="preserve">
+    <value>Libros Destacados</value>
+  </data>
+  <data name="YEmail" xml:space="preserve">
+    <value>Tu Correo Electrónico</value>
+  </data>
+  <data name="YName" xml:space="preserve">
+    <value>Tu Nombre</value>
+  </data>
+  <data name="Contactus" xml:space="preserve">
+    <value>Contáctanos</value>
+  </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value>Tu Nombre</value>
+  </data>
+  <data name="YMEssage" xml:space="preserve">
+    <value>Tu Mensaje</value>
+  </data>
+  <data name="NoItemsCart" xml:space="preserve">
+    <value>No hay artículos en tu carrito</value>
+  </data>
+  <data name="AddSomethingCart" xml:space="preserve">
+    <value>Agrega algo a tu carrito</value>
+  </data>
+  <data name="SearchBooks" xml:space="preserve">
+    <value>🔍Buscar libros...</value>
+  </data>
+  <data name="SearchBooksStores" xml:space="preserve">
+    <value>🔍Buscar librerías...</value>
+  </data>
+  <data name="CurrentLocation" xml:space="preserve">
+    <value>Ubicación Actual</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Agregar al Carrito</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Editorial</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>Más Información</value>
+  </data>
+  <data name="NoInfoAboutThisProduct" xml:space="preserve">
+    <value>No hay información sobre este producto</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descripción:</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Reseñas</value>
+  </data>
+  <data name="NoReviews" xml:space="preserve">
+    <value>Aún no hay reseñas</value>
+  </data>
+  <data name="CatalogSummaryError" xml:space="preserve">
+    <value> Algo salió mal, vuelve a cargar la aplicación</value>
+  </data>
+  <data name="CatalogSummaryTemplate" xml:space="preserve">
+    <value> Tenemos una impresionante colección de libros compuesta por {0} libros, divididos en {1} géneros. Tenemos libros con precios que oscilan entre {2} y {3}. Lo que hace que el precio medio de nuestros libros sea {4}. Todos los {5} autores y los {6} editores están muy contentos de formar parte de nuestra colección. Así que hay opciones para todos.</value>
+  </data>
+  <data name="OurBookcatalog" xml:space="preserve">
+    <value>Nuestro catálogo de libros
+
+</value>
+  </data>
+  <data name="NoBooks" xml:space="preserve">
+    <value>No se encontraron libros</value>
+  </data>
+  <data name="TryAdjusting" xml:space="preserve">
+    <value>Intenta ajustar tu búsqueda</value>
+  </data>
+  <data name="PriceInclTax" xml:space="preserve">
+    <value>Precio IVA incluido:</value>
+  </data>
+  <data name="Tax" xml:space="preserve">
+    <value>IVA</value>
+  </data>
+	<data name="Subtotal" xml:space="preserve">
+    <value>Subtotal:</value>
+  </data>
+	<data name="Genres" xml:space="preserve">
+  <value>Géneros</value>
+</data>
+	<data name="Authors" xml:space="preserve">
+  <value>Autores</value>
+</data>
+
+</root>
