@@ -6,7 +6,7 @@ In this repository you find the application I made for my internship at Cegeka
 
 ## The ReadMe
 ### Versions: 
-  - [v1.0 ReadMe (Console Application)](Documentation/README.ConsoleApplication.md)
+  - [v1.0 ReadMe (Console Application)](/Documentation/README.ConsoleApplication.md)
   - [v2.0 ReadMe (ASP.Net Application)](#)
 
 ### Table of contents:
@@ -76,7 +76,7 @@ To run this application, first you download the folder [v2.x](Published Applicat
 ### Start the application
 you go to the "v2.x" Folder and start the "BookCatalog.exe" file. The Application will start.
 
-![Application Exe file](Documentation/images/ExeFile.png "Application file")
+![Application Exe file](/Documentation/images/ExeFile.png "Application file")
 
 #### Database
 In the program.cs file it is declared that the migration file will run if the database doesn't exist yet it will be created and seeded, so no need for creating the database. 
@@ -86,38 +86,38 @@ You see the terminal opening up to start the application, normally the Applicati
 
 #### Terminal display
 
-![Run Console screen](Documentation/images/runningprogram.png)
+![Run Console screen](/Documentation/images/runningprogram.png)
 
 # Screens
 There are a few screens created with ASP.NET, most screens are created with MVC, some with Razorpages, Search is created with Blazorpages
 
 ## Navigation
-![Home Page](Documentation/images/homepage.png)
+![Home Page](/Documentation/images/homepage.png)
 
 When you open the application, the first screen you see is the homepage, at the top of the screen you see the navbar, that is embedded in the layout file, using a partial. The navbar itself has a logo, 2 mvc links using ASP.NET taghelpers to generate a link to a specific action in a chosen controller. 
 
 The navbar is responsive for smaller devices
 
-![Responsive navbar](Documentation/images/ResponsiveNavbar.png)
+![Responsive navbar](/Documentation/images/ResponsiveNavbar.png)
 
 ### Search
 Then we have the searchbar which is a form that takes a parameter and put it into the url and then brings it to the blazor search page, here the url gets read and the parameter gets taken out and used as a search parameter
 
-![Text Search Parameter](Documentation/images/TextSearchParameter.png)
+![Text Search Parameter](/Documentation/images/TextSearchParameter.png)
 
 ### Login Partial
 To the farthest right of the screen is another partial that is a dropdown link, it uses bootstrap.min.js, and specifically the popper library that enables the dropdown link. Bootstrap is used for the styling, inside the partial AspNetCore.Identity is used to determine if a user is logged in or not, when not logged in the options are Register and Login  
 
-![Dropdown Login Partial](Documentation/images/DropdownLoginPartial.png)
+![Dropdown Login Partial](/Documentation/images/DropdownLoginPartial.png)
 
 When you are logged in the options you get are your account, which brings you to your account dashboard where you can edit your account, or the logout option to logout.
 
-![Dropdown Logged in Partial](Documentation/images/DropdownLoggedinPartial.png)
+![Dropdown Logged in Partial](/Documentation/images/DropdownLoggedinPartial.png)
 
 ## Homescreen
 On the homescreen itself you see the latest statistics being read out of the database, this part is actually adjustable in the controller of the page, you can choose on what part of data the statistics are calculated on.
 
-![Homescreen statistics](Documentation/images/Homescreen.png)
+![Homescreen statistics](/Documentation/images/Homescreen.png)
 
 These are the options you can get all statistics on, only numeric values of course, the rest of the methods in the repository are also adjustable using all the possible values.
 ```
@@ -131,13 +131,13 @@ These are the options you can get all statistics on, only numeric values of cour
 ## Books screen
 When we nagivate to the book screen we see all the books that are in the database grouped by their genre, I used bootstrap card elements to give a good overview and keep responsivity on different devices.
 
-![Bookscreen](Documentation/images/BooksListPerGenrescreen.png)
+![Bookscreen](/Documentation/images/BooksListPerGenrescreen.png)
 
 ## BookDetail
 
 When pressing on the detail button of a specific book you get the details page of this book showing the cover, The title, the author, genre and the price, here you can also to edit the book or delete the book. For these actions a login is required.
 
-![Book details page](Documentation/images/Bookdetailspage.png)
+![Book details page](/Documentation/images/Bookdetailspage.png)
 
 ## Account
 
@@ -146,25 +146,25 @@ The authentication and authorization is part of the library provided by Entity F
 ### Register
 This page is for new user who do not have an account yet, therefor they can use to screen to make a new account, there is the possibility to use third party providers for registering a user, but i removed this part in the screen, I also styled the screen to match the rest of the screen.
 
-![Register screen](Documentation/images/Registerscreen.png)
+![Register screen](/Documentation/images/Registerscreen.png)
 
 ### Login
 
 This page is as the name explains to log in as a user with an existing account, the page is minimally adjusted by me just to match the layout of the rest of the webapplication also the login screen is centered. You have the possibly to login, or register with third party providers like google, or microsoft, I have this not set up so I removed this part of the screen.
 
-![Login screen](Documentation/images/Loginscreen.png)
+![Login screen](/Documentation/images/Loginscreen.png)
 
 ### Editing the account
 This page is not edited by me except the colors to match my layout, as you can see it is easily to integrate without making any changes.
 
 Here you can change your account, it is also possible to setup Two-factor authentication. You can also download or delete your personal data
 
-![Editing the account](Documentation/images/EditingTheAccount.png)
+![Editing the account](/Documentation/images/EditingTheAccount.png)
 ### Search
 
 Using a blazor page the search page is build to get the search query which is coupled to a property in the class of this page that will use the search method in the repository to see if the book exist or if there are more books that match this search criteria. You can also filter on a specific genre, If you put in an Id it is also possible to get a result, the class try's to parse the Id in a GUID and searches for a result, if there is a result this will be returned if not it will look for the other search method with the parameter given.
 
-![Search](Documentation/images/searchblazorscreen.png)
+![Search](/Documentation/images/searchblazorscreen.png)
 
 ## Authorization
 As said before already EF Core Identity is used to block certain actions for a not logged in user, all following actions require a login of the user.
@@ -172,18 +172,18 @@ As said before already EF Core Identity is used to block certain actions for a n
 ### Adding a Book
 When adding a book you get a form to fill in with all the input fields for each property in a book.
 
-![Creating BookForm](Documentation/images/AddBookForm.png)
+![Creating BookForm](/Documentation/images/AddBookForm.png)
 
 The Page uses back and front end validation, meaning that a book that doesn't match the validation rules will not be added to the database and return the page with the book filled in the form again, but that the user also gets realtime data saying where to adjust the form, using Jquery
 
-![Front End Validation](Documentation/images/FrontEndValidation.png)
+![Front End Validation](/Documentation/images/FrontEndValidation.png)
 
 When clicking on submit the page will create the Book, when clicking cancel the page books get returned again.
 
 ### Updating
 When going to the details page of a specific book you can choose to edit a book, when doing this you get the same form for filling in a new book, this time filled in with the book we want to edit. When creating a book it is always available, but here we can make it unavailable. The same validation is for this screen, because it is the exact same screen and method, it just checks the parameter that is checked when a book is updated instead of a new book is added.
 
-![alt text](Documentation/images/UpdateForm.png)
+![alt text](/Documentation/images/UpdateForm.png)
 
 ### Delete
 When going to a detail page you can press delete which deletes the book out of the database
@@ -212,9 +212,9 @@ based on the Id
 #### Postman
 I've made a postman file you can import in postman to test all the endpoints, when running the application.
 
-[Postman File](Documentation/PostManTest/BookCatalogAPITester.postman_collection.json)
+[Postman File](/Documentation/PostManTest/BookCatalogAPITester.postman_collection.json)
 
-![Postman](Documentation/images/APIPostman.png)
+![Postman](/Documentation/images/APIPostman.png)
 
 So you can test all the endpoints with each option
 
@@ -253,7 +253,7 @@ There are tests for following functionalities:
     - Saving
     - Reading
 
-![Successful tests](Documentation/images/Tests24.png)
+![Successful tests](/Documentation/images/Tests24.png)
 
 ## Principles Used
 ### Single Responsibility Principle (SRP)
