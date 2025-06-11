@@ -377,7 +377,7 @@ You can easily **add books to your cart**. For example, adding 2 copies of "1984
 
 The **Cart** tab shows all added items with their respective prices. Each item has a **trash can icon** next to it, allowing you to remove the item. The subtotal automatically adjusts.
 
-<center><h4>MAUI Shopping Cart</h4><img width=400 src="Documentation/images/MAUI/PhoneCart2Article.jpg.jpg" alt="MAUI Shopping Cart"></center>
+<center><h4>MAUI Shopping Cart</h4><img width=400 src="Documentation/images/MAUI/PhoneCart2Article.jpg" alt="MAUI Shopping Cart"></center>
 <br>
 <center><h4>MAUI Shopping Cart after deleting an item</h4><img width=400 src="Documentation/images/MAUI/PhoneCart.jpg" alt="MAUI Shopping Cart"></center>
 <br>
