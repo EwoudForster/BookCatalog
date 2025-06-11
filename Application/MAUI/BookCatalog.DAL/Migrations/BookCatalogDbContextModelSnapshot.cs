@@ -17,7 +17,7 @@ namespace BookCatalog.DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.4")
+                .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Proxies:ChangeTracking", false)
                 .HasAnnotation("Proxies:CheckEquality", false)
                 .HasAnnotation("Proxies:LazyLoading", true)
@@ -241,7 +241,59 @@ namespace BookCatalog.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MoreInfo");
+                    b.ToTable("MoreInfos");
+                });
+
+            modelBuilder.Entity("BookCatalog.DAL.Models.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PersonId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("BookCatalog.DAL.Models.OrderItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("BookId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("BookCatalog.DAL.Models.Picture", b =>
@@ -614,6 +666,36 @@ namespace BookCatalog.DAL.Migrations
                     b.Navigation("Publisher");
                 });
 
+            modelBuilder.Entity("BookCatalog.DAL.Models.Order", b =>
+                {
+                    b.HasOne("BookCatalog.DAL.Models.User", "Person")
+                        .WithMany("Orders")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("BookCatalog.DAL.Models.OrderItem", b =>
+                {
+                    b.HasOne("BookCatalog.DAL.Models.Book", "Book")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookCatalog.DAL.Models.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("BookCatalog.DAL.Models.Picture", b =>
                 {
                     b.HasOne("BookCatalog.DAL.Models.Book", "Book")
@@ -729,6 +811,8 @@ namespace BookCatalog.DAL.Migrations
 
             modelBuilder.Entity("BookCatalog.DAL.Models.Book", b =>
                 {
+                    b.Navigation("OrderItems");
+
                     b.Navigation("Pictures");
 
                     b.Navigation("Reviews");
@@ -739,6 +823,11 @@ namespace BookCatalog.DAL.Migrations
                     b.Navigation("Pictures");
                 });
 
+            modelBuilder.Entity("BookCatalog.DAL.Models.Order", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
             modelBuilder.Entity("BookCatalog.DAL.Models.Publisher", b =>
                 {
                     b.Navigation("Books");
@@ -746,6 +835,8 @@ namespace BookCatalog.DAL.Migrations
 
             modelBuilder.Entity("BookCatalog.DAL.Models.User", b =>
                 {
+                    b.Navigation("Orders");
+
                     b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618

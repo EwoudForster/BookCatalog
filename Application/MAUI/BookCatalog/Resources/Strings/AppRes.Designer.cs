@@ -151,7 +151,7 @@ namespace BookCatalog.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  We have an impressive collection of books existing out of {0} books, divided into {1} genres. We have books ranging in prices of {2} and {3}. Which makes the average price of our books {4}. All the {5} authors and {6} publishers are very happy to be in our collection. So there is a choice for everyone..
+        ///   Looks up a localized string similar to We have an impressive collection of books existing out of {0} books, divided into {1} genres. We have books ranging in prices of {2} and {3}. Which makes the average price of our books {4}. All the {5} authors and {6} publishers are very happy to be in our collection. So there is a choice for everyone..
         /// </summary>
         public static string CatalogSummaryTemplate {
             get {
@@ -250,6 +250,15 @@ namespace BookCatalog.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string FirstName {
+            get {
+                return ResourceManager.GetString("FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Genres.
         /// </summary>
         public static string Genres {
@@ -273,6 +282,15 @@ namespace BookCatalog.Resources.Strings {
         public static string HomePageTitle {
             get {
                 return ResourceManager.GetString("HomePageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string LastName {
+            get {
+                return ResourceManager.GetString("LastName", resourceCulture);
             }
         }
         
@@ -304,7 +322,7 @@ namespace BookCatalog.Resources.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LoginPageTitle.
+        ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string LoginPageTitle {
             get {

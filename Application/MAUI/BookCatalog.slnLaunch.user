@@ -28,7 +28,7 @@
       {
         "Path": "BookCatalog\\BookCatalog.MAUI.csproj",
         "Action": "Start",
-        "DebugTarget": "Samsung SM-A528B (Android 13.0 - API 33)"
+        "DebugTarget": "Samsung SM-M526BR (Android 13.0 - API 33)"
       }
     ]
   }

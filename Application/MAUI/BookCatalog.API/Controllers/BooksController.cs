@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BookCatalog.DAL;
+﻿using AutoMapper;
+using BookCatalog.DAL.DTO;
+using BookCatalog.DAL.Logging;
+using BookCatalog.DAL.Models;
 using BookCatalog.DAL.Repositories;
 using Microsoft.AspNetCore.Authorization;
-using AutoMapper;
-using BookCatalog.DAL.DTO;
-using BookCatalog.DAL.Models;
-using BookCatalog.DAL.Logging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookCatalog.API;
 
@@ -20,6 +19,7 @@ public class BooksController : ControllerBase
     private readonly IAuthorRepository _authorRepository;
     private readonly IPublisherRepository _publisherRepository;
     private readonly IRepository<Picture> _pictureRepository;
+    private readonly IMoreInfoRepository _moreInfoRepository;
 
     // making a private readonly field of the logger
     private readonly ILogger<BooksController> _logger;
@@ -27,7 +27,7 @@ public class BooksController : ControllerBase
 
 
     // creating a constructor for the BooksController with dependency injection parameters for the BookRepository and the logger
-    public BooksController(IBookRepository bookRepository,IRepository<Picture> pictureRepository, IPublisherRepository publisherRepository,IGenreRepository genreRepository,IAuthorRepository authorRepository, ILogger<BooksController> logger, IMapper mapper)
+    public BooksController(IBookRepository bookRepository, IRepository<Picture> pictureRepository, IMoreInfoRepository moreInfoRepository, IPublisherRepository publisherRepository, IGenreRepository genreRepository, IAuthorRepository authorRepository, ILogger<BooksController> logger, IMapper mapper)
     {
         try
         {
@@ -101,7 +101,7 @@ public class BooksController : ControllerBase
     // PUT: api/Books/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut]
-   [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public async Task<IActionResult> PutBook([FromBody] BookCreateDTO BookCreate)
     {
         try
@@ -111,6 +111,7 @@ public class BooksController : ControllerBase
             List<Author> Authors = new();
             List<Genre> Genres = new();
             List<Picture> Pictures = new();
+            List<MoreInfo> MoreInfos = new();
             foreach (var AuthorId in BookCreate.AuthorIds)
             {
                 Authors.Add(await _authorRepository.GetById(AuthorId));
@@ -123,6 +124,10 @@ public class BooksController : ControllerBase
             {
                 Pictures.Add(await _pictureRepository.GetById(PictureId));
             }
+            foreach (var MoreInfoId in BookCreate.MoreInfoIds)
+            {
+                MoreInfos.Add(await _moreInfoRepository.GetById(MoreInfoId));
+            }
 
             if (Publisher == null) return NotFound("Publisher not found");
 
@@ -134,6 +139,7 @@ public class BooksController : ControllerBase
             CreatedBook.Authors = Authors;
             CreatedBook.Genres = Genres;
             CreatedBook.Pictures = Pictures;
+            CreatedBook.MoreInfos = MoreInfos;
 
             // updating the book
             await _bookRepository.Update(CreatedBook);
@@ -156,7 +162,7 @@ public class BooksController : ControllerBase
     // POST: api/Books
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-   [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public async Task<ActionResult<Book>> PostBook([FromBody] BookCreateDTO BookCreate)
     {
         try
@@ -204,7 +210,7 @@ public class BooksController : ControllerBase
 
     // DELETE: api/Books/5
     [HttpDelete("{id}")]
-   [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public async Task<IActionResult> DeleteBook(Guid id)
     {
         try

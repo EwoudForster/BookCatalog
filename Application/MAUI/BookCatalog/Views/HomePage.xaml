@@ -15,10 +15,12 @@
         <toolkit:StatusBarBehavior StatusBarColor="#98A0B2"/>
     </ContentPage.Behaviors>
     <Shell.TitleView>
-        <Grid Padding="15,20,15,10"
-              ColumnSpacing="10"
+        <Grid Padding="0,15,0,15"
+              Margin="0"
+            ColumnSpacing="10"
+              
               VerticalOptions="Center"
-              BackgroundColor="White">
+              >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
@@ -48,8 +50,7 @@
                    HasShadow="True"
                    Padding="0"
                    HeightRequest="200"
-                   IsClippedToBounds="True"
-                   BackgroundColor="Transparent">
+                   IsClippedToBounds="True">
                     <Grid>
 
 

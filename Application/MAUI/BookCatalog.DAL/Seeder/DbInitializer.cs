@@ -3,11 +3,6 @@ using BookCatalog.DAL.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System;
-using System.ComponentModel.DataAnnotations;
-using static ServiceStack.LicenseUtils;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BookCatalog.DAL.Storage.DataBase.Seeder;
 
@@ -223,7 +218,684 @@ public static class DbInitializer
             await context.SaveChangesAsync();
         }
 
-        
+
+        if (!await context.MoreInfos.AnyAsync())
+        {
+            List<MoreInfo> moreInfos = new()
+    {
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Pulitzer Prize Winner",
+            Description = "Winner of the prestigious Pulitzer Prize for Fiction, recognizing excellence in literature."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Nobel Prize in Literature",
+            Description = "Author received the Nobel Prize in Literature for their outstanding contribution to world literature."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Hugo Award Winner",
+            Description = "Winner of the Hugo Award for Best Novel, the premier award for science fiction and fantasy literature."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Newbery Medal Winner",
+            Description = "Recipient of the Newbery Medal, awarded annually for the most distinguished American children's book."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Man Booker Prize Winner",
+            Description = "Winner of the prestigious Man Booker Prize for Fiction, celebrating the finest in contemporary literature."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "National Book Award Winner",
+            Description = "Recipient of the National Book Award, recognizing outstanding literary work by American authors."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Edgar Award Winner",
+            Description = "Winner of the Edgar Award for Best Novel, recognizing excellence in mystery and crime writing."
+        },
+
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Major Motion Picture",
+            Description = "Adapted into a successful major motion picture that received critical acclaim and commercial success."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Television Series Adaptation",
+            Description = "Adapted into a popular television series that has garnered international recognition."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Broadway Musical",
+            Description = "Adapted into a successful Broadway musical production."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Graphic Novel Adaptation",
+            Description = "Successfully adapted into graphic novel format, bringing visual storytelling to the narrative."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Video Game Adaptation",
+            Description = "Inspired video game adaptations that allow readers to experience the story interactively."
+        },
+
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "New York Times Bestseller",
+            Description = "Appeared on The New York Times Best Seller list, indicating exceptional sales and popularity."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "International Bestseller",
+            Description = "Achieved bestseller status in multiple countries and has been translated into numerous languages."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Over 50 Million Copies Sold",
+            Description = "Has sold over 50 million copies worldwide, demonstrating its enduring appeal and impact."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Translated into 100+ Languages",
+            Description = "Translated into over 100 languages, making it accessible to readers worldwide."
+        },
+
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "High School Curriculum",
+            Description = "Widely included in high school English curricula as required reading for students."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "University Study Subject",
+            Description = "Frequently studied in university literature courses and used as subject for academic research."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Cultural Phenomenon",
+            Description = "Became a cultural phenomenon that influenced popular culture and spawned numerous references in other media."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Banned Book",
+            Description = "Has been subject to censorship and banning in some regions due to controversial themes, highlighting its impact."
+        },
+
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Genre Defining Work",
+            Description = "Considered a defining work of its genre that influenced countless subsequent authors and works."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Literary Classic",
+            Description = "Recognized as a literary classic that continues to be relevant and influential decades after publication."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Debut Novel",
+            Description = "Remarkable debut novel that launched the author's successful literary career."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Final Work",
+            Description = "The author's final completed work, representing the culmination of their literary journey."
+        },
+
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Collector's Edition Available",
+            Description = "Special collector's editions with unique cover art, illustrations, and additional content are available."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Annotated Edition",
+            Description = "Annotated editions available with scholarly commentary and historical context."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Illustrated Edition",
+            Description = "Beautiful illustrated editions featuring artwork that complements the narrative."
+        },
+
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Posthumous Publication",
+            Description = "Published after the author's death, representing their final literary contribution."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Pseudonym Work",
+            Description = "Originally published under a pseudonym, adding mystery to the work's origins."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Biographical Elements",
+            Description = "Contains significant autobiographical elements, offering insights into the author's life and experiences."
+        },
+
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Quick Read",
+            Description = "Can be comfortably read in a single sitting, making it perfect for busy readers."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Epic Length",
+            Description = "An epic-length novel that provides an immersive reading experience spanning many hours."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Multiple Perspectives",
+            Description = "Told from multiple character perspectives, offering a rich and complex narrative structure."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Unreliable Narrator",
+            Description = "Features an unreliable narrator, adding layers of complexity and intrigue to the storytelling."
+        },
+
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "First in Series",
+            Description = "The first book in a beloved series that continues the story across multiple volumes."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Standalone Novel",
+            Description = "A complete standalone story that doesn't require reading other books in the series."
+        },
+        new MoreInfo
+        {
+            Id = Guid.NewGuid(),
+            Name = "Series Finale",
+            Description = "The concluding volume of a popular series, bringing beloved characters' stories to a close."
+        }
+    };
+
+            await context.MoreInfos.AddRangeAsync(moreInfos);
+            await context.SaveChangesAsync();
+
+            var books = await context.Books.Include(b => b.MoreInfos).ToListAsync();
+            var allMoreInfos = await context.MoreInfos.ToListAsync();
+
+            MoreInfo GetMoreInfo(string name) => allMoreInfos.First(mi => mi.Name == name);
+
+            var toKillAMockingbird = books.First(b => b.Title == "To Kill a Mockingbird");
+            toKillAMockingbird.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Pulitzer Prize Winner"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("Banned Book")
+    };
+
+            var nineteenEightyFour = books.First(b => b.Title == "1984");
+            nineteenEightyFour.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("Cultural Phenomenon"),
+        GetMoreInfo("Banned Book"),
+        GetMoreInfo("Television Series Adaptation")
+    };
+
+            var greatGatsby = books.First(b => b.Title == "The Great Gatsby");
+            greatGatsby.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("University Study Subject")
+    };
+
+            var prideAndPrejudice = books.First(b => b.Title == "Pride and Prejudice");
+            prideAndPrejudice.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("Television Series Adaptation"),
+        GetMoreInfo("University Study Subject")
+    };
+
+            var theHobbit = books.First(b => b.Title == "The Hobbit");
+            theHobbit.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Translated into 100+ Languages"),
+        GetMoreInfo("First in Series")
+    };
+
+            var harryPotter = books.First(b => b.Title == "Harry Potter and the Philosopher's Stone");
+            harryPotter.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Over 50 Million Copies Sold"),
+        GetMoreInfo("Cultural Phenomenon"),
+        GetMoreInfo("First in Series"),
+        GetMoreInfo("Debut Novel")
+    };
+
+            var lordOfRings = books.First(b => b.Title == "The Lord of the Rings");
+            lordOfRings.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Epic Length"),
+        GetMoreInfo("Genre Defining Work"),
+        GetMoreInfo("Translated into 100+ Languages")
+    };
+
+            var catcherInRye = books.First(b => b.Title == "The Catcher in the Rye");
+            catcherInRye.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("Banned Book"),
+        GetMoreInfo("Cultural Phenomenon")
+    };
+
+            var braveNewWorld = books.First(b => b.Title == "Brave New World");
+            braveNewWorld.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("Genre Defining Work"),
+        GetMoreInfo("University Study Subject")
+    };
+
+            var theAlchemist = books.First(b => b.Title == "The Alchemist");
+            theAlchemist.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Translated into 100+ Languages"),
+        GetMoreInfo("Over 50 Million Copies Sold"),
+        GetMoreInfo("Quick Read")
+    };
+
+            var hungerGames = books.First(b => b.Title == "The Hunger Games");
+            hungerGames.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Cultural Phenomenon"),
+        GetMoreInfo("First in Series")
+    };
+
+            var daVinciCode = books.First(b => b.Title == "The Da Vinci Code");
+            daVinciCode.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Cultural Phenomenon")
+    };
+
+            var taleOfTwoCities = books.First(b => b.Title == "A Tale of Two Cities");
+            taleOfTwoCities.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("University Study Subject"),
+        GetMoreInfo("Multiple Perspectives")
+    };
+
+            var theOdyssey = books.First(b => b.Title == "The Odyssey");
+            theOdyssey.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("University Study Subject"),
+        GetMoreInfo("Epic Length"),
+        GetMoreInfo("Genre Defining Work")
+    };
+
+            var theShining = books.First(b => b.Title == "The Shining");
+            theShining.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("Cultural Phenomenon"),
+        GetMoreInfo("Genre Defining Work")
+    };
+
+            var grapesOfWrath = books.First(b => b.Title == "The Grapes of Wrath");
+            grapesOfWrath.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Pulitzer Prize Winner"),
+        GetMoreInfo("Nobel Prize in Literature"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("Literary Classic")
+    };
+
+            var mobyDick = books.First(b => b.Title == "Moby-Dick");
+            mobyDick.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("University Study Subject"),
+        GetMoreInfo("Epic Length"),
+        GetMoreInfo("Genre Defining Work")
+    };
+
+            var oneHundredYears = books.First(b => b.Title == "One Hundred Years of Solitude");
+            oneHundredYears.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Nobel Prize in Literature"),
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Genre Defining Work")
+    };
+
+            var crimeAndPunishment = books.First(b => b.Title == "Crime and Punishment");
+            crimeAndPunishment.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("University Study Subject"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Epic Length")
+    };
+
+            var wutheringHeights = books.First(b => b.Title == "Wuthering Heights");
+            wutheringHeights.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("University Study Subject"),
+        GetMoreInfo("Debut Novel"),
+        GetMoreInfo("Multiple Perspectives")
+    };
+
+            var pictureOfDorian = books.First(b => b.Title == "The Picture of Dorian Gray");
+            pictureOfDorian.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("University Study Subject")
+    };
+
+            var countOfMonteCristo = books.First(b => b.Title == "The Count of Monte Cristo");
+            countOfMonteCristo.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("Epic Length"),
+        GetMoreInfo("International Bestseller")
+    };
+
+            var silentPatient = books.First(b => b.Title == "The Silent Patient");
+            silentPatient.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Debut Novel"),
+        GetMoreInfo("Unreliable Narrator")
+    };
+
+            var crawdadsSing = books.First(b => b.Title == "Where the Crawdads Sing");
+            crawdadsSing.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Debut Novel")
+    };
+
+            var educated = books.First(b => b.Title == "Educated");
+            educated.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Biographical Elements"),
+        GetMoreInfo("Debut Novel")
+    };
+
+            var sapiens = books.First(b => b.Title == "Sapiens: A Brief History of Humankind");
+            sapiens.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Translated into 100+ Languages"),
+        GetMoreInfo("University Study Subject")
+    };
+
+            var becoming = books.First(b => b.Title == "Becoming");
+            becoming.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Biographical Elements"),
+        GetMoreInfo("Cultural Phenomenon")
+    };
+
+            var girlOnTrain = books.First(b => b.Title == "The Girl on the Train");
+            girlOnTrain.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Unreliable Narrator")
+    };
+
+            var gameOfThrones = books.First(b => b.Title == "A Game of Thrones");
+            gameOfThrones.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Television Series Adaptation"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Cultural Phenomenon"),
+        GetMoreInfo("First in Series"),
+        GetMoreInfo("Epic Length")
+    };
+
+            var kiteRunner = books.First(b => b.Title == "The Kite Runner");
+            kiteRunner.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Debut Novel")
+    };
+
+            var lifeOfPi = books.First(b => b.Title == "Life of Pi");
+            lifeOfPi.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Man Booker Prize Winner"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller")
+    };
+
+            var bookThief = books.First(b => b.Title == "The Book Thief");
+            bookThief.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("Multiple Perspectives"),
+        GetMoreInfo("High School Curriculum")
+    };
+
+            var theRoad = books.First(b => b.Title == "The Road");
+            theRoad.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Pulitzer Prize Winner"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("Literary Classic")
+    };
+
+            var fahrenheit451 = books.First(b => b.Title == "Fahrenheit 451");
+            fahrenheit451.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("Cultural Phenomenon"),
+        GetMoreInfo("Genre Defining Work")
+    };
+
+            var handmaidsTale = books.First(b => b.Title == "The Handmaid's Tale");
+            handmaidsTale.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Television Series Adaptation"),
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("Cultural Phenomenon")
+    };
+
+            var theGiver = books.First(b => b.Title == "The Giver");
+            theGiver.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Newbery Medal Winner"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("High School Curriculum"),
+        GetMoreInfo("First in Series")
+    };
+
+            var theMartian = books.First(b => b.Title == "The Martian");
+            theMartian.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Hugo Award Winner"),
+        GetMoreInfo("Debut Novel")
+    };
+
+            var goneGirl = books.First(b => b.Title == "Gone Girl");
+            goneGirl.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Unreliable Narrator")
+    };
+
+            var faultInStars = books.First(b => b.Title == "The Fault in Our Stars");
+            faultInStars.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Cultural Phenomenon")
+    };
+
+            var hitchhikersGuide = books.First(b => b.Title == "The Hitchhiker's Guide to the Galaxy");
+            hitchhikersGuide.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Cultural Phenomenon"),
+        GetMoreInfo("Genre Defining Work"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("First in Series")
+    };
+
+            var catch22 = books.First(b => b.Title == "The Catch-22");
+            catch22.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Literary Classic"),
+        GetMoreInfo("University Study Subject"),
+        GetMoreInfo("Cultural Phenomenon")
+    };
+
+            var readyPlayerOne = books.First(b => b.Title == "Ready Player One");
+            readyPlayerOne.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("Cultural Phenomenon"),
+        GetMoreInfo("Debut Novel")
+    };
+
+            var nameOfWind = books.First(b => b.Title == "The Name of the Wind");
+            nameOfWind.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("First in Series"),
+        GetMoreInfo("Debut Novel"),
+        GetMoreInfo("Epic Length")
+    };
+
+            var dune = books.First(b => b.Title == "Dune");
+            dune.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("Hugo Award Winner"),
+        GetMoreInfo("Major Motion Picture"),
+        GetMoreInfo("Genre Defining Work"),
+        GetMoreInfo("First in Series")
+    };
+
+            var roadLessTraveled = books.First(b => b.Title == "The Road Less Traveled");
+            roadLessTraveled.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Over 50 Million Copies Sold")
+    };
+
+            var richDadPoorDad = books.First(b => b.Title == "Rich Dad Poor Dad");
+            richDadPoorDad.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Over 50 Million Copies Sold"),
+        GetMoreInfo("Cultural Phenomenon")
+    };
+
+            var howToWinFriends = books.First(b => b.Title == "How to Win Friends and Influence People");
+            howToWinFriends.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Over 50 Million Copies Sold"),
+        GetMoreInfo("Cultural Phenomenon")
+    };
+
+            var thinkingFastSlow = books.First(b => b.Title == "Thinking, Fast and Slow");
+            thinkingFastSlow.MoreInfos = new List<MoreInfo>
+    {
+        GetMoreInfo("New York Times Bestseller"),
+        GetMoreInfo("International Bestseller"),
+        GetMoreInfo("Nobel Prize in Literature"),
+        GetMoreInfo("University Study Subject")
+    };
+
+            await context.SaveChangesAsync();
+        }
 
         if (!await context.Books.AnyAsync())
         {
@@ -907,7 +1579,7 @@ public static class DbInitializer
                     Name = "John Sandoe Books LTD",
                     Address = "10 Blacklands Terrace, London SW3 2SP, United Kingdom",
                     PhoneNumber = "+44 20 7589 9473",
-                    Latitude= 51.4912989, 
+                    Latitude= 51.4912989,
                     Longitude= -0.1611118,
                     Email = "Johnsandoe@booksltd.com",
                     Pictures = new List<Picture>{ context.Pictures.FirstOrDefault(x => x.ImgUrl == "https://images.pexels.com/photos/626986/pexels-photo-626986.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
@@ -1041,7 +1713,7 @@ public static class DbInitializer
 
                 for (int i = 0; i < numberOfReviewsForThisBook; i++)
                 {
-                    User randomUser = users[random.Next(users.Count-1)];
+                    User randomUser = users[random.Next(users.Count - 1)];
                     int randomRating = random.Next(1, 6);
 
                     string reviewTitle = "";
@@ -1089,5 +1761,5 @@ public static class DbInitializer
 
 
 
-    
+
 }

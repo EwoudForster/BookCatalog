@@ -1,447 +1,504 @@
-<center><img width=200 src="Documentation/images/LogoCegeka.png"></center>
-
-# Bookcatalog Console .Net Application
-
-In this repository you find the application I made for my internship at Cegeka
-
-## The ReadMe
-### Versions: 
-  - [v1.0 ReadMe (Console Application)](Documentation/README.ConsoleApplication.md)
-  - [v2.0 ReadMe (ASP.Net Application)](Documentation/README.ASPNet.md)
-  - [v3.0 ReadMe (MAUI and ASP.NET)](#)
-
-### Table of contents:
-- [Bookcatalog Console .Net Application](#bookcatalog-console-net-application)
-  - [The ReadMe](#the-readme)
-    - [Versions:](#versions)
-    - [Table of contents:](#table-of-contents)
-  - [Application](#application)
-  - [What does the application do](#what-does-the-application-do)
-  - [Setup](#setup)
-    - [How to setup the application](#how-to-setup-the-application)
-  - [Usage](#usage)
-    - [Start the application](#start-the-application)
-      - [Database](#database)
-    - [Start](#start)
-      - [Terminal display](#terminal-display)
-- [Screens](#screens)
-  - [Navigation](#navigation)
-    - [Search](#search)
-    - [Login Partial](#login-partial)
-  - [Homescreen](#homescreen)
-  - [Books screen](#books-screen)
-  - [BookDetail](#bookdetail)
-  - [Account](#account)
-    - [Register](#register)
-    - [Login](#login)
-    - [Editing the account](#editing-the-account)
-    - [Search](#search-1)
-  - [Authorization](#authorization)
-    - [Adding a Book](#adding-a-book)
-    - [Updating](#updating)
-    - [Delete](#delete)
-- [API](#api)
-  - [Endpoints](#endpoints)
-    - [GET:](#get)
-    - [PUT:](#put)
-    - [DELETE:](#delete-1)
-    - [POST:](#post)
-      - [Postman](#postman)
-  - [About the code of the application](#about-the-code-of-the-application)
-    - [Modify](#modify)
-    - [Tests](#tests)
-  - [Principles Used](#principles-used)
-    - [Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
-      - [Dependency injection](#dependency-injection)
-        - [Dependency Container](#dependency-container)
-    - [Interface Segregation Principle](#interface-segregation-principle)
-    - [Reflection](#reflection)
-    - [Generic Repository structure](#generic-repository-structure)
-  - [File Structure](#file-structure)
-        - [Author: Ewoud Forster](#author-ewoud-forster)
+<center><img width=200 src="Documentation/images/MAUI/LogoCegeka.png"></center>
 
 
-## Application
-This is a ASP.NET application existing out of pages for managing a book catalog
+# BookCatalog .NET Application Suite
 
+Welcome to the BookCatalog .NET Application Suite repository! This project showcases a comprehensive solution for managing a book catalog, comprising a robust ASP.NET Core API and a modern .NET MAUI mobile application. This suite was developed as part of an internship at Cegeka.
 
-## What does the application do
-The application is a used as a management and display system for books. You can add, update, delete, search for certain books as well as viewing statistics of the specific book. There is also a searching feature that supports live searching as well as filtering on Genre. There is an API with needed endpoints for using in another application, which I also use in the MAUI Application, everything uses Authorization and Authentication.
+-----
 
-## Setup
-### How to setup the application
-To run this application, first you download the folder [v3.x](Published Application/v3.x) or go to the releases in the repository and download the latest release there. You now unzipping the folder.
+## Table of Contents
 
+  - [BookCatalog .NET Application Suite](https://www.google.com/search?q=%23bookcatalog-net-application-suite)
+      - [The ReadMe](https://www.google.com/search?q=%23the-readme)
+          - [Versions](https://www.google.com/search?q=%23versions)
+          - [Table of Contents](https://www.google.com/search?q=%23table-of-contents)
+      - [Overview](https://www.google.com/search?q=%23overview)
+          - [Key Features](https://www.google.com/search?q=%23key-features)
+      - [Project Architecture](https://www.google.com/search?q=%23project-architecture)
+          - [ASP.NET Core API](https://www.google.com/search?q=%23aspnet-core-api)
+          - [.NET MAUI Mobile Application](https://www.google.com/search?q=%23net-maui-mobile-application)
+          - [Core Principles & Design Patterns](https://www.google.com/search?q=%23core-principles--design-patterns)
+      - [Setup & Installation](https://www.google.com/search?q=%23setup--installation)
+          - [Prerequisites](https://www.google.com/search?q=%23prerequisites)
+          - [Getting Started](https://www.google.com/search?q=%23getting-started)
+              - [Database Setup](https://www.google.com/search?q=%23database-setup)
+              - [Running the API](https://www.google.com/search?q=%23running-the-api)
+              - [Running the MAUI Application](https://www.google.com/search?q=%23running-the-maui-application)
+      - [Usage](https://www.google.com/search?q=%23usage)
+          - [Web Application (ASP.NET Core)](https://www.google.com/search?q=%23web-application-aspnet-core)
+              - [Home Page](https://www.google.com/search?q=%23home-page)
+              - [Authentication & Authorization](https://www.google.com/search?q=%23authentication--authorization)
+              - [Books Management](https://www.google.com/search?q=%23books-management)
+              - [Categories Management (Genres, Authors, Publishers, More Info)](https://www.google.com/search?q=%23categories-management-genres-authors-publishers-more-info)
+              - [Order Management (Admin Only)](https://www.google.com/search?q=%23order-management-admin-only)
+              - [Search Page](https://www.google.com/search?q=%23search-page)
+          - [Mobile Application (.NET MAUI)](https://www.google.com/search?q=%23mobile-application-net-maui)
+              - [Language Localization](https://www.google.com/search?q=%23language-localization)
+              - [Home Page & Initial Access](https://www.google.com/search?q=%23home-page--initial-access)
+              - [Books Overview & Search](https://www.google.com/search?q=%23books-overview--search)
+              - [Book Details & Cart Functionality](https://www.google.com/search?q=%23book-details--cart-functionality)
+              - [Shopping Cart](https://www.google.com/search?q=%23shopping-cart)
+              - [Bookstores](https://www.google.com/search?q=%23bookstores)
+              - [Contact Page](https://www.google.com/search?q=%23contact-page)
+              - [Logout](https://www.google.com/search?q=%23logout)
+      - [API Reference](https://www.google.com/search?q=%23api-reference)
+          - [Authentication Endpoints](https://www.google.com/search?q=%23authentication-endpoints)
+          - [General Endpoints](https://www.google.com/search?q=%23general-endpoints)
+      - [Code Structure & Development](https://www.google.com/search?q=%23code-structure--development)
+          - [File Structure](https://www.google.com/search?q=%23file-structure)
+      - [Author](https://www.google.com/search?q=%23author)
+
+-----
+
+## Overview
+
+This project provides a complete solution for managing and showcasing a book catalog. It consists of two main components: an **ASP.NET Core API** that serves as the backend data and business logic provider, and a **.NET MAUI mobile application** offering a rich user experience for Browse and purchasing books. The web application, built with ASP.NET Core MVC and Blazor, offers administrative functionalities and detailed data views, while the mobile app focuses on user-centric features like Browse, searching, and ordering.
+
+### Key Features
+
+  * **Secure Authentication & Authorization**: Leverages ASP.NET Core Identity for robust user management, including registration with full name, login, and role-based access control.
+  * **Comprehensive Book Management**: Full CRUD (Create, Read, Update, Delete) operations for books, authors, genres, publishers, and "more info" details.
+  * **Advanced Search Capabilities**: Dynamic search functionality in both web and mobile applications, including live search for books on the web and filtering options.
+  * **Order Management System**: Admins can view, detail, and manage customer orders placed through the mobile application.
+  * **Extensive Logging**: Detailed logging of all API and data access layer (DAL) activities, stored in both Entity Framework and file-based logs.
+  * **Statistical Overviews**: Provides insights into the book catalog with statistics displayed on the homepage of both applications.
+  * **Responsive User Interfaces**: Modern and responsive design for both web and mobile applications, adapting to various screen sizes.
+  * **Multi-language Support (MAUI)**: The MAUI application adjusts its language based on the device's system language (English, Dutch, Italian, Spanish).
+  * **Location-based Bookstore Search (MAUI)**: Users can find nearby bookstores using their current location.
+
+-----
+
+## Project Architecture
+
+The solution is built with a clear separation of concerns, adhering to modern software engineering principles to ensure maintainability, scalability, and testability.
+
+<br>
+
+### ASP.NET Core API
+
+The backend is developed using **ASP.NET Core**, providing RESTful endpoints for all data operations. It utilizes **Entity Framework Core** for ORM and database interactions, supporting both SQL Server and in-memory databases for testing.
+
+  * **Authentication**: Implemented using ASP.NET Core Identity, with custom registration for full name.
+  * **Authorization**: Role-based authorization ensures only authorized users can access sensitive endpoints (e.g., admin functionalities).
+  * **Data Access Layer (DAL)**: Employs a **Generic Repository Pattern** to abstract data access, promoting reusability and testability.
+  * **Logging**: Comprehensive logging is implemented throughout the API and DAL, capturing all significant events and actions. Logs are stored both in the database (via EF) and in files for robust auditing.
+  * **Input Validation**: Both **frontend (jQuery Validation)** and **backend (Entity Framework Core)** validation are applied to ensure data integrity.
+
+<br>
+
+### .NET MAUI Mobile Application
+
+The mobile application is developed with **.NET MAUI**, providing a cross-platform solution for Android, iOS, Windows, and macOS. It consumes the ASP.NET Core API for all its data needs.
+
+  * **MVVM (Model-View-ViewModel)**: The application extensively uses the MVVM pattern to separate the UI from the business logic, enhancing testability and maintainability.
+  * **Shell Navigation**: Leverages MAUI Shell for streamlined navigation and a consistent user experience.
+  * **Dependency Injection**: Used to manage dependencies and promote loose coupling.
+  * **Language Localization**: Supports multiple languages to cater to a global audience.
+
+<br>
+
+### Core Principles & Design Patterns
+
+The project adheres to several key software engineering principles and design patterns:
+
+  * **SOLID Principles**:
+      * **Single Responsibility Principle (SRP)**: Each class and module has a single, well-defined responsibility. This is evident in the separation of concerns between controllers, repositories, services, and models.
+      * **Open/Closed Principle (OCP)**: Designed for extensibility without modification.
+      * **Liskov Substitution Principle (LSP)**: Subtypes are substitutable for their base types.
+      * **Interface Segregation Principle (ISP)**: Interfaces are specific to clients, ensuring that no client is forced to implement methods it does not use. Every implemented interface is fully utilized.
+      * **Dependency Inversion Principle (DIP)**: High-level modules do not depend on low-level modules; both depend on abstractions. This is achieved through extensive **Dependency Injection**.
+  * **Dependency Injection (DI)**: Utilized throughout the application, particularly in the ASP.NET Core API's built-in dependency injection container, to manage object creation and dependencies. This reduces coupling and improves testability.
+  * **Generic Repository Pattern**: Provides a standardized way to interact with data sources, abstracting away the underlying data storage mechanism. This makes the data layer reusable across different entity types without code duplication.
+  * **Reflection**: Employed for various purposes, such as dynamic property access (e.g., for `RepositoryFactory`), serialization formats, and obtaining file paths for logging.
+  * **Clean Architecture / Layered Architecture**: The solution is structured into distinct layers (Presentation, Application, Domain, Infrastructure) to promote separation of concerns and maintainability.
+
+-----
+
+## Setup & Installation
+
+Follow these steps to get the BookCatalog application suite up and running on your local machine.
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+  * **.NET SDK 9.0 or later**: [Download .NET SDK](https://dotnet.microsoft.com/download/dotnet)
+  * **Visual Studio 2022 (recommended)**: For full development experience with ASP.NET Core and .NET MAUI workloads.
+  * **SQL Server (optional but recommended for persistence)**: Or any other compatible database for Entity Framework Core.
+  * **Node.js & npm (for frontend tools like jQuery)**: While not strictly required for running the published app, useful for frontend development.
+
+### Getting Started
+
+1.  **Clone the Repository**:
+
+    ```bash
+    git clone https://github.com/EwoudForster/BookCatalog.git
+    cd BookCatalog
+    ```
+
+2.  **Restore NuGet Packages**:
+    Open the solution in Visual Studio or navigate to the `BookCatalog.sln` directory in your terminal and run:
+
+    ```bash
+    dotnet restore
+    ```
+
+<br>
+
+#### Database Setup
+
+The application is configured to automatically handle database migrations and seeding upon startup if the database does not exist.
+
+  * The `Program.cs` file in `BookCatalog.AppHost` (or `BookCatalog` for the web app) ensures that migrations are applied and the database is seeded with initial data if it's empty.
+  * **No manual database creation or migration application is typically needed for initial setup.**
+
+<br>
+
+#### Running the API
+
+The API is part of the `BookCatalog.AppHost` project if you are using .NET Aspire, or `BookCatalog` if it's a standalone ASP.NET Core web application.
+
+1.  **Open in Visual Studio**:
+      * Set `BookCatalog.AppHost` (or `BookCatalog`) as the startup project.
+      * Press `F5` or `Ctrl + F5` to run the application.
+2.  **From Command Line**:
+    Navigate to the `BookCatalog/BookCatalog.AppHost` (or `BookCatalog/BookCatalog`) directory and run:
+    ```bash
+    dotnet run
+    ```
+    The application will start, and the console will display the URL where the API is running (e.g., `http://localhost:port`).
+
+<br>
+
+#### Running the MAUI Application
+
+1.  **Open in Visual Studio**:
+      * Ensure you have the ".NET Multi-platform App UI development" workload installed in Visual Studio.
+      * Set the `BookCatalog.Maui` project as the startup project.
+      * Select your desired target (Android Emulator, iOS Simulator, Windows Machine, etc.) and press `F5` to build and run.
+2.  **From Command Line (for specific platforms)**:
+    Navigate to the `BookCatalog/BookCatalog.Maui` directory and run:
+    ```bash
+    dotnet build -t:Run -f net9.0-android
+    # Or for other platforms:
+    # dotnet build -t:Run -f net9.0-ios
+    # dotnet build -t:Run -f net9.0-windows
+    ```
+
+-----
 
 ## Usage
-### Start the application
-you go to the "v3.x" Folder and start the "BookCatalog.exe" file. The Application will start.
 
-![Application Exe file](Documentation/images/ExeFile.png "Application file")
+This section details how to interact with both the web and mobile applications.
 
-#### Database
-In the program.cs file it is declared that the migration file will run if the database doesn't exist yet it will be created and seeded, so no need for creating the database. 
+-----
 
-### Start
-You see the terminal opening up to start the application, normally the Application starts in the browser. If not the terminal shows the specific port the application is running on, you can "Ctrl + Click" on this link to open in the browser
+### Web Application (ASP.NET Core)
 
-#### Terminal display
+The web application provides a comprehensive interface for managing the book catalog.
 
-![Run Console screen](Documentation/images/runningprogram.png)
+#### Home Page
 
-# Screens
-There are a few screens created with ASP.NET, most screens are created with MVC, some with Razorpages, Search is created with Blazorpages
+Upon launching the web application, you are greeted by an aesthetically pleasing home page with a prominent header and two call-to-action buttons: **"Explore Books"** and **"Genres"**. Below this, a visually engaging section displays key statistics about the book catalog. A "Featured Books" slider further enhances the user experience.
 
-## Navigation
-![Home Page](Documentation/images/homepage.png)
+<center><img width=800 src="Documentation/images/MAUI/HomepageHero.png" alt="Web Home Page"></center>
+<center><img width=800 src="Documentation/images/MAUI/HomePageStatistics.png" alt="Web Home Page"></center>
+<center><img width=800 src="Documentation/images/MAUI/FeaturedBooksHome.png" alt="Web Home Page"></center>
+<br>
 
-When you open the application, the first screen you see is the homepage, at the top of the screen you see the navbar, that is embedded in the layout file, using a partial. The navbar itself has a logo, 2 mvc links using ASP.NET taghelpers to generate a link to a specific action in a chosen controller. 
+The navigation bar, embedded in the layout using a partial, is responsive for smaller devices.
 
-The navbar is responsive for smaller devices
+<center><img width=800 src="Documentation/images/MAUI/MenuAdmin.png" alt="Responsive Navbar"></center>
+<center><img width=800 src="Documentation/images/MAUI/Responsive.png" alt="Responsive Navbar"></center>
+<br>
 
-![Responsive navbar](Documentation/images/ResponsiveNavbar.png)
+The search bar is a form that passes a parameter to the Blazor search page, where it's read and used for searching.
 
-### Search
-Then we have the searchbar which is a form that takes a parameter and put it into the url and then brings it to the blazor search page, here the url gets read and the parameter gets taken out and used as a search parameter
+<center><img width=800 src="Documentation/images/MAUI/Search.png" alt="Text Search Parameter"></center>
+<br>
 
-![Text Search Parameter](Documentation/images/TextSearchParameter.png)
+To the farthest right of the screen is a dropdown link (using Bootstrap's `popper` library) that uses `AspNetCore.Identity` to determine if a user is logged in. When not logged in, options are "Register" and "Login".
 
-### Login Partial
-To the farthest right of the screen is another partial that is a dropdown link, it uses bootstrap.min.js, and specifically the popper library that enables the dropdown link. Bootstrap is used for the styling, inside the partial AspNetCore.Identity is used to determine if a user is logged in or not, when not logged in the options are Register and Login  
+<center><img width=800 src="Documentation/images/MAUI/DropdownAccount.png" alt="Dropdown Login Partial"></center>
+<br>
 
-![Dropdown Login Partial](Documentation/images/DropdownLoginPartial.png)
+When logged in, the dropdown options change to "Your Account" (for editing) and "Logout".
 
-When you are logged in the options you get are your account, which brings you to your account dashboard where you can edit your account, or the logout option to logout.
+<center><img width=800 src="Documentation/images/MAUI/Account.png" alt="Dropdown Logged in Partial"></center>
+<br>
 
-![Dropdown Logged in Partial](Documentation/images/DropdownLoggedinPartial.png)
+#### Authentication & Authorization
 
-## Homescreen
-On the homescreen itself you see the latest statistics being read out of the database, this part is actually adjustable in the controller of the page, you can choose on what part of data the statistics are calculated on.
+Access to most pages within the web application is **authenticated and authorized**. You can log in via a dedicated login page or by clicking on the **profile icon** in the navigation bar, which reveals a dropdown menu with "Login" and "Register" options.
 
-![Homescreen statistics](Documentation/images/Homescreen.png)
 
-These are the options you can get all statistics on, only numeric values of course, the rest of the methods in the repository are also adjustable using all the possible values.
-```
-    public enum BookByStatsOptions
-    {
-        Year,
-        Price,
-        Page,
-    }
-```
-## Books screen
-When we nagivate to the book screen we see all the books that are in the database grouped by their genre, I used bootstrap card elements to give a good overview and keep responsivity on different devices.
+  * **Registration**: The registration process requires your **first name and last name** in addition to standard credentials. Both **frontend (jQuery Validation)** and **backend (Entity Framework Core)** validation are rigorously applied to ensure data integrity during registration and login.
+    <center><img width=800 src="Documentation/images/MAUI/Register.png" alt="Web Register Screen"></center>
+    <br>
+  * **Login**: The login screen is minimalistic and centered, matching the overall design.
+    <center><img width=800 src="Documentation/images/MAUI/Login.png" alt="Web Login Screen"></center>
+    <br>
 
-![Bookscreen](Documentation/images/BooksListPerGenrescreen.png)
+#### Books Management
 
-## BookDetail
+The **Books** page provides a beautiful overview of all books, allowing for **filtering and sorting by genre**. As an **admin user**, you'll have an additional button to **add new books**.
 
-When pressing on the detail button of a specific book you get the details page of this book showing the cover, The title, the author, genre and the price, here you can also to edit the book or delete the book. For these actions a login is required.
+<center><img width=800 src="Documentation/images/MAUI/BooksAdmin.png" alt="Web Books List Per Genre Screen"></center>
+<br>
 
-![Book details page](Documentation/images/Bookdetailspage.png)
+  * **Book Details**: Clicking on a book reveals a detailed view similar to the mobile application, displaying information, reviews, and price. As an admin, you can also **delete or edit** the book from this page.
+      <center><img width=800 src="Documentation/images/MAUI/BookDetailInfo.png" alt="Web Book Details Page"></center>
+    <center><img width=800 src="Documentation/images/MAUI/BookDetailAdmin.png" alt="Web Book Details Page"></center>
 
-## Account
+   <center><img width=800 src="Documentation/images/MAUI/BookDetailReviews.png" alt="Web Book Details Page"></center>
+    <br>
+  * **Adding/Editing Books**: When adding a new book or editing an existing one, a form with validation (frontend and backend) is presented. Real-time feedback is provided via jQuery for frontend validation.
+    <center><img width=800 src="Documentation/images/MAUI/NewBook.png" alt="Web Add Book Form"></center>
+    <br>
+    <center><img width=800 src="Documentation/images/MAUI/FrontEndValidationBook.png" alt="Web Frontend Validation"></center>
+    <br>
+    When updating a book, the form is pre-filled with the existing data, and you can also toggle its availability.
+    <center><img width=800 src="Documentation/images/MAUI/Update.png" alt="Web Update Book Form"></center>
+    <br>
 
-The authentication and authorization is part of the library provided by Entity Framework Core, we can customize it as hard as we want but this is not required. Scaffolding is used for the pages related the account, the logic is read out of this scaffolding library but it is possible to customize this pages as hard as we want.
+#### Categories Management (Genres, Authors, Publishers, More Info)
 
-### Register
-This page is for new user who do not have an account yet, therefor they can use to screen to make a new account, there is the possibility to use third party providers for registering a user, but i removed this part in the screen, I also styled the screen to match the rest of the screen.
+Pages for **Genres, Publishers, Authors, and More Info** follow a consistent layout. Each page displays:
 
-![Register screen](Documentation/images/Registerscreen.png)
+  * The title of the specific category (e.g., "Genre").
+  * The **number of books linked** to that category.
+  * The **minimum, maximum, and average prices** of books within that category.
+  * As an **admin**, you can **delete, edit, or create new entries** for these categories via a dedicated form.
+  * Clicking on a specific category entry (e.g., a genre) will show all books belonging to it. You can also **edit, delete, or create a new entry** from this view.
 
-### Login
+#### Order Management (Admin Only)
 
-This page is as the name explains to log in as a user with an existing account, the page is minimally adjusted by me just to match the layout of the rest of the webapplication also the login screen is centered. You have the possibly to login, or register with third party providers like google, or microsoft, I have this not set up so I removed this part of the screen.
+The **Orders** page serves as a dashboard for all placed orders. Here, administrators can view detailed statistics such as:<br>
+    <center><img width=800 src="Documentation/images/MAUI/OrdersManagement.png" alt="Web Order Details Page"></center>
+    <br>
+  * Total number of orders.
+  * Total revenue.
+  * Total number of items ordered.
+  * Average order value.
+  * A **search bar** allows searching by name, email, or order ID, and you can **filter orders between two dates**.
+  * Each order displays a short and long ID, customer name and email, order date and time, number of items, and total amount.    
+  <br>
+  <center><img width=800 src="Documentation/images/MAUI/OrderDetails.png" alt="Web Order Details Page"></center><br>
+  
+  * **"See Details"** action: Provides a comprehensive view of the order, including individual items, date, ID, customer information, and price per product.
+  * **Delete and Print** actions: Allows for order removal and printing. This page is where you'd see orders placed from the MAUI application.
+  <br>
+  <center><img width=800 src="Documentation/images/MAUI/PDFOrder.png" alt="Web Order Details Page"></center><br>
+    <br>
 
-![Login screen](Documentation/images/Loginscreen.png)
+#### Search Page
 
-### Editing the account
-This page is not edited by me except the colors to match my layout, as you can see it is easily to integrate without making any changes.
+The dedicated **Search Page**, built with **Blazor**, offers a dynamic and interactive search experience.
 
-Here you can change your account, it is also possible to setup Two-factor authentication. You can also download or delete your personal data
+  * The search bar can be used to input any query, and results are displayed **live** as you type.
+  * You can **filter results by genre and author**, and **sort by genre (ascending or descending)**.
+    <center><img width=800 src="Documentation/images/MAUI/FilterSearch.png" alt="Web Blazor Search Page"></center>
+    <br>
 
-![Editing the account](Documentation/images/EditingTheAccount.png)
-### Search
+-----
 
-Using a blazor page the search page is build to get the search query which is coupled to a property in the class of this page that will use the search method in the repository to see if the book exist or if there are more books that match this search criteria. You can also filter on a specific genre, If you put in an Id it is also possible to get a result, the class try's to parse the Id in a GUID and searches for a result, if there is a result this will be returned if not it will look for the other search method with the parameter given.
+### Mobile Application (.NET MAUI)
 
-![Search](Documentation/images/searchblazorscreen.png)
+The .NET MAUI application provides a user-friendly experience for Browse books, managing a cart, and placing orders.
 
-## Authorization
-As said before already EF Core Identity is used to block certain actions for a not logged in user, all following actions require a login of the user.
+#### Language Localization
 
-### Adding a Book
-When adding a book you get a form to fill in with all the input fields for each property in a book.
+The application automatically adjusts its language based on the user's device settings. It supports **English (default), Dutch, Italian, and Spanish**.
 
-![Creating BookForm](Documentation/images/AddBookForm.png)
+#### Home Page & Initial Access
 
-The Page uses back and front end validation, meaning that a book that doesn't match the validation rules will not be added to the database and return the page with the book filled in the form again, but that the user also gets realtime data saying where to adjust the form, using Jquery
+Upon launching the mobile app, you are presented with a **home page displaying statistics** about the book catalog. This is the **only public endpoint** accessible without authentication. You can then choose between three main tabs: **Home, Login, or Register**.
 
-![Front End Validation](Documentation/images/FrontEndValidation.png)
+  * **Authentication**: If you choose to log in or register, the **Login** and **Register** tabs will be replaced with more comprehensive navigation options: **Home, Books, Bookstores, Cart, Contact, and Logout**.
 
-When clicking on submit the page will create the Book, when clicking cancel the page books get returned again.
+<br>
+<center><h4>MAUI Home Page (Pre-Login)</h4><img width=400 src="Documentation/images/MAUI/PhoneStatistics.jpg" alt="MAUI Home Page Pre-Login"></center>
+<br>
+<center><h4>MAUI Login/Register Tabs</h4><img width=400 src="Documentation/images/MAUI/PhoneEmptyRegister.jpg" alt="MAUI Login Register Tabs"></center>
+<br>
+<center><h4>MAUI Home Page (Post-Login with More Tabs)</h4><img width=400 src="Documentation/images/MAUI/PhoneNav.jpg" alt="MAUI Home Page Post-Login"></center>
+<br>
 
-### Updating
-When going to the details page of a specific book you can choose to edit a book, when doing this you get the same form for filling in a new book, this time filled in with the book we want to edit. When creating a book it is always available, but here we can make it unavailable. The same validation is for this screen, because it is the exact same screen and method, it just checks the parameter that is checked when a book is updated instead of a new book is added.
+##### Frontend Validation
+<center><h4>Empty Fields</h4><img width=400 src="Documentation/images/MAUI/PhoneRegisterEmptyFieldsValidation.jpg" alt="MAUI Home Page Post-Login"></center>
+<br>
+<center><h4>Password match</h4><img width=400 src="Documentation/images/MAUI/PhoneRegisterFrontendValidation.jpg" alt="MAUI Home Page Post-Login"></center>
+<br>
 
-![alt text](Documentation/images/UpdateForm.png)
+<center><h4>Login Fail</h4><img width=400 src="Documentation/images/MAUI/PhoneRegisterFrontendValidation.jpg" alt="MAUI Home Page Post-Login"></center>
+<br>
+<center><h4>Password minimum requirements</h4><img width=400 src="Documentation/images/MAUI/PhoneFrontendvalidationPassword.jpg" alt="MAUI Home Page Post-Login"></center>
+<br>
 
-### Delete
-When going to a detail page you can press delete which deletes the book out of the database
 
-# API
+#### Books Overview & Search
 
-I've also created a REST API for the blazor search page, but I've expanded the whole API so it is perfectly useable for other applications singly by using the API Endpoints. These are the following endpoints:
+Navigating to the **Books** tab provides a clean overview of all books in the catalog. A **Shell search bar** allows you to search for any book.
 
-## Endpoints
-### GET:
-
-* http://localhost:port/api/Book => For getting al the books in the database
-* http://localhost:port/api/Book/id => For getting a specific book in the database 
-based on the Id
-
-### PUT:
-* http://localhost:port/api/Book => For updating a specific Endpoint, the book is given in the body
-
-### DELETE:
-* http://localhost:port/api/Book/id => For deleting a specific book with the id as reference
-
-### POST:
-* http://localhost:port/api/Book => For creating a new book, the book is given in the body
-* http://localhost:port/api/BookSearch => For searching a book on id or on title, author, publisher or genre
-
-#### Postman
-I've made a postman file you can import in postman to test all the endpoints, when running the application.
-
-[Postman File](Documentation/PostManTest/BookCatalogAPITester.postman_collection.json)
-
-![Postman](Documentation/images/APIPostman.png)
-
-So you can test all the endpoints with each option
-
-## About the code of the application
-### Modify
-If you want to make modifications you need to go into the application folder, open the IDE you want to use, best Visual Studio. When you make your modifications, and you are ready, you can publish the application again. Now you again go to the PublishedApplication folder and you are done.
-
-### Tests
-In the solution there is a project dedicated to tests, in here the specific functionalities are tested, there are 21 tests and they are all successful
-
-v2.x: For The ASP.NET part of the application 3 Tests were added, for each controller there is, So in total there are 24 Tests
-
-There are tests for following functionalities:
-- Controllers:
-    - BookController 
-    - HomeController
-- Genericrepository:
-    - Searching 
-    - Adding
-    - Updating
-    - Deleting
-- LINQ:
-    - OrderByTitle
-    - OrderBy Price
-    - OrderByPublisher
-    - OrderByPublicationYear
-    - OrderByPageCount
-    - Search By Title
-    - Search By Test
-    - Search By Genre
-    - Search By Author
-- Logger
-    - String output
-    - Exception output
-- Generic File System, you can choose the file format (CSV, JSON, CSV by reflection):
-    - Saving
-    - Reading
-
-![Successful tests](Documentation/images/Tests24.png)
-
-## Principles Used
-### Single Responsibility Principle (SRP)
-I put every responsibility in a separate file, so 1 file only has 1 specific responsibility.
-Also was I making a RepositoryFactory, which I will definitely fix in the future. 
-
-#### Dependency injection
-I use dependency injection on every place a class relies on another instance of a class, I don't let the class create the instance itself, that's why I pass it in the constructor as a parameter in a lot of places to minimize the responsibility of a class.
-
-##### Dependency Container
-Now with the ASP.NET project it is even easier using dependency injection using the dependency injection container that will fill in a parameter where asked for, in this case I use it for every controller using a repository that is the same the whole request.
-
-###	Interface Segregation Principle
-Every interface that is implemented is implemented fully. There are no implemented interfaces with unused
-
-### Reflection
-I've used reflection for trying to make the RepositoryFactory. As well as showing the properties of a specific book. Reflection is also used for getting the file path where the JSON file needs to be saved in.
-
-### Generic Repository structure
-The repository is generic, you can use this on any project without changing a thing.
-
-
-## File Structure
-I tried to make a clear and easy to navigate solution structure. Here you can find the structure.
-```
-BookCatalog
-|
-├───BookCatalog (Solution)
-│   ├───BookCatalog
-│   │   ├───wwwroot
-│   │   │   ├───CsvFormatterReflection.cs
-│   │   │   │───ISerialize.cs
-│   │   │   └───Lib
-│   │   │       ├───bootstrap
-│   │   │       ├───jquery
-│   │   │       ├───jquery-validation
-│   │   │       └───jquery-validation-unobtrusive
-│   │   │
-│   │   ├──App
-│   │   │   ├───_Import.razor
-│   │   │   ├───App.razor
-│   │   │   ├───Routes.razor
-│   │   │   ├───Layout
-│   │   │   │   ├───MainLayout.razor
-│   │   │   │   └───NavMenu.razor
-│   │   │   │
-│   │   │   └───Pages
-│   │   │       ├───BookCard.razor
-│   │   │       ├───BookCard.razor.cs
-│   │   │       ├───SearchBlazor.razor
-│   │   │       ├───SearchBlazor.razor.cs
-│   │   │       └───Error.razor
-│   │   │   
-│   │   ├──Areas
-│   │   │   └───Identity
-│   │   │       └───Pages
-│   │   │           ├───Account
-│   │   │           │   ├───_ViewImports.cshtml
-│   │   │           │   ├───Login.cshtml
-│   │   │           │   ├───Login.cshtml.cs
-│   │   │           │   ├───Logout.cshtml
-│   │   │           │   ├───Logout.cshtml.cs
-│   │   │           │   ├───Register.cshtml
-│   │   │           │   └───Register.cshtml.cs
-│   │   │           │
-│   │   │           ├───_ValidationScriptsPartial.cshtml
-│   │   │           ├───_ViewImports.cshtml
-│   │   │           └───_ViewStart.cshtml
-│   │   │   
-│   │   ├───Controllers
-│   │   │   ├───Api
-│   │   │   │   │───BookController.cs
-│   │   │   │   └───BookSearchController.cs
-│   │   │   │───TagHelpers
-│   │   │   │───BooksController.cs
-│   │   │   │───SearchMvcController.cs
-│   │   │   └───HomeController.cs
-│   │   │ 
-│   │   ├───Pages
-│   │   │   │───_ViewImports.cshtml
-│   │   │   │───_ViewStart.cshtml
-│   │   │   ├───BookForm.cshtml
-│   │   │   └───BookForm.cshtml.cs
-│   │   │  
-│   │   │───Views
-│   │   │   │───Books
-│   │   │   │   ├───Details.cshtml
-│   │   │   │   └───List.cshtml
-│   │   │   │  
-│   │   │   │───Home
-│   │   │   │   └───Index.cshtml
-│   │   │   │  
-│   │   │   │───SearchMvc
-│   │   │   │   └───Index.cshtml
-│   │   │   │  
-│   │   │   │───Shared
-│   │   │   │   ├───_BookCard.cshtml
-│   │   │   │   ├───_CarouselBooks.cshtml
-│   │   │   │   ├───_Layout.cshtml
-│   │   │   │   ├───_LoginPartial.cshtml
-│   │   │   │   └───_NavPartial.cshtml
-│   │   │   │  
-│   │   │   │───ViewModels
-│   │   │   │   ├───Details.cshtml
-│   │   │   │   └───List.cshtml
-│   │   │   │  
-│   │   │   │───_ViewImports.cshtml
-│   │   │   └───_ViewStart.cshtml
-│   │   │  
-│   │   │───appsettings.json
-│   │   └───Program.cs
-│   │     
-│   ├───BookCatalog.AppHost
-│   │   │───appsettings.Development.json
-│   │   │───appsettings.json
-│   │   └───Program.cs
-│   │     
-│   ├───BookCatalog.ServiceDefaults
-│   │   └───Extensions.cs
-│   │
-│   └───BookCatalog.DataLayer
-│       ├───Migrations
-│       │   └───(Migration Files)
-│       │
-│       ├───Models
-│       │   ├───Book.cs
-│       │   │───EntityBase.cs
-│       │   │───IEntity.cs
-│       │   └───Logging
-│       │       ├───ILogger.cs
-│       │       └───Logger.cs
-│       │
-│       ├───Repositories
-│       │   │───Book
-│       │   │   │───BookRepository.cs
-│       │   │   └───IBookRepository.cs
-│       │   │   
-│       │   │───Generic
-│       │   │   │───GenericRepository.cs
-│       │   │   ├───IReadRepository.cs
-│       │   │   │───IRepository.cs
-│       │   │   └───IWriteRepository.cs
-│       │   │
-│       │   └───RepositoryFactory
-│       │       │───LoadContext.cs
-│       │       └───RepositoryFactory.cs
-│       │
-│       │
-│       ├──Services
-│       │   ├───BookService.cs
-│       │   ├───ConsoleHelper.cs
-│       │   └───LINQ
-│       │
-│       └───Storage
-│           │───DataBase
-│           └───FileStorage
-│               ├───Filesystem
-│               │   │───FileSystem.cs
-│               │   └───IFileSystem.cs
-│               │
-│               └───Formatting
-│                   │───CsvFormatter.cs
-│                   ├───CsvFormatterReflection.cs
-│                   │───ISerialize.cs
-│                   └───JsonFormatter.cs
-│   
-└───BookCatalog.Tests
-    ├───ControllerTest
-    │   ├───BookControllerTest.cs 
-    │   └───HomeControllerTest.cs
-    │   
-    ├───LoggingTests
-    │   └───LoggingTest.cs
-    │
-    ├───LoggingTests
-    │   └───RepositoryMocks.cs
-    │
-    ├───LINQTests
-    │   ├───OrderByTest.cs
-    │   └───Search.cs
-    │
-    └───Repositories
-        └───FileTests
-            ├───FileSystemTest.cs 
-            ├───FormattingTest.cs 
-            └───GenericRepositoryTest.cs   
-
-```
-
-##### Author: Ewoud Forster
+<center><h4>MAUI Books Overview</h4><img width=400 src="Documentation/images/MAUI/PhoneBooks.jpg" alt="MAUI Books Overview"></center>
+<br>
+<center><h4>MAUI Book Search</h4><img width=400 src="Documentation/images/MAUI/PhoneShellSearchBooks.jpg" alt="MAUI Book Search"></center>
+<br>
+
+#### Book Details & Cart Functionality
+
+Tapping on a book displays its detailed information:
+
+  * **Image**
+  * **Tax**
+  * **Price (including tax)**
+  * A **quantity selector** with plus and minus buttons
+  * **"Add to Cart" button**
+  * **Authors**
+  * **Genres**
+  * **Publisher**
+  * **More information**
+  * **Description** (currently empty for all books)
+  * **Reviews** for that specific book.
+
+You can easily **add books to your cart**. For example, adding 2 copies of "1984" and 5 copies of "The Great Gatsby" will automatically update the subtotal in a popup.
+
+<center><h4>MAUI Book Details</h4><img width=400 src="Documentation/images/MAUI/PhoneBookDetail1.jpg" alt="MAUI Book Details"></center>
+<br>
+<center><img width=400 src="Documentation/images/MAUI/PhoneBookDetail2.jpg" alt="MAUI Book Details"></center>
+<br>
+<center><img width=400 src="Documentation/images/MAUI/PhoneBookDetail3.jpg" alt="MAUI Book Details"></center>
+<br>
+<center><h4>MAUI Add to Cart Flow</h4><img width=400 src="Documentation/images/MAUI/PopupAddedToCart.jpg" alt="MAUI Add to Cart"></center>
+<br>
+
+#### Shopping Cart
+
+The **Cart** tab shows all added items with their respective prices. Each item has a **trash can icon** next to it, allowing you to remove the item. The subtotal automatically adjusts.
+
+<center><h4>MAUI Shopping Cart</h4><img width=400 src="Documentation/images/MAUI/PhoneCart2Article.jpg.jpg" alt="MAUI Shopping Cart"></center>
+<br>
+<center><h4>MAUI Shopping Cart after deleting an item</h4><img width=400 src="Documentation/images/MAUI/PhoneCart.jpg" alt="MAUI Shopping Cart"></center>
+<br>
+
+  * **Checkout**: Clicking the **"Checkout"** button triggers a popup indicating **"Order placed successfully"**. This order can then be found in the web application's order dashboard and the database.
+
+<center><h4>MAUI Order Placed Successfully</h4><img width=400 src="Documentation/images/MAUI/PhoneOrderPlaced.jpg" alt="MAUI Order Placed Success"></center>
+<br>
+
+#### Bookstores
+
+The **Bookstores** tab, centrally located, displays available store locations.
+
+  * A **search field** allows you to search for specific bookstores.
+  * A **"Navigate to My Current Location"** button helps you find nearby stores, after requesting location permissions.
+    <center><h4>MAUI Bookstores Search</h4><img width=400 src="Documentation/images/MAUI/PhoneShellSearchBookStore.jpg" alt="MAUI Bookstores Search"></center>
+    <br>
+  * Clicking on a bookstore opens a partial popup showing information and photos, which can be scrolled through.
+    <center><h4>MAUI Bookstore Details Popup</h4><img width=400 src="Documentation/images/MAUI/PhoneBookStorePopup.jpg" alt="MAUI Bookstore Details"></center>
+    <br>
+    <center><h4>MAUI Bookstore Details Popup carousel</h4><img width=400 src="Documentation/images/MAUI/PhoneBookStorePopupScroll.jpg" alt="MAUI Bookstore Details"></center>
+    <br>
+    
+
+#### Contact Page
+
+The **Contact** page is simple and currently non-functional.
+
+#### Logout
+
+Logging out returns you to the initial home page with the three primary tabs: **Home, Login, and Register**.
+
+-----
+
+## API Reference
+
+The ASP.NET Core API provides a set of RESTful endpoints to interact with the book catalog data. All endpoints, except for initial authentication/registration and general statistics for the mobile app home page, require authentication.
+
+### Authentication Endpoints
+
+  * **`Auth`**: All standard Entity Framework Identity endpoints for user management (login, logout, manage profile, etc.).
+  * **`Auth/FullnameRegister` (Custom)**: A custom endpoint specifically for user registration, requiring the user's full name.
+
+### General Endpoints
+
+Below is a summary of the core API endpoints:
+
+| Endpoint | HTTP Method | Description |
+| :------------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/api/Authors` | `GET` | Retrieves all authors. |
+| `/api/Authors/{id}` | `GET` | Retrieves a specific author by ID. |
+| `/api/Authors` | `POST` | Creates a new author (requires authentication). |
+| `/api/Authors/{id}` | `PUT` | Updates an existing author (requires authentication). |
+| `/api/Authors/{id}` | `DELETE` | Deletes an author (requires authentication). |
+| `/api/Books` | `GET` | Retrieves all books. |
+| `/api/Books/{id}` | `GET` | Retrieves a specific book by ID. |
+| `/api/Books` | `POST` | Creates a new book (requires authentication). |
+| `/api/Books/{id}` | `PUT` | Updates an existing book (requires authentication). |
+| `/api/Books/{id}` | `DELETE` | Deletes a book (requires authentication). |
+| `/api/BookSearch` | `POST` | Searches for books based on criteria provided in the request body (e.g., title, author, genre). |
+| `/api/Bookstores` | `GET` | Retrieves all bookstores. |
+| `/api/Bookstores/{id}` | `GET` | Retrieves a specific bookstore by ID. |
+| `/api/Bookstores` | `POST` | Creates a new bookstore (requires authentication). |
+| `/api/Bookstores/{id}` | `PUT` | Updates an existing bookstore (requires authentication). |
+| `/api/Bookstores/{id}` | `DELETE` | Deletes a bookstore (requires authentication). |
+| `/api/BookstoreSearch` | `POST` | Searches for bookstores based on criteria provided in the request body. |
+| `/api/FileLogs` | `GET` | Retrieves all file-based logs (read-only, requires authentication). |
+| `/api/FileLogs/{id}` | `GET` | Retrieves a specific file log by ID (read-only, requires authentication). |
+| `/api/GeneralStatistics` | `GET` | Retrieves general statistics for the home page (publicly accessible). |
+| `/api/Genres` | `GET` | Retrieves all genres. |
+| `/api/Genres/{id}` | `GET` | Retrieves a specific genre by ID. |
+| `/api/Genres` | `POST` | Creates a new genre (requires authentication). |
+| `/api/Genres/{id}` | `PUT` | Updates an existing genre (requires authentication). |
+| `/api/Genres/{id}` | `DELETE` | Deletes a genre (requires authentication). |
+| `/api/Logs` | `GET` | Retrieves all Entity Framework-based logs (read-only, requires authentication). |
+| `/api/Logs/{id}` | `GET` | Retrieves a specific EF log by ID (read-only, requires authentication). |
+| `/api/MoreInfo` | `GET` | Retrieves all "more info" entries linked to books. |
+| `/api/MoreInfo/{id}` | `GET` | Retrieves a specific "more info" entry by ID. |
+| `/api/MoreInfo` | `POST` | Creates a new "more info" entry (requires authentication). |
+| `/api/MoreInfo/{id}` | `PUT` | Updates an existing "more info" entry (requires authentication). |
+| `/api/MoreInfo/{id}` | `DELETE` | Deletes a "more info" entry (requires authentication). |
+| `/api/Orders` | `GET` | Retrieves all orders (requires authentication). |
+| `/api/Orders/{id}` | `GET` | Retrieves a specific order by ID (requires authentication). |
+| `/api/Orders` | `POST` | Creates a new order (typically from mobile app, requires authentication). |
+| `/api/Orders/{id}` | `PUT` | Updates an existing order (requires authentication). |
+| `/api/Orders/{id}` | `DELETE` | Deletes an order (requires authentication). |
+| `/api/Pictures` | `GET` | Retrieves all picture entries. |
+| `/api/Pictures/{id}` | `GET` | Retrieves a specific picture entry by ID. |
+| `/api/Pictures` | `POST` | Creates a new picture entry (requires authentication). |
+| `/api/Pictures/{id}` | `PUT` | Updates an existing picture entry (requires authentication). |
+| `/api/Pictures/{id}` | `DELETE` | Deletes a picture entry (requires authentication). |
+| `/api/Publishers` | `GET` | Retrieves all publishers. |
+| `/api/Publishers/{id}` | `GET` | Retrieves a specific publisher by ID. |
+| `/api/Publishers` | `POST` | Creates a new publisher (requires authentication). |
+| `/api/Publishers/{id}` | `PUT` | Updates an existing publisher (requires authentication). |
+| `/api/Publishers/{id}` | `DELETE` | Deletes a publisher (requires authentication). |
+| `/api/Reviews` | `GET` | Retrieves all reviews. |
+| `/api/Reviews/{id}` | `GET` | Retrieves a specific review by ID. |
+| `/api/Reviews` | `POST` | Creates a new review (requires authentication). |
+| `/api/Reviews/{id}` | `PUT` | Updates an existing review (requires authentication). |
+| `/api/Reviews/{id}` | `DELETE` | Deletes a review (requires authentication). |
+| `/api/Users` | `GET` | Retrieves all users (requires authentication). |
+| `/api/Users/{id}` | `GET` | Retrieves a specific user by ID or email (requires authentication). |
+| `/api/Users` | `POST` | Creates a new user (admin-level, requires authentication). |
+| `/api/Users/{id}` | `PUT` | Updates an existing user (requires authentication). |
+| `/api/Users/{id}` | `DELETE` | Deletes a user (requires authentication). |
+
+-----
+
+## Code Structure & Development
+
+The solution is organized to promote clarity and ease of navigation.
+
+<br>
+
+To make modifications, open the solution in Visual Studio. After making changes, you can publish the application again for deployment.
+
+-----
+
+## Author
+
+**Ewoud Forster**
+
+-----

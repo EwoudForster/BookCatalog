@@ -3,10 +3,25 @@
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                x:Class="BookCatalog.Views.OrderPlacedPopup"
                xmlns:vm="clr-namespace:BookCatalog.ViewModels"
-                xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
-               x:DataType="vm:OrderPlacedViewModel">
-    <VerticalStackLayout Padding="20">
-        <Label Text="{x:Static res:AppRes.OrderPlaced}" FontSize="20" HorizontalOptions="Center" Padding="20"/>
-        <Button Text="OK" Command="{Binding CloseCommand}" />
-    </VerticalStackLayout>
+               xmlns:res="clr-namespace:BookCatalog.Resources.Strings"
+               x:DataType="vm:OrderPlacedViewModel"
+               >
+
+
+    <Frame BackgroundColor="White"
+           CornerRadius="20"
+           Padding="0"
+           HasShadow="True"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           Margin="20">
+        <VerticalStackLayout Padding="20">
+            <Label Text="{x:Static res:AppRes.OrderPlaced}"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   Padding="20"/>
+            <Button Text="OK"
+                    Command="{Binding CloseCommand}" />
+        </VerticalStackLayout>
+    </Frame>
 </toolkit:Popup>

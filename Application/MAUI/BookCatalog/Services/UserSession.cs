@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookCatalog.Services
+﻿namespace BookCatalog.Services
 {
     public static class UserSession
     {
-        public static bool IsLoggedIn { get; private set; }
-        public static Guid? UserId { get; private set; }
+        public static bool IsLoggedIn { get; set; }
+        public static string? Email { get; set; }
 
-        public static void SetUser(Guid userId)
+        public static void SetUser(string email)
         {
             IsLoggedIn = true;
+            Email = email;
             MessagingCenter.Send(typeof(UserSession), "LoginStatusChanged");
         }
 
         public static void Logout()
         {
             IsLoggedIn = false;
+            Email = null;
             MessagingCenter.Send(typeof(UserSession), "LoginStatusChanged");
         }
     }

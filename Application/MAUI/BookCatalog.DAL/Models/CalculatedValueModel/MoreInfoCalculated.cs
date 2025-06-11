@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookCatalog.DAL.Models.CalculatedValueModel
+﻿namespace BookCatalog.DAL.Models.CalculatedValueModel
 {
-    public  class MoreInfoCalculated : Publisher
+    public class MoreInfoCalculated : MoreInfo
     {
         public decimal Max { get; set; }
         public decimal Min { get; set; }

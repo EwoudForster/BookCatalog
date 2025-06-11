@@ -287,20 +287,25 @@
   <data name="TryAdjusting" xml:space="preserve">
     <value>Prova a modificare la tua ricerca</value>
   </data>
-	<data name="PriceInclTax" xml:space="preserve">
+  <data name="PriceInclTax" xml:space="preserve">
     <value>Prezzo IVA inclusa:</value>
   </data>
-	<data name="Tax" xml:space="preserve">
+  <data name="Tax" xml:space="preserve">
     <value>IVA</value>
   </data>
-	<data name="Subtotal" xml:space="preserve">
+  <data name="Subtotal" xml:space="preserve">
     <value>Subtotale:</value>
   </data>
-	<data name="Genres" xml:space="preserve">
-  <value>Generi</value>
-</data>
-	<data name="Authors" xml:space="preserve">
-  <value>Autori</value>
-</data>
-
+  <data name="Genres" xml:space="preserve">
+    <value>Generi</value>
+  </data>
+  <data name="Authors" xml:space="preserve">
+    <value>Autori</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Cognome</value>
+  </data>
 </root>

@@ -1,21 +1,37 @@
 ﻿@page
 @model BookCatalog.Web.Pages.MoreInfos.IndexModel
-<h1 class="pt-5 text-center">MoreInfos</h1>
+<h1 class="pt-5 text-center">More Infos</h1>
+@if (User.IsInRole("Administrator"))
+{
+    <a asp-page="/MoreInfo/Form" style="width:fit-content" class="d-flex m-auto new-book-btn">New Info</a>
+}
 <div class="rounded-5 mt-5">
     @foreach (var MoreInfo in Model.MoreInfos)
     {
         <div class="d-flex w-100 justify-content-center align-items-center m-4">
             <div class="w-75 m-1 shadow rounded-5 d-flex flex-row">
                 <div class="col m-4 text-light-emphasis">
-                    <a class="" asp-page="/MoreInfos/Details" asp-route-MoreInfoId="@MoreInfo.Id"><h3>@MoreInfo.Name</h3></a>
+                    @if (MoreInfo.Books.Count > 0)
+                    {
+                        <a class="" asp-page="/MoreInfos/Details" asp-route-MoreInfoId="@MoreInfo.Id"><h3>@MoreInfo.Name</h3></a>
+                    }
+                    else
+                    {
+                    <h3>@MoreInfo.Name</h3>
+
+                    }
+        @if (MoreInfo.Books.Count > 0){
+
                     <div class="flex-row flex-wrap d-flex">
                         <div class="m-2"><h4>Amount of books: @MoreInfo.Books.Count</h4></div>
                         <div class="m-2"><h4>Min Price: @MoreInfo.Min</h4></div>
                         <div class="m-2"><h4>Max Price: @MoreInfo.Max</h4></div>
                         <div class="m-2"><h4>Avg Price: @Math.Round(MoreInfo.Average)</h4></div>
                     </div>
-
+                    }
                 </div>
+                @if (User.IsInRole("Administrator"))
+                {
                 <div class="m-auto  align-content-center  text-center align-items-center  d-flex flex-sm-column flex-md-row flex-lg-row row">
                     <a class="col text-light-emphasis" asp-page="/MoreInfos/Form" asp-route-MoreInfoId="@MoreInfo.Id">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="text-primary bi bi-pen-fill" viewBox="0 0 16 16">
@@ -30,6 +46,7 @@
                             </svg>
                     </a>
                 </div>
+                }
             </div>
         </div>
     }

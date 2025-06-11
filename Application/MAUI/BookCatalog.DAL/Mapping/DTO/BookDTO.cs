@@ -10,11 +10,11 @@ public class BookDTO
     public string ISBN { get; set; }
     public int PageCount { get; set; }
     public decimal Price { get; set; }
-    public bool IsAvailable { get; set; }        
+    public bool IsAvailable { get; set; }
     public string? Description { get; set; }
     public ICollection<PictureDTOShort>? Pictures { get; set; }
     public ICollection<MoreInfoDTOShort>? MoreInfos { get; set; }
-    public ICollection<ReviewDTOShort>? Reviews { get; set; }        
+    public ICollection<ReviewDTOShort>? Reviews { get; set; }
     public virtual PublisherDTOShort? Publisher { get; set; }
     public Guid PublisherId { get; set; }
     public double AverageRating => Reviews.Select(p => p.Rating).Average();
@@ -22,5 +22,7 @@ public class BookDTO
     public virtual ICollection<AuthorDTOShort>? Authors { get; set; }
 
     public virtual ICollection<GenreDTOShort>? Genres { get; set; }
+    public virtual ICollection<OrderItemDTOShort>? OrderItems { get; set; }
+
 
 }

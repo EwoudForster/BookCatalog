@@ -1,4 +1,6 @@
 ﻿@page
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 @model BookCatalog.Web.Pages.Books.IndexModel
 
     <div class="container">
@@ -35,16 +37,18 @@
 
             <div class="sort-section">
                 <span>Sorting</span>
-<form method="post">
-    <select class="sort-select" name="SortOption" onchange="this.form.submit()">
-        @foreach (BookByOptions option in Enum.GetValues(typeof(BookByOptions)))
-        {
-                        <option value="@option" selected="@(Model.SortOption == option ? "selected" : null)">@option</option>
-                    }
-    </select>
-</form>
-
-            <a asp-page="/Books/Form" class="new-book-btn">New Book</a>
+            <form method="post">
+                <select class="sort-select" name="SortOption" onchange="this.form.submit()">
+                    @foreach (BookByOptions option in Enum.GetValues(typeof(BookByOptions)))
+                    {
+                                    <option value="@option" selected="@(Model.SortOption == option ? "selected" : null)">@option</option>
+                                }
+                </select>
+            </form>
+            @if (User.IsInRole("Administrator"))
+                {
+                    <a asp-page="/Books/Form" class="new-book-btn">New Book</a>
+                }
             </div>
 
 

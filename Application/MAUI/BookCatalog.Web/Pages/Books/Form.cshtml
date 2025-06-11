@@ -21,10 +21,15 @@
     </div>
     <div class="form-group">
         <label asp-for="Book.AuthorIds" class="col-md-2 control-label"></label>
-        <label asp-for="Book.AuthorIds">Authors</label>
         <select asp-for="Book.AuthorIds" asp-items="Model.AuthorSelectList" class="form-control" multiple="multiple">
         </select>
         <span asp-validation-for="Book.AuthorIds" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.MoreInfoIds" class="col-md-2 control-label"></label>
+        <select asp-for="Book.MoreInfoIds" asp-items="Model.MoreInfoSelectList" class="form-control" multiple="multiple">
+        </select>
+        <span asp-validation-for="Book.MoreInfoIds" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Book.PublicationYear" class="col-md-2 control-label"></label>
@@ -78,7 +83,6 @@
 
     <div class="form-group">
         <label asp-for="Book.PictureIds" class="col-md-2 control-label"></label>
-        <label asp-for="Book.PictureIds">Pictures</label>
         <select asp-for="Book.PictureIds" asp-items="Model.PictureSelectList" class="form-control" multiple="multiple">
         </select>
         <span asp-validation-for="Book.PictureIds" class="text-danger"></span>

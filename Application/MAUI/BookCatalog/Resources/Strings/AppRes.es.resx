@@ -275,7 +275,7 @@
     <value> Algo salió mal, vuelve a cargar la aplicación</value>
   </data>
   <data name="CatalogSummaryTemplate" xml:space="preserve">
-    <value> Tenemos una impresionante colección de libros compuesta por {0} libros, divididos en {1} géneros. Tenemos libros con precios que oscilan entre {2} y {3}. Lo que hace que el precio medio de nuestros libros sea {4}. Todos los {5} autores y los {6} editores están muy contentos de formar parte de nuestra colección. Así que hay opciones para todos.</value>
+    <value>Tenemos una impresionante colección de libros compuesta por {0} libros, divididos en {1} géneros. Tenemos libros con precios que oscilan entre {2} y {3}. Lo que hace que el precio medio de nuestros libros sea {4}. Todos los {5} autores y los {6} editores están muy contentos de formar parte de nuestra colección. Así que hay opciones para todos.</value>
   </data>
   <data name="OurBookcatalog" xml:space="preserve">
     <value>Nuestro catálogo de libros
@@ -294,14 +294,19 @@
   <data name="Tax" xml:space="preserve">
     <value>IVA</value>
   </data>
-	<data name="Subtotal" xml:space="preserve">
+  <data name="Subtotal" xml:space="preserve">
     <value>Subtotal:</value>
   </data>
-	<data name="Genres" xml:space="preserve">
-  <value>Géneros</value>
-</data>
-	<data name="Authors" xml:space="preserve">
-  <value>Autores</value>
-</data>
-
+  <data name="Genres" xml:space="preserve">
+    <value>Géneros</value>
+  </data>
+  <data name="Authors" xml:space="preserve">
+    <value>Autores</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nome</value>
+  </data>
 </root>

@@ -69,7 +69,8 @@
                 <h3 class="description-title">Description:</h3>
                 <p class="description-text">@book.Description</p>
             </div>
-
+                        @if (User.IsInRole("Administrator"))
+                {
             <div class="action-buttons">
                 <a href="/books/form?BookId=@book.Id" class="btn btn-edit">Edit</a>
                 <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Are you sure you want to delete this book?');" style="display:inline;">
@@ -77,6 +78,7 @@
                     <button type="submit" class="btn btn-delete">Delete</button>
                 </form>
             </div>
+                }
         </div>
     </div>
 

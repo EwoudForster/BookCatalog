@@ -7,5 +7,5 @@ public class PictureDTO
     public DateTime UpdatedAt { get; set; }
     public string ImgUrl { get; set; }
     public Guid BookId { get; set; }
-    public virtual BookDTO? Book { get; set; }
+    public BookDTO? Book { get; set; }
 }

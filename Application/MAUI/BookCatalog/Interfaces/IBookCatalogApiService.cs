@@ -1,5 +1,4 @@
-﻿
-using BookCatalog.Services;
+﻿using BookCatalog.Services;
 
 namespace BookCatalog.Interfaces
 {
@@ -10,9 +9,11 @@ namespace BookCatalog.Interfaces
         Task<T?> GetByIdAsync<T>(Guid id, Endpoints endpoints = Endpoints.Books) where T : class, new();
         Task<GeneralStatistics?> GetGeneralStatistics();
         Task<HttpResponseMessage> LoginAPI(string email, string password);
-        Task<HttpResponseMessage> RegisterAPI(string email, string password);
+        Task<HttpResponseMessage> RegisterAPI(string firstname, string lastname, string email, string password);
         Task SaveItemAsync<T>(T item, bool isNewItem = false, Endpoints endpoints = Endpoints.Books);
         Task<List<Book>?> SearchBooks(string query);
         Task<List<BookStore>?> SearchBookStores(string query);
+        Task<bool> PushOrderAsync(Order order);
+
     }
 }

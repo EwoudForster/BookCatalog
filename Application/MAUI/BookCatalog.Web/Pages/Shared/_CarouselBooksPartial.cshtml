@@ -10,14 +10,43 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="m-3">
-                <partial name="_BookCardPartial" model="@Model.First()" />
+                <a asp-page="/Books/Details" asp-route-BookId="@Model.First().Id">
+                    <div class="book-card">
+                        <div src="background-image: url('@Model.First().FirstImageUrl')"></div>
+                        <div class="book-info">
+                            <h3 class="book-title">@Model.First().Title</h3>
+                            <p class="book-author">@Model.First().Publisher.Name</p>
+                            @foreach (GenreDTOShort genre in @Model.First().Genres)
+                            {
+                                <p class="book-genre">@genre.Name</p>
+                            }
+                            <p class="book-price">€ @Model.First().Price</p>
+                        </div>
+
+                    </div>
+                </a>
             </div>
         </div>
         @foreach (BookDTO book in Model.Skip(1))
         {
             <div class="carousel-item">
                 <div class="m-3">
-                    <partial name="_BookCardPartial" model="book" />
+                    <a asp-page="/Books/Details" asp-route-BookId="@book.Id">
+                            <div class="book-card">
+                            <div class="book-cover" style="background-image: url('@book.FirstImageUrl')"></div>
+                                <div class="book-info">
+                                <h3 class="book-title">@book.Title</h3>
+                                <p class="book-author">@book.Publisher.Name</p>
+                                @foreach (GenreDTOShort genre in book.Genres)
+                                    {
+                                        <p class="book-genre">@genre.Name</p>
+                                    }
+                                <p class="book-price">€ @book.Price</p>
+                                </div>
+
+                            </div>
+                        </a>
+
 
                 </div>
             </div>

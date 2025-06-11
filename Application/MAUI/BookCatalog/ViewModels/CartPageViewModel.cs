@@ -1,6 +1,5 @@
-﻿using BookCatalog.Views;
+﻿using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Maui.Views;
 using System.Collections.ObjectModel;
 
 namespace BookCatalog.ViewModels;
@@ -33,10 +32,12 @@ public partial class CartPageViewModel : BaseViewModel
     public CartPageViewModel(ICartService cartService)
     {
         _cartService = cartService;
+
         PlaceOrderCommand = new RelayCommand(OnPlaceOrder);
-        LoadNumbersCommand= new RelayCommand(UpdateTotals);
+        LoadNumbersCommand = new RelayCommand(UpdateTotals);
         RemoveItemCommand = new RelayCommand<CartItem>(OnRemoveItem);
         ResetCartCommand = new RelayCommand(OnResetCart);
+
     }
 
     private void OnRemoveItem(CartItem? item)
@@ -55,14 +56,16 @@ public partial class CartPageViewModel : BaseViewModel
     }
     private void UpdateTotals()
     {
-        TaxTotal = CartItems.Sum(item => item.TotalPrice * 0.21m);
-        GrandTotal = CartItems.Sum(item => item.TotalPrice) + TaxTotal;
+        var subtotal = CartItems.Sum(item => item.TotalPrice);
+        TaxTotal = subtotal * 0.21m;
+        GrandTotal = subtotal + TaxTotal;
     }
+
     private async void OnPlaceOrder()
     {
         if (CartItems.Any())
         {
-            _cartService.PlaceOrder();
+            await _cartService.PlaceOrder();
             UpdateTotals();
 
 

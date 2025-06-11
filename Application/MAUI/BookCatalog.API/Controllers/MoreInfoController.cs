@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
-using BookCatalog.DAL.Repositories;
-using AutoMapper;
+﻿using AutoMapper;
 using BookCatalog.DAL.DTO;
-using BookCatalog.DAL.Models;
 using BookCatalog.DAL.Logging;
+using BookCatalog.DAL.Models;
+using BookCatalog.DAL.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookCatalog.API;
 
@@ -14,7 +14,7 @@ namespace BookCatalog.API;
 public class MoreInfoController : ControllerBase
 {
     // making a private readonly field of the MoreInfoRepository
-    private readonly IRepository<MoreInfo> _moreInfoRepository;
+    private readonly IMoreInfoRepository _moreInfoRepository;
 
     // making a private readonly field of the logger
     private readonly ILogger<MoreInfoController> _logger;
@@ -22,7 +22,7 @@ public class MoreInfoController : ControllerBase
 
 
     // creating a constructor for the MoreInfoController with dependency injection parameters for the MoreInfoRepository and the logger
-    public MoreInfoController(IRepository<MoreInfo> moreInfoRepository, ILogger<MoreInfoController> logger, IMapper mapper)
+    public MoreInfoController(IMoreInfoRepository moreInfoRepository, ILogger<MoreInfoController> logger, IMapper mapper)
     {
         try
         {
@@ -46,7 +46,7 @@ public class MoreInfoController : ControllerBase
 
     // GET: api/MoreInfo
     [HttpGet]
-   [Authorize]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<MoreInfoDTO>>> GetMoreInfo()
     {
         // returning all the moreInfos from the moreInfo repository
@@ -65,7 +65,7 @@ public class MoreInfoController : ControllerBase
 
     // GET: api/MoreInfo/5
     [HttpGet("{id}")]
-   [Authorize]
+    [Authorize]
     public async Task<ActionResult<MoreInfoDTO>> GetMoreInfo(Guid id)
     {
         try
@@ -92,7 +92,7 @@ public class MoreInfoController : ControllerBase
     // PUT: api/MoreInfo/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut]
-   [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public async Task<IActionResult> PutMoreInfo([FromBody] MoreInfoDTO moreInfo)
     {
         try
@@ -118,7 +118,7 @@ public class MoreInfoController : ControllerBase
     // POST: api/MoreInfo
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-   [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public async Task<ActionResult<MoreInfoDTO>> PostMoreInfo([FromBody] MoreInfoDTO moreInfo)
     {
         try
@@ -143,7 +143,7 @@ public class MoreInfoController : ControllerBase
 
     // DELETE: api/MoreInfo/5
     [HttpDelete("{id}")]
-   [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")]
     public async Task<IActionResult> DeleteMoreInfo(Guid id)
     {
         try

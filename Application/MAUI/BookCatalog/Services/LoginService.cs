@@ -1,10 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookCatalog.Services
 {
@@ -25,10 +19,10 @@ namespace BookCatalog.Services
             return new LoginResult { IsSuccess = false };
         }
 
-        public async Task<bool> RegisterAsync(string email, string password)
+        public async Task<bool> RegisterAsync(string firstname, string lastname, string email, string password)
         {
 
-            var response = await _datastore.RegisterAPI(email, password);
+            var response = await _datastore.RegisterAPI(firstname, lastname, email, password);
             return response.IsSuccessStatusCode;
         }
 
