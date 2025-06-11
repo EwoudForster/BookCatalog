@@ -1,4 +1,4 @@
-<center><img width=200 src="Documentation/images/LogoCegeka.png"></center>
+<center><img width=200 src="/Documentation/images/LogoCegeka.png"></center>
 
 # Bookcatalog Console .Net Application
 
