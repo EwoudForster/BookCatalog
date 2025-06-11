@@ -2,24 +2,16 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using BookCatalog.DAL.Models;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.Encodings.Web;
 
 namespace BookCatalog.Areas.Identity.Pages.Account
 {
@@ -75,8 +67,13 @@ namespace BookCatalog.Areas.Identity.Pages.Account
             [Required]
             [StringLength(50, ErrorMessage = "The {0} must be max {1} characters long.")]
             [DataType(DataType.Text)]
-            [Display(Name = "Name")]
-            public string Name { get; set; }
+            [Display(Name = "Firstname")]
+            public string FirstName { get; set; }
+            [Required]
+            [StringLength(50, ErrorMessage = "The {0} must be max {1} characters long.")]
+            [DataType(DataType.Text)]
+            [Display(Name = "Lastname")]
+            public string LastName { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -124,12 +121,17 @@ namespace BookCatalog.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
                 var result = await _userManager.CreateAsync(user, Input.Password);
-                await _userManager.AddToRoleAsync(user, "User");
-
 
                 if (result.Succeeded)
                 {
+
+                    await _userManager.UpdateAsync(user);
+
+                    await _userManager.AddToRoleAsync(user, "User");
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);

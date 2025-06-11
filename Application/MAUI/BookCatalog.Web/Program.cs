@@ -5,12 +5,7 @@ using BookCatalog.DAL.Logging;
 using BookCatalog.DAL.Mapping;
 using BookCatalog.DAL.Models;
 using BookCatalog.DAL.Repositories;
-using BookCatalog.DAL.Seeder.Identity;
-using BookCatalog.DAL.Storage.DataBase;
-using BookCatalog.DAL.Storage.DataBase.Seeder;
-using BookCatalog.Web;
 using BookCatalog.Web.App;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Channels;
 
@@ -54,6 +49,7 @@ builder.Services.AddScoped<IGenreRepository, GenreRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<IMoreInfoRepository, MoreInfoRepository>();
 builder.Services.AddScoped<IRepository<Picture>, GenericRepositoryAsync<Picture>>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IPublisherRepository, PublisherRepository>();
 builder.Services.AddScoped<IRepository<LoggingEntry>, GenericRepositoryAsync<LoggingEntry>>();
 
@@ -74,6 +70,7 @@ builder.Logging.AddDebug();
 builder.Logging.AddProvider(new DbLoggerProvider(logChannel));
 builder.Logging.AddProvider(new FileLoggerProvider(logChannel));
 
+
 // Enable razor pages
 builder.Services.AddRazorPages();
 
@@ -91,6 +88,11 @@ builder.Services.AddOutputCache();
         client.BaseAddress = new("https+http://apiservice");
     });
 */
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.AccessDeniedPath = "/AccessDenied";
+});
 
 var app = builder.Build();
 

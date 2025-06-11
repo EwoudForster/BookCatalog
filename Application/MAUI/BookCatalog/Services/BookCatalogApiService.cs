@@ -24,7 +24,7 @@ public class BookCatalogApiService : IBookCatalogApiService
 {
     private readonly HttpClient _client;
     private readonly JsonSerializerOptions _serializerOptions;
-    private readonly string prefixUrl = "https://805c-212-210-102-164.ngrok-free.app";
+    private readonly string prefixUrl = "https://2073-81-243-104-40.ngrok-free.app/api";
 
 
     public BookCatalogApiService()
@@ -39,7 +39,7 @@ public class BookCatalogApiService : IBookCatalogApiService
 
     public async Task<T?> GetByIdAsync<T>(Guid id, Endpoints endpoints = Endpoints.Books) where T : class, new()
     {
-        var uri = new Uri($"{prefixUrl}/api/{endpoints.ToString().ToLower()}/{id}");
+        var uri = new Uri($"{prefixUrl}/{endpoints.ToString().ToLower()}/{id}");
         try
         {
             if (!await SetAuthorizationHeaderAsync())
@@ -74,7 +74,7 @@ public class BookCatalogApiService : IBookCatalogApiService
 
     public async Task<List<T>?> GetAllAsync<T>(Endpoints endpoints = Endpoints.Books) where T : class, new()
     {
-        var uri = new Uri($"{prefixUrl}/api/{endpoints.ToString().ToLower()}");
+        var uri = new Uri($"{prefixUrl}/{endpoints.ToString().ToLower()}");
         try
         {
             if (!await SetAuthorizationHeaderAsync())
@@ -109,23 +109,10 @@ public class BookCatalogApiService : IBookCatalogApiService
 
     public async Task<GeneralStatistics?> GetGeneralStatistics()
     {
-        var uri = new Uri($"{prefixUrl}/api/generalstatistics");
+        var uri = new Uri($"{prefixUrl}/generalstatistics");
         try
         {
-            if (!await SetAuthorizationHeaderAsync())
-            {
-                Debug.WriteLine("No access token found.");
-                return new GeneralStatistics();
-            }
             var response = await _client.GetAsync(uri);
-            if (response.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                var refreshed = await RefreshAccessTokenAsync();
-                if (refreshed)
-                {
-                    response = await _client.GetAsync(uri);
-                }
-            }
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
@@ -144,7 +131,7 @@ public class BookCatalogApiService : IBookCatalogApiService
 
     public async Task SaveItemAsync<T>(T item, bool isNewItem = false, Endpoints endpoints = Endpoints.Books)
     {
-        var uri = new Uri($"{prefixUrl}/api/{endpoints.ToString().ToLower()}");
+        var uri = new Uri($"{prefixUrl}/{endpoints.ToString().ToLower()}");
         try
         {
             var json = JsonSerializer.Serialize(item, _serializerOptions);
@@ -194,7 +181,7 @@ public class BookCatalogApiService : IBookCatalogApiService
 
     public async Task DeleteItemAsync(string id, Endpoints endpoints = Endpoints.Books)
     {
-        var uri = new Uri($"{prefixUrl}/api/{endpoints.ToString().ToLower()}/{id}");
+        var uri = new Uri($"{prefixUrl}/{endpoints.ToString().ToLower()}/{id}");
         try
         {
             if (!await SetAuthorizationHeaderAsync())
@@ -222,7 +209,7 @@ public class BookCatalogApiService : IBookCatalogApiService
 
     public async Task<List<BookStore>?> SearchBookStores(string query)
     {
-        var uri = new Uri($"{prefixUrl}/api/bookstoressearch");
+        var uri = new Uri($"{prefixUrl}/bookstoressearch");
         try
         {
             var json = JsonSerializer.Serialize(query, _serializerOptions);
@@ -268,7 +255,7 @@ public class BookCatalogApiService : IBookCatalogApiService
 
     public async Task<List<Book>?> SearchBooks(string query)
     {
-        var uri = new Uri($"{prefixUrl}/api/bookssearch");
+        var uri = new Uri($"{prefixUrl}/bookssearch");
         try
         {
             var json = JsonSerializer.Serialize(query, _serializerOptions);
@@ -312,6 +299,56 @@ public class BookCatalogApiService : IBookCatalogApiService
         return new List<Book>();
     }
 
+
+    public async Task<bool> PushOrderAsync(Order order)
+    {
+        var uri = new Uri($"{prefixUrl}/orders");
+        try
+        {
+            var json = JsonSerializer.Serialize(order, _serializerOptions);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            if (!await SetAuthorizationHeaderAsync())
+            {
+                Debug.WriteLine("No access token found.");
+                return false;
+            }
+
+            var response = await _client.PostAsync(uri, content);
+
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                var refreshed = await RefreshAccessTokenAsync();
+                if (refreshed)
+                {
+                    response = await _client.PostAsync(uri, content);
+                }
+                else
+                {
+                    Debug.WriteLine("Failed to refresh token.");
+                    return false;
+                }
+            }
+
+            if (response.IsSuccessStatusCode)
+            {
+                Debug.WriteLine("Order successfully placed.");
+                return true;
+            }
+            else
+            {
+                Debug.WriteLine($"Failed to place order: {response.StatusCode}");
+                return false;
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"PushOrderAsync Error: {ex.Message}");
+            return false;
+        }
+    }
+
+
     private async Task<bool> SetAuthorizationHeaderAsync()
     {
         var accessToken = await SecureStorage.Default.GetAsync("access_token");
@@ -329,7 +366,7 @@ public class BookCatalogApiService : IBookCatalogApiService
         if (string.IsNullOrEmpty(refreshToken))
             return false;
 
-        var refreshUri = new Uri($"{prefixUrl}/refresh"); // Adjust to your actual refresh endpoint
+        var refreshUri = new Uri($"{prefixUrl}/Auth/refresh");
         var request = new HttpRequestMessage(HttpMethod.Post, refreshUri)
         {
             Content = new FormUrlEncodedContent(new[]
@@ -365,7 +402,7 @@ public class BookCatalogApiService : IBookCatalogApiService
 
     public async Task<HttpResponseMessage> LoginAPI(string email, string password)
     {
-        var uri = new Uri($"{prefixUrl}/login");
+        var uri = new Uri($"{prefixUrl}/Auth/login");
         try
         {
             var loginData = new { Email = email, Password = password };
@@ -400,15 +437,15 @@ public class BookCatalogApiService : IBookCatalogApiService
         public string AccessToken { get; set; } = string.Empty;
         public string RefreshToken { get; set; } = string.Empty;
     }
-    
-    public async Task<HttpResponseMessage> RegisterAPI(string email, string password)
+
+    public async Task<HttpResponseMessage> RegisterAPI(string lastname, string firstname, string email, string password)
     {
         var response = new HttpResponseMessage();
 
-        var uri = new Uri($"{prefixUrl}/register");
+        var uri = new Uri($"{prefixUrl}/Auth/fullnameregister");
         try
         {
-            var registerData = new { Email = email, Password = password };
+            var registerData = new { FirstName = firstname, LastName = lastname, Email = email, Password = password };
             var json = JsonSerializer.Serialize(registerData);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 

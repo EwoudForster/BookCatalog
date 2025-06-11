@@ -275,7 +275,7 @@
     <value>Er is iets misgegaan, herlaad de applicatie</value>
   </data>
   <data name="CatalogSummaryTemplate" xml:space="preserve">
-    <value> We hebben een indrukwekkende collectie van {0} boeken, verdeeld over {1} genres. We hebben boeken met prijzen variërend van {2} tot {3}. De gemiddelde prijs van onze boeken is {4}. Alle {5} auteurs en {6} uitgevers zijn erg blij om deel uit te maken van onze collectie. Er is dus voor ieder wat wils.</value>
+    <value>We hebben een indrukwekkende collectie van {0} boeken, verdeeld over {1} genres. We hebben boeken met prijzen variërend van {2} tot {3}. De gemiddelde prijs van onze boeken is {4}. Alle {5} auteurs en {6} uitgevers zijn erg blij om deel uit te maken van onze collectie. Er is dus voor ieder wat wils.</value>
   </data>
   <data name="OurBookcatalog" xml:space="preserve">
     <value>Onze boekencatalogus</value>
@@ -292,13 +292,19 @@
   <data name="Tax" xml:space="preserve">
     <value>BTW:</value>
   </data>
-	<data name="Subtotal" xml:space="preserve">
+  <data name="Subtotal" xml:space="preserve">
     <value>Subtotaal:</value>
   </data>
-	<data name="Genres" xml:space="preserve">
-  <value>Genres</value>
-</data>
-	<data name="Authors" xml:space="preserve">
-  <value>Auteurs</value>
-</data>
+  <data name="Genres" xml:space="preserve">
+    <value>Genres</value>
+  </data>
+  <data name="Authors" xml:space="preserve">
+    <value>Auteurs</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Voornaam</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Achternaam</value>
+  </data>
 </root>

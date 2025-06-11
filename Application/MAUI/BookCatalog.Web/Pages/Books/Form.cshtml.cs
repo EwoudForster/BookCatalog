@@ -1,5 +1,4 @@
 using AutoMapper;
-using BookCatalog.DAL;
 using BookCatalog.DAL.DTO;
 using BookCatalog.DAL.Logging;
 using BookCatalog.DAL.Models;
@@ -8,9 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.ComponentModel.DataAnnotations;
-using System.Net;
-using System.Threading.Tasks;
 
 namespace BookCatalog.Web.Pages.Books
 {
@@ -22,11 +18,12 @@ namespace BookCatalog.Web.Pages.Books
         private readonly IPublisherRepository _publisherRepository;
         private readonly IAuthorRepository _authorRepository;
         private readonly IRepository<Picture> _pictureRepository;
+        private readonly IMoreInfoRepository _moreInfoRepository;
         private readonly ILogger<FormModel> _logger;
         private readonly IMapper _mapper;
 
 
-        public FormModel(IBookRepository bookRepository, IPublisherRepository publisherRepository, IGenreRepository genreRepository, IAuthorRepository authorRepository,IRepository<Picture> pictureRepository, ILogger<FormModel> logger, IMapper mapper)
+        public FormModel(IBookRepository bookRepository, IPublisherRepository publisherRepository, IGenreRepository genreRepository, IAuthorRepository authorRepository, IRepository<Picture> pictureRepository, IMoreInfoRepository moreInfoRepository, ILogger<FormModel> logger, IMapper mapper)
         {
             try
             {
@@ -34,6 +31,7 @@ namespace BookCatalog.Web.Pages.Books
                 _bookRepository = bookRepository ?? throw new ArgumentNullException(nameof(bookRepository), LoggingStrings.ErrorNullArgument("BookRepository"));
                 _genreRepository = genreRepository ?? throw new ArgumentNullException(nameof(genreRepository), LoggingStrings.ErrorNullArgument("GenreRepository"));
                 _publisherRepository = publisherRepository ?? throw new ArgumentNullException(nameof(publisherRepository), LoggingStrings.ErrorNullArgument("publisherRepository"));
+                _moreInfoRepository = moreInfoRepository ?? throw new ArgumentNullException(nameof(moreInfoRepository), LoggingStrings.ErrorNullArgument("moreInfoRepository"));
                 _authorRepository = authorRepository ?? throw new ArgumentNullException(nameof(authorRepository), LoggingStrings.ErrorNullArgument("authorRepository"));
                 _pictureRepository = pictureRepository ?? throw new ArgumentNullException(nameof(pictureRepository), LoggingStrings.ErrorNullArgument("pictureRepository"));
                 _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper), LoggingStrings.ErrorNullArgument("mapper"));
@@ -57,10 +55,11 @@ namespace BookCatalog.Web.Pages.Books
         public SelectList AuthorSelectList { get; set; }
         public SelectList GenreSelectList { get; set; }
         public SelectList PublisherSelectList { get; set; }
+        public SelectList MoreInfoSelectList { get; set; }
         public SelectList PictureSelectList { get; set; }
 
 
-    
+
         public async Task OnGet(Guid BookId)
         {
             try
@@ -79,6 +78,7 @@ namespace BookCatalog.Web.Pages.Books
                     Book.AuthorIds = EditBook.Authors.Select(a => a.Id).ToList();
                     Book.GenreIds = EditBook.Genres.Select(a => a.Id).ToList();
                     Book.PictureIds = EditBook.Pictures.Select(a => a.Id).ToList();
+                    Book.MoreInfoIds = EditBook.MoreInfos.Select(a => a.Id).ToList();
                     IsEdit = true;
                     ViewData["Title"] = $"Editing {Book.Title}";
 
@@ -98,20 +98,21 @@ namespace BookCatalog.Web.Pages.Books
 
             try
             {
-                    await LoadSelectListsAsync();
+                await LoadSelectListsAsync();
 
                 if (!ModelState.IsValid)
                 {
                     return Page();
                 }
-                (List<Author> SelectedAuthors, List<Genre> SelectedGenres, List<Picture> SelectedPictures, Publisher SelectedPublisher) = await GettingGenreAndAuthors(Book.AuthorIds, Book.GenreIds, Book.PictureIds, Book.PublisherId);
+                (List<Author> SelectedAuthors, List<Genre> SelectedGenres, List<Picture> SelectedPictures, Publisher SelectedPublisher, List<MoreInfo> SelectedMoreInfos) = await GettingGenreAndAuthors(Book.AuthorIds, Book.GenreIds, Book.PictureIds, Book.PublisherId, Book.MoreInfoIds);
 
                 // Use AutoMapper for flat fields
                 var CreatedBook = _mapper.Map<Book>(Book);
                 CreatedBook.Authors = SelectedAuthors;
                 CreatedBook.Genres = SelectedGenres;
                 CreatedBook.Pictures = SelectedPictures;
-                    CreatedBook.Publisher = SelectedPublisher;
+                CreatedBook.Publisher = SelectedPublisher;
+                CreatedBook.MoreInfos = SelectedMoreInfos;
 
                 if (IsEdit)
                 {
@@ -126,7 +127,8 @@ namespace BookCatalog.Web.Pages.Books
                 return Redirect($"/Books/Details/{CreatedBook.Id}");
 
             }
-            catch (InvalidOperationException ex){
+            catch (InvalidOperationException ex)
+            {
                 // Book already exists
                 _logger.LogError(ex, LoggingStrings.ErrorAlreadyExists(nameof(Book), Book.Id));
                 return BadRequest("Already exists");
@@ -136,7 +138,7 @@ namespace BookCatalog.Web.Pages.Books
                 _logger.LogError(ex, LoggingStrings.ErrorGeneralMethod("setting up form"));
                 return StatusCode(500, "An unexpected error occurred. Please try again later.");
             }
-           
+
         }
 
         private async Task LoadSelectListsAsync()
@@ -145,15 +147,17 @@ namespace BookCatalog.Web.Pages.Books
             var authors = await _authorRepository.GetAll();
             var genres = await _genreRepository.GetAll();
             var images = await _pictureRepository.GetAll();
+            var moreInfos = await _moreInfoRepository.GetAll();
 
             AuthorSelectList = new SelectList(authors, "Id", "Name");
             GenreSelectList = new SelectList(genres, "Id", "Name");
             PublisherSelectList = new SelectList(publishers, "Id", "Name");
             PictureSelectList = new SelectList(images, "Id", "ImgUrl");
+            MoreInfoSelectList = new SelectList(moreInfos, "Id", "Name");
         }
 
 
-        private async Task<(List<Author> SelectedAuthors, List<Genre> SelectedGenres, List<Picture> SelectedPictures, Publisher SelectedPublisher)> GettingGenreAndAuthors(List<Guid> AuthorIds, List<Guid> GenreIds, List<Guid> PictureIds, Guid PublisherId)
+        private async Task<(List<Author> SelectedAuthors, List<Genre> SelectedGenres, List<Picture> SelectedPictures, Publisher SelectedPublisher, List<MoreInfo> SelectedMoreInfos)> GettingGenreAndAuthors(List<Guid> AuthorIds, List<Guid> GenreIds, List<Guid> PictureIds, Guid PublisherId, List<Guid> MoreInfoIds)
         {
             var SelectedAuthors = new List<Author>();
             foreach (var author in AuthorIds)
@@ -167,17 +171,22 @@ namespace BookCatalog.Web.Pages.Books
                 SelectedGenres.Add(await _genreRepository.GetById(genreId));
             }
 
-            var SelectedPictures= new List<Picture>();
+            var SelectedPictures = new List<Picture>();
             foreach (var pictureId in PictureIds)
             {
                 SelectedPictures.Add(await _pictureRepository.GetById(pictureId));
             }
+            var SelectedMoreInfos = new List<MoreInfo>();
+            foreach (var MoreInfoId in MoreInfoIds)
+            {
+                SelectedMoreInfos.Add(await _moreInfoRepository.GetById(MoreInfoId));
+            }
 
-            var SelectedPublisher= new Publisher();
+            var SelectedPublisher = new Publisher();
             SelectedPublisher = await _publisherRepository.GetById(PublisherId);
 
 
-            return (SelectedAuthors, SelectedGenres, SelectedPictures, SelectedPublisher);
+            return (SelectedAuthors, SelectedGenres, SelectedPictures, SelectedPublisher, SelectedMoreInfos);
         }
     }
 }

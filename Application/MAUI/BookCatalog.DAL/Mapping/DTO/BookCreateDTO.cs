@@ -62,9 +62,15 @@ public class BookCreateDTO
     [Display(Name = "Is the book available")]
     public bool IsAvailable { get; set; }
 
+    [Display(Name = "Description")]
+    public string? Description { get; set; }
+
 
     [Display(Name = "Image URL")]
     public List<Guid>? ImgUrlIds { get; set; }
+
+    [Display(Name = "More Infos")]
+    public List<Guid>? MoreInfoIds { get; set; }
 }
 
 // validating if the year is later then the currentyear

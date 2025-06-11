@@ -1,72 +1,79 @@
-﻿<header class="fixed-top shadow">
-    <nav class="navbar navbar-expand-lg bg-info-subtle">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a asp-controller="Home" asp-action="Index" class="navbar-brand">Book Catalog</a>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a href="/Index" class="nav-item nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/Books" class="nav-item nav-link">Books</a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a href="/Genres/Index" class="nav-item nav-link">Genres</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/Publishers/Index" class="nav-item nav-link">Publishers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/Authors/Index" class="nav-item nav-link">Authors</a>
-                    </li>
-                </ul>
-                <div class="d-flex flex-row">
-                    <form class="d-flex" role="search" method="get" action="/Search">
-                        <input class="form-control me-2"
-                               type="search"
-                               placeholder="Search"
-                               aria-label="Search"
-                               name="searchText" />
-                        <button class="btn btn-outline-info" type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                            </svg>
-                        </button>
-                    </form>
-
-                    <div class="dropdown show px-3">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                            </svg>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            @if (_isAuthenticated)
-                            {
-                                <a id="manage" class="dropdown-item" href="/Identity/Account/Manage/Index">Hello @_userName!</a>
-                                <a class="dropdown-item" href="#" @onclick="Logout">Logout</a>
-                            }
-                            else
-                            {
-                                <a class="dropdown-item" href="/Identity/Account/Register">Register</a>
-                                <a class="dropdown-item" href="/Identity/Account/Login">Login</a>
-                            }
-                        </div>
+﻿<header class="fixed-top container-fluid">
+    <nav class="navbar row navbar-expand-lg position-relative shadow">
+        <button class="navbar-toggler col-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse col-2 m-sm-auto navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto m-sm-auto list-nav mb-2 mb-lg-0">
+                <li class="nav-item text-center">
+                    <a href="/Index" class="nav-item nav-link">Home</a>
+                </li>
+                <li class="nav-item text-center">
+                    <a href="/Books" class="nav-item nav-link">Books</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Other Menus
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/Genres/Index">Genres</a></li>
+                        <li><a class="dropdown-item" href="/Publishers/Index">Publishers</a></li>
+                        <li><a class="dropdown-item" href="/Authors/Index">Authors</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="col-2 d-flex align-items-center container-brand">
+                <a class="navbar-brand brand" asp-controller="Home" asp-action="Index">
+                    BOOK CATALOG
+                </a>
+            </div>
+            <div class="search-section m-sm-auto col-2 d-flex align-items-center">
+                <form class="search-container" role="search" method="get" action="/Search">
+                    <input class="search-input"
+                           type="search"
+                           placeholder="Search"
+                           aria-label="Search"
+                           name="searchText" />
+                    <button class="search-btn" type="submit">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <div class="col-1 m-sm-auto">
+                <div class="dropdown show px-3">
+                    <a class="login-button nav-link btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        @if (_isAuthenticated)
+                        {
+                            <a id="manage" class="dropdown-item" href="/Identity/Account/Manage/Index">Hello @_userName!</a>
+                            <a class="dropdown-item" href="#" @onclick="Logout">Logout</a>
+                        }
+                        else
+                        {
+                            <a class="dropdown-item" href="/Identity/Account/Register">Register</a>
+                            <a class="dropdown-item" href="/Identity/Account/Login">Login</a>
+                        }
                     </div>
-
-
                 </div>
             </div>
         </div>
     </nav>
+    <script>
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+        searchInput.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+    </script>
 </header>
 
 @using Microsoft.AspNetCore.Components.Authorization

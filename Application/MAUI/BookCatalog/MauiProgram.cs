@@ -35,6 +35,8 @@ namespace BookCatalog
             builder.Services.AddSingleton<HomeViewModel>();
             builder.Services.AddTransient<DetailBookStoreViewModel>();
             builder.Services.AddTransient<BookViewModel>();
+            builder.Services.AddTransient<RegisterViewModel>();
+            builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddSingleton<CartPageViewModel>();
             builder.Services.AddTransient<OrderPlacedViewModel>();
             builder.Services.AddSingleton<ContactViewModel>();

@@ -1,7 +1,12 @@
 using AutoMapper;
 using BookCatalog.DAL.Data;
+using BookCatalog.DAL.FileStorage;
+using BookCatalog.DAL.Logging;
 using BookCatalog.DAL.Mapping;
+using BookCatalog.DAL.Models;
 using BookCatalog.DAL.Repositories;
+using BookCatalog.DAL.Seeder.Identity;
+using BookCatalog.DAL.Storage.DataBase.Seeder;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -10,12 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using BookCatalog.DAL.Storage.DataBase.Seeder;
 using System.Threading.Channels;
-using BookCatalog.DAL.Models;
-using BookCatalog.DAL.Logging;
-using BookCatalog.DAL.Seeder.Identity;
-using BookCatalog.DAL.FileStorage;
 
 
 [assembly: ApiController]
@@ -74,6 +74,8 @@ builder.Services.AddScoped<IBookStoreRepository, BookStoreRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<IPublisherRepository, PublisherRepository>();
 builder.Services.AddScoped<IRepository<Picture>, GenericRepositoryAsync<Picture>>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IMoreInfoRepository, MoreInfoRepository>();
 builder.Services.AddScoped<IRepository<LoggingEntry>, GenericRepositoryAsync<LoggingEntry>>();
 
 // adding the repository to the services for file logging
@@ -193,8 +195,10 @@ await DbInitializer.Seed(app);
 
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-app.MapIdentityApi<User>();
+
+
+app.MapGroup("/api/Auth")
+    .MapIdentityApi<User>();
 
 app.Run();

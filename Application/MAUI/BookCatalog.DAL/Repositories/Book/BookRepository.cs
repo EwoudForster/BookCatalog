@@ -125,6 +125,11 @@ public class BookRepository : GenericRepositoryAsync<Book>, IBookRepository
             {
                 existing.Pictures.Add(picture);
             }
+            existing.MoreInfos.Clear();
+            foreach (var moreinfo in item.MoreInfos)
+            {
+                existing.MoreInfos.Add(moreinfo);
+            }
 
             existing.Publisher = item.Publisher; // if not null
 

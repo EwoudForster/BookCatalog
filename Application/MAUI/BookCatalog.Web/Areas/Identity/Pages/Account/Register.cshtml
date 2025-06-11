@@ -5,18 +5,23 @@
 }
 
 
-<div class="row mt-5 text-center d-flex align-content-center align-middle align-items-center m-auto bg-info-subtle rounded-5 shadow" style="max-width:600px;">
-    <h3 class="mt-5">@ViewData["Title"]</h3>
+<div class="row mt-5 text-center d-flex align-content-center align-middle align-items-center m-auto rounded-5 shadow" style="background: linear-gradient(135deg, #ACB4C7 0%, #98A0B2 100%); max-width:600px;">
+    <h3 class="mt-5 text-white">@ViewData["Title"]</h3>
 
     <div class="p-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h3>Create a new account.</h3>
+            <h3 class="text-white">Create a new account.</h3>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating mb-2">
-                <input asp-for="Input.Name" class="form-control" autocomplete="Name" aria-required="true" />
-                <label asp-for="Input.Name"></label>
-                <span asp-validation-for="Input.Name" class="text-danger"></span>
+                <input asp-for="Input.FirstName" class="form-control" autocomplete="FirstName" aria-required="true" />
+                <label asp-for="Input.FirstName"></label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-2">
+                <input asp-for="Input.LastName" class="form-control" autocomplete="LastName" aria-required="true" />
+                <label asp-for="Input.LastName"></label>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
             </div>
             <div class="form-floating mb-2">
                 <input asp-for="Input.Email" class="form-control" autocomplete="email" aria-required="true" />
@@ -33,7 +38,7 @@
                 <label asp-for="Input.ConfirmPassword"></label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-info">Register</button>
+            <button id="registerSubmit" type="submit" style="background: linear-gradient(135deg, #98A0B2 100%, #ACB4C7 0%);" class="w-100 btn btn-lg text-white">Register</button>
         </form>
     </div>
 

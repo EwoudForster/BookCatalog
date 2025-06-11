@@ -1,15 +1,10 @@
 using AutoMapper;
-using BookCatalog.DAL;
-using BookCatalog.DAL.DTO;
 using BookCatalog.DAL.DTO.CalculatedValueModel;
 using BookCatalog.DAL.Logging;
-using BookCatalog.DAL.Models.CalculatedValueModel;
 using BookCatalog.DAL.Repositories;
-using BookCatalog.Web.Pages.Books;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
 
 namespace BookCatalog.Web.Pages.MoreInfos
 {
@@ -53,7 +48,7 @@ namespace BookCatalog.Web.Pages.MoreInfos
             try
             {
                 ViewData["Title"] = "MoreInfos";
-                MoreInfos = _mapper.Map<IEnumerable<MoreInfoCalculatedDTO>>( await _moreInfoRepository.GetAllWithBookStats());
+                MoreInfos = _mapper.Map<IEnumerable<MoreInfoCalculatedDTO>>(await _moreInfoRepository.GetAllWithBookStats());
                 return Page();
             }
             catch (Exception ex)

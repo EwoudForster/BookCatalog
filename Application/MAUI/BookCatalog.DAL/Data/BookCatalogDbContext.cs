@@ -10,14 +10,16 @@ public class BookCatalogDbContext : IdentityDbContext<User, Roles, Guid>
     {
 
     }
-    public DbSet<LoggingEntry> Logs { get; set; }    
-    public DbSet<BookStore> BookStores { get; set; }    
+    public DbSet<LoggingEntry> Logs { get; set; }
+    public DbSet<BookStore> BookStores { get; set; }
     public DbSet<Genre> Genres { get; set; }
     public DbSet<Publisher> Publishers { get; set; }
     public DbSet<Author> Authors { get; set; }
     public DbSet<Picture> Pictures { get; set; }
     public DbSet<Review> Reviews { get; set; }
-    public DbSet<MoreInfo> MoreInfo { get; set; }
+    public DbSet<MoreInfo> MoreInfos { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
 
     public DbSet<Book> Books { get; set; }
 
@@ -54,8 +56,13 @@ public class BookCatalogDbContext : IdentityDbContext<User, Roles, Guid>
         // many to many relationship between books and genres
         modelBuilder.Entity<Book>()
             .HasMany(b => b.Genres)
-            .WithMany(g => g.Books);               
-        
+            .WithMany(g => g.Books);
+
+        // many to many relationship between books and orderitems
+        modelBuilder.Entity<OrderItem>()
+            .HasOne(b => b.Book)
+            .WithMany(g => g.OrderItems);
+
         // many to many relationship between books and pictures
         modelBuilder.Entity<Picture>()
             .HasOne(b => b.Book)
@@ -65,13 +72,25 @@ public class BookCatalogDbContext : IdentityDbContext<User, Roles, Guid>
         // many to many relationship between books and MoreInfo
         modelBuilder.Entity<Book>()
             .HasMany(b => b.MoreInfos)
-            .WithMany(g => g.Books);    
-        
+            .WithMany(g => g.Books);
+
         // many to one relationship between Users and Reviews
         modelBuilder.Entity<User>()
             .HasMany(b => b.Reviews)
             .WithOne(g => g.User)
             .HasForeignKey(a => a.UserId);
+
+        // many to one relationship between Users and Orders
+        modelBuilder.Entity<User>()
+            .HasMany(b => b.Orders)
+            .WithOne(g => g.Person)
+            .HasForeignKey(a => a.PersonId);
+
+        // many to one relationship between Orders and Orderitems
+        modelBuilder.Entity<Order>()
+            .HasMany(b => b.OrderItems)
+            .WithOne(g => g.Order)
+            .HasForeignKey(a => a.OrderId);
 
 
     }

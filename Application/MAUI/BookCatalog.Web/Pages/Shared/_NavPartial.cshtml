@@ -8,23 +8,36 @@
                 <li class="nav-item text-center">
                     <a asp-page="/Books/Index" class="nav-item nav-link">Books</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Other Menus
+                    </a>
+                    <ul class="dropdown-menu">
 
+                <li><a class="dropdown-item" asp-page="/Genres/Index" class="nav-item nav-link">Genres</a></li>
+                        <li><a class="dropdown-item" asp-page="/Publishers/Index" class="nav-item nav-link">Publishers</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" asp-page="/Authors/Index" class="nav-item nav-link">Authors</a>
+                </li>
+                <li><a class="dropdown-item" asp-page="/MoreInfo/Index" class="nav-item nav-link">More Info</a>
+                </li>
+                    </ul>
+                </li>
+                @if (User.IsInRole("Administrator")){
 
                 <li class="nav-item text-center">
-                    <a asp-page="/Genres/Index" class="nav-item nav-link">Genres</a>
+                    <a asp-page="/Orders/Index" class="nav-item nav-link">Orders</a>
                 </li>
+                }
 
-                <li class="nav-item text-center">
-                    <a asp-page="/Publishers/Index" class="nav-item nav-link">Publishers</a>
-                </li>
-                <li class="nav-item text-center">
-                    <a asp-page="/Authors/Index" class="nav-item nav-link">Authors</a>
-                </li>
             </ul>
-        
-            <a asp-page="/Index" class="col-2 m-sm-auto m-md-auto text-sm-center navbar-brand brand">
-                BOOKSCATALOG
-            </a>
+
+            <div class="col-2 d-flex align-items-center container-brand">
+                <a class="navbar-brand brand" asp-page="/Index">
+                    BOOKSCATALOG
+                </a>
+</div>
 
 
 

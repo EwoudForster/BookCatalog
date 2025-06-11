@@ -1,0 +1,223 @@
+﻿@page "/Orders/Details/{id:guid}"
+@model BookCatalog.Web.Pages.Orders.DetailsModel
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<div class="container-fluid py-4">
+    <h1 class="p-5 text-center">Orders Details</h1>
+
+
+    <!-- Order Summary Card -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header text-white" style="    background: #87AABF;
+">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-receipt me-2"></i>Order #@Model.Order.Id.ToString().Substring(0, 8)
+                            </h5>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <span class="badge bg-light text-dark fs-6">
+                                @Model.Order.OrderItems.Count() Item(s)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-muted mb-3">Order Information</h6>
+                            <dl class="row">
+                                <dt class="col-sm-4">Order ID:</dt>
+                                <dd class="col-sm-8"><code>@Model.Order.Id</code></dd>
+
+                                <dt class="col-sm-4">Created:</dt>
+                                <dd class="col-sm-8">@Model.Order.CreatedAt.ToString("MMM dd, yyyy 'at' HH:mm")</dd>
+
+                                <dt class="col-sm-4">Last Updated:</dt>
+                                <dd class="col-sm-8">@Model.Order.UpdatedAt.ToString("MMM dd, yyyy 'at' HH:mm")</dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-muted mb-3">Customer Information</h6>
+                            <dl class="row">
+                                <dt class="col-sm-4">Name:</dt>
+                                <dd class="col-sm-8">
+                                    <strong>@Model.Order.Person.FirstName @Model.Order.Person.LastName</strong>
+                                </dd>
+
+                                <dt class="col-sm-4">Email:</dt>
+                                <dd class="col-sm-8">
+                                    <a href="mailto:@Model.Order.Person.Email">@Model.Order.Person.Email</a>
+                                </dd>
+
+                                <dt class="col-sm-4">Customer ID:</dt>
+                                <dd class="col-sm-8"><code>@Model.Order.PersonId.ToString().Substring(0, 8)</code></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-book me-2"></i>Order Items
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    @if (Model.Order.OrderItems?.Any() == true)
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col" class="ps-4">Book</th>
+                                        <th scope="col" class="text-center">Quantity</th>
+                                        <th scope="col" class="text-end">Unit Price</th>
+                                        <th scope="col" class="text-end pe-4">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        decimal totalAmount = 0;
+                                    }
+                                    @foreach (var item in Model.Order.OrderItems)
+                                    {
+                                        decimal subtotal = item.Book.Price * item.Amount;
+                                        totalAmount += subtotal;
+
+                                        <tr>
+                                            <td class="ps-4">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0 me-3">
+                                                        @if (item.Book?.Pictures?.Any() == true)
+                                                        {
+                                                            <img src="@item.Book.Pictures.First().ImgUrl"
+                                                                 alt="@item.Book.Title"
+                                                                 class="rounded"
+                                                                 style="width: 50px; height: 50px; object-fit: cover;">
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="bg-light rounded d-flex align-items-center justify-content-center"
+                                                                 style="width: 50px; height: 50px;">
+                                                                <i class="fas fa-book text-muted"></i>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-1">
+                                                            <a href="/Books/Details/@item.Book.Id" class="text-decoration-none">
+                                                                @item.Book.Title
+                                                            </a>
+                                                        </h6>
+                                                        @if (item.Book?.Authors?.Any() == true)
+                                                        {
+                                                            <small class="text-muted">
+                                                                by @string.Join(", ", item.Book.Authors.Select(a => a.Name))
+                                                            </small>
+                                                        }
+                                                        <br>
+                                                        <small class="text-muted">ISBN: @item.Book.ISBN</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                <span class="badge bg-secondary rounded-pill">@item.Amount</span>
+                                            </td>
+                                            <td class="text-end align-middle">
+                                                <strong>$@item.Book.Price.ToString("F2")</strong>
+                                            </td>
+                                            <td class="text-end align-middle pe-4">
+                                                <strong class="text-primary">$@subtotal.ToString("F2")</strong>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <th colspan="3" class="text-end border-0 pt-3 pb-3">
+                                            <h5 class="mb-0">Total Amount:</h5>
+                                        </th>
+                                        <th class="text-end border-0 pt-3 pb-3 pe-4">
+                                            <h4 class="mb-0 text-success">$@totalAmount.ToString("F2")</h4>
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">No items in this order</h5>
+                            <p class="text-muted">This order appears to be empty.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="d-flex gap-2 justify-content-end">
+                <button type="button" class="btn btn-outline-primary" onclick="window.print()">
+                    <i class="fas fa-print me-2"></i>Print Order
+                </button>
+                <button type="button" class="btn" style="    background: #87AABF;
+" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="fas fa-trash me-2"></i>Delete Order
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteModalLabel">
+                    <i class="fas fa-exclamation-triangle me-2"></i>Confirm Deletion
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this order?</p>
+                <p><strong>Order #@Model.Order.Id.ToString().Substring(0, 8)</strong></p>
+                <p class="text-muted">This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form method="post" asp-page-handler="Delete" class="d-inline">
+                    <input type="hidden" asp-for="Order.Id" />
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-2"></i>Delete Order
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+}

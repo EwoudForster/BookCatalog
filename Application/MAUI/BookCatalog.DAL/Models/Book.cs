@@ -53,18 +53,19 @@ public class Book : EntityBase
     public decimal Price { get; set; }
 
     [Display(Name = "Is the book available")]
-    public bool IsAvailable { get; set; }        
-    
+    public bool IsAvailable { get; set; }
+
     [Display(Name = "Description")]
-    public bool? Description { get; set; }
+    public string? Description { get; set; }
 
 
     [Display(Name = "Image URL")]
     public virtual ICollection<Picture>? Pictures { get; set; }
 
-    [Display(Name ="More Info")]
+    [Display(Name = "More Info")]
     public virtual ICollection<MoreInfo>? MoreInfos { get; set; }
     public virtual ICollection<Review>? Reviews { get; set; }
+    public virtual ICollection<OrderItem>? OrderItems { get; set; }
 }
 
 

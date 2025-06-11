@@ -32,17 +32,18 @@
             <ShellContent ContentTemplate="{DataTemplate views:BookStoresPage}" />
         </Tab>
 
-        <Tab  x:Name="Contact" Title="{x:Static res:AppRes.ContactPageTitle}">
-            <Tab.Icon>
-                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Phone}" />
-            </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate views:ContactPage}" />
-        </Tab>
+
         <Tab  x:Name="Shop" Title="{x:Static res:AppRes.CartPageTitle}">
             <Tab.Icon>
                 <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Cart}" />
             </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate views:CartPage}" />
+        </Tab>        
+        <Tab  x:Name="Contact" Title="{x:Static res:AppRes.ContactPageTitle}">
+            <Tab.Icon>
+                <FontImageSource FontFamily="SolidIcons" Glyph="{x:Static icons:IconFont.Phone}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:ContactPage}" />
         </Tab>
         <Tab x:Name="Login" Title="{x:Static res:AppRes.LoginPageTitle}">
             <Tab.Icon>

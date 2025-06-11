@@ -14,4 +14,6 @@ public class UserDTO
     public int AccessFailedCount { get; set; }
     public virtual ICollection<ReviewDTOShort>? Reviews { get; set; }
     public virtual ICollection<RoleDTO>? Roles { get; set; }
+    public virtual ICollection<OrderDTOShort>? Orders { get; set; }
+
 }
